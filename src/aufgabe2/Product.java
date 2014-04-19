@@ -8,22 +8,31 @@ package aufgabe2;
  */
 
 /**
- * Standard Klasse zur reprsaentation der Produkte
+ * Standard Klasse zur Repräsentation der Produkte
  * @author (Daniel.Sommerlig@haw-hamburg.de) &
  *         (Lucasteffen.Nerlich@haw-hamburg.de)
  *
  */
 public class Product {
-
+		/**
+		 * Die Objektvariable Preis repräsentiert den Preis vom Produkt,
+		 * die Objektvariable Name repräsentiert den Namen vom Produkt,
+		 */
 		private double preis;
 		private String name;
 		
+		/**
+		* Konstruktor erzeugt das Produktobjekt 
+		*/
 		public Product(String name, double preis){
 			this.preis = preis;
 			this.name = name;
 		}
 		
 		@Override
+		/**
+		* Repräsentiert das Produktobjekt 
+		*/
 		public String toString() {
 			return "Product [preis=" + preis + ", name=" + name + "]";
 		}

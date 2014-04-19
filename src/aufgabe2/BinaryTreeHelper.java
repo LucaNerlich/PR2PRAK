@@ -17,8 +17,8 @@ public class BinaryTreeHelper {
 
 	/**
 	 * Guckt fuer jeden Knoten den Linken und Rechten an. Zaehlt sich selber dann hoch
-	 * @param current
-	 * @return
+	 * @param current -> repräsentiert die Wurzel
+	 * @return -> gibt die Anzahl der gezählten Knoten wieder
 	 */
 	public static <T, U> int countNodes(BinaryNode<T, U> current) {
 
@@ -34,8 +34,8 @@ public class BinaryTreeHelper {
 
 	/**
 	 * Fuer jede Ebene wird "max" berechnet!
-	 * @param current
-	 * @return
+	 * @param current  -> repräsentiert die Wurzel
+	 * @return -> gibt die Tiefe der Knoten wieder
 	 */
 	public static <T, U> int treeDepth(BinaryNode<T, U> current) {
 

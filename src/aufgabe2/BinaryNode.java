@@ -9,13 +9,20 @@ package aufgabe2;
  */
 
 /**
- * Repraesentiert einen einzlnen Knoten des Baums
+ * Die generische Klasse BinaryNode repraesentiert einen einzlnen Knoten des Baums
  * 
  * @author (Daniel.Sommerlig@haw-hamburg.de) &
  *         (Lucasteffen.Nerlich@haw-hamburg.de)
  * 
  */
-public class BinaryNode<T, U> { // T = Schluessel, U = Wert
+
+/**
+* Schlüssel hat die Typvariable T zugewiesen
+* Wert hat die Typvariable U zugewiesen 
+* Typvariablen sind Platzhalter für einen konkreten Typen
+* Jeder Knoten kann einen linken und rechten Kinderknoten haben
+*/
+public class BinaryNode<T, U> {
 
 	private T schluessel;
 	private U wert;
@@ -25,9 +32,6 @@ public class BinaryNode<T, U> { // T = Schluessel, U = Wert
 	/**
 	 * Konstruktor des Knoten. Kriegt einen Schluessel und einen Wert. Mit
 	 * diesen wird er im Baum repraesentiert.
-	 * 
-	 * @param schluessel
-	 * @param wert
 	 */
 	public BinaryNode(T schluessel, U wert) {
 		this.schluessel = schluessel;

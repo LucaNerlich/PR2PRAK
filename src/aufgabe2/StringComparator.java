@@ -21,9 +21,10 @@ public class StringComparator<T extends String, U> implements
 		Comparator<BinaryNode<T, U>> {
 
 	/**
-	 * Vergleicht zwei Strings und gibt entsprechend <0,0 oder >0 zurueck.
+	 * Vergleicht zwei Strings und als Rückgabewert wird entsprechend 
+	 * <0 ,0 oder >0 zurueckgegeben.
 	 */
-	@Override
+	
 	public int compare(BinaryNode<T, U> arg0, BinaryNode<T, U> arg1) {
 
 		int result = -1;

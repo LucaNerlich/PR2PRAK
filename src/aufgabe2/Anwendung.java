@@ -8,18 +8,21 @@ package aufgabe2;
  * Anwendung.java
  */
 
+import java.lang.Math.*;
+
 /**
  * Anwendung zum testen und starten des Programms
  * @author (Daniel.Sommerlig@haw-hamburg.de) & (Lucasteffen.Nerlich@haw-hamburg.de) 
  *
  */
 
-import java.lang.Math.*;
-
 public class Anwendung {
 
 	public static void main(String[] args) {
-
+		
+		/**
+		 * Der WebShop wird mit Kundenobjekten gefüllt
+		 */
 		try {
 			@SuppressWarnings("rawtypes")
 			StringComparator stringComparator = new StringComparator();
@@ -61,20 +64,16 @@ public class Anwendung {
 			tree.addKnoten(
 					new BinaryNode<String, Customer>(customer4.getSchluessel(),
 							customer4), tree.getWurzel());
-			// tree.addKnoten(new
-			// BinaryNode<String,Customer>(customer5.getSchluessel(),
-			// customer5), tree.getWurzel());
 
 			tree.ausgeben();
 
 			System.out.println(tree.findKey("F, Tjorben"));
 
+			/**
+			 * Knoten und die Knotentiefe zählen und ausgeben
+			 */
 			System.out.println(treeHelper.countNodes(tree.getWurzel()));
 			System.out.println(treeHelper.treeDepth(tree.getWurzel()));
-
-			// tree.addKnoten(new
-			// BinaryNode<String,Customer>(customer5.getSchluessel(),
-			// customer5), tree.getWurzel());
 			
 			WebShop webShop = new WebShop();
 		} catch (NodeException e) {

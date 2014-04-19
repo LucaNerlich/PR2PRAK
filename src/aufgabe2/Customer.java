@@ -2,39 +2,37 @@
  * Praktikum WIPR2, SS 2014  
  * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
  * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
- * Aufgabe: Aufgabenblatt 1, Aufgabe 1
+ * Aufgabe: Aufgabenblatt 2
  * Customer.java
  */
 package aufgabe2;
 
 /**
- * Praktikum WIPR2, SS 2014  
- * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
- * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
- * Aufgabe: Aufgabenblatt 2
- * Customer.java
- */
-
-/**
- * Repraesentiert die Nutzer des Webshops
+ * Die Klasse Customer repraesentiert die Nutzer des Webshops
  * 
  * @author (Daniel.Sommerlig@haw-hamburg.de) &
  *         (Lucasteffen.Nerlich@haw-hamburg.de)
  * 
  */
+
+/**
+* Die Objektvariable Vorname repräsentiert den Vornamen vom Kunden,
+* die Objektvariable Nachname repräsentiert den Nachnamen vom Kunden,
+* die Objektvariable ID repräsentiert eine eindeutige Nummer die dem Kunden beim erzeugen zugeordnet wird,
+* die Objektvariable (Klassenvariale) objektzaehler erzeugt unabhängig von den Objekten die ID für den Kunden,
+* die Objektvariable schlüssel repräsentiert den Key für die Knoten und wird aus Vor- und Nachname generiert.
+*/
 public class Customer {
 	private String vorname;
 	private String nachname;
 	private final int id;
-	public static int objektzaehler = 0; // Static damit Objekt unabhängig
-											// (eindeutig) gezaehlt werden kann
+	public static int objektzaehler = 0;									
 	private String schluessel;
 
 	/**
-	 * Konstruktor
-	 * 
-	 * @param vorname
-	 * @param nachname
+	* Konstruktor erzeugt das Kundenobjekt 
+	 * @param vorname ist der Vorname vom Kunden
+	 * @param nachname ist der Nachname vom Kunden
 	 */
 	public Customer(String vorname, String nachname) {
 		objektzaehler++;
