@@ -18,8 +18,8 @@ public class IdComparator implements Comparator<Customer> {
 
 	/**
 	 * Override Compare für ID
-	 * @param Customer x, Customer y
-	 * @return Ergebniswert aus dem Vergleich
+	 * @param Customer arg0, Customer arg1 -> repräsentiert die beiden Kundenobjekte die verglichen werden
+	 * @return result -> repräsentiert den Ergebniswert aus dem Vergleich
 	 */
 	public int compare(Customer arg0, Customer arg1) {
 			

@@ -26,33 +26,17 @@ public class WebShop {
 	
 	/**
 	 * Fuegt ein neues Element zur ArrayList hinzu.
-	 * @param vorname
-	 * @param nachname
+	 * @param vorname -> repräsentiert den Vornamen vom Kunden 
+	 * @param nachname -> repräsentiert den Nachnamen vom Kunden
 	 */
 	public void addCustomer(String vorname, String nachname){
 		kundenListe.add(new Customer(vorname, nachname));
 	}
 	
 	/**
-	 * Entfernt das passende Element
-	 * @param vorname
-	 * @param nachname
-	 */
-	/* // bei doppelten Einträgen hintereinander wird nur der erste gelöscht.
-	public void removeCustomer(String vorname, String nachname){
-		Customer rmvCustomer = null;
-		for (Customer customer : kundenListe){
-			if(customer.getVorname().equals(vorname) && customer.getNachname().equals(nachname)){
-				rmvCustomer = customer;
-				}			
-			kundenListe.remove(rmvCustomer);
-		}		
-	} */
-	
-	/**
 	 * Entfernt alle passenden Elemente
-	 * @param vorname
-	 * @param nachname
+	 * @param vorname -> repräsentiert den Vornamen vom Kunden 
+	 * @param nachname -> repräsentiert den Nachnamen vom Kunden
 	 */
 	public void removeCustomer(String vorname, String nachname){
 		// Customer rmvCustomer = null;
@@ -66,9 +50,9 @@ public class WebShop {
 	}
 	
 	/**
-	 * Soritert die Elemente der ArrayList. Nach Name oder ID.
-	 * @param comp
-	 * @return Liste der Customer - sortiert
+	 * Soritert die Elemente der ArrayList. Nach dem Namen oder der ID von Customer.
+	 * @param comp -> repräsentiert den Comparator
+	 * @return ausgabe -> repräsentiert die Liste der Customer - sortiert
 	 */
 	public String printListOfCustomer(SortingCriterion comp){ 	
 		
@@ -89,7 +73,7 @@ public class WebShop {
 	
 	/**
 	 * Gibt einfach die ArrayList aus.
-	 * @return Liste der Customer - unsortiert
+	 * @return ausgabe -> repräsentiert die Liste der Customer - unsortiert
 	 */
 	public String printListUnsorted(){
 		String ausgabe = "";

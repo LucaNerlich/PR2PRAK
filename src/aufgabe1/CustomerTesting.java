@@ -23,62 +23,69 @@ public class CustomerTesting {
 	public void testNachnameVornameComparator(){
 		NachnameVornameComparator comp = new NachnameVornameComparator();
 		
-		//den return-Wert der compare Methode zwischenspeichern und entsprechend auf 1,-1 oder 0 setzen.
+		/**
+		 * Den return-Wert der compare Methode zwischenspeichern und entsprechend auf 1,-1 oder 0 prüfen. 
+		 */
 		int result = comp.compare(new Customer("","aNachname"), new Customer("","zNachname"));
-		if(result < 0){
-			result = -1;
-		}
-		assertEquals(result, -1);
+		assertTrue(result < 0);
 		
 		result = comp.compare(new Customer("","zNachname"), new Customer("","aNachname"));
-		if(result > 0){
-			result = 1;
-		}
-		assertEquals(result, 1);
+		assertTrue(result > 0);
 		
 		result = comp.compare(new Customer("","aNachname"), new Customer("","aNachname"));		
 		assertEquals(result, 0);
 		
 		result = comp.compare(new Customer("aVorname","aNachname"), new Customer("zVorname","aNachname"));
-		if(result < 0){
-			result = -1;
-		}
-		assertEquals(result, -1);
+		assertTrue(result < 0);
 		
 		result = comp.compare(new Customer("zVorname","aNachname"), new Customer("aVorname","aNachname"));
-		if(result > 0){
-			result = 1;
-		}
-		assertEquals(result, 1);
+		assertTrue(result > 0);
 		
 		result = comp.compare(new Customer("aVorname","bNachname"), new Customer("aVorname","bNachname"));
 		assertEquals(result, 0);
-		//nur Nachname -- schlaegt fehlt, wenn die zu vergleichenden Werte mehr als 1 Abstand im Alphabet haben.
-		/*
-		assertEquals(comp.compare(new Customer("","aNachname"), new Customer("","zNachname")), -1);
-		assertEquals(comp.compare(new Customer("","bNachname"), new Customer("","aNachname")), 1);
-		assertEquals(comp.compare(new Customer("","aNachname"), new Customer("","aNachname")), 0);
-		
-		//erst Nachname, dann Vorname
-		assertEquals(comp.compare(new Customer("aVorname","aNachname"), new Customer("bVorname","aNachname")), -1);
-		assertEquals(comp.compare(new Customer("bVorname","aNachname"), new Customer("aVorname","aNachname")), 1);
-		assertEquals(comp.compare(new Customer("aVorname","bNachname"), new Customer("aVorname","bNachname")), 0);
-		*/
+
 	}
 	
 	@Test
 	public void testIdComparator(){
 		IdComparator idComp = new IdComparator();
-		// Customer erst Erstellen, damit wir die IDs klar definiert haben.
+		// Customer erst erstellen, damit wir die IDs klar definiert haben.
 		
 		Customer customer1 = new Customer("aVName","bNName");
 		Customer customer2 = new Customer("cVName","dNName");
 		Customer customer3 = new Customer("eVName","fNName");
 		
-		//nur Id
+		//Nur  die ID prüfen
 		assertEquals(idComp.compare(customer1,customer2), -1);
 		assertEquals(idComp.compare(customer2,customer1), 1);
 		assertEquals(idComp.compare(customer2,customer2), 0);
 		assertEquals(idComp.compare(customer1,customer3), -1);
 	}
+	/*
+	@Test
+	public void testHinzufuegen(){
+		WebShop webShopTest = new WebShop();		
+		
+		webShopTest.addCustomer("Paul", "Panzer");
+		
+		String result = webShopTest.getVorname();
+		assertTrue(result.equals("Paul"));
+	}
+	*/
+	
+    
+	/*
+	@Test
+	public void testEntfernen(){
+		WebShop webShopTest2 = new WebShop();		
+	
+		webShopTest2.addCustomer("Klaus", "dir");
+		String result = webShopTest2.getVorname();
+		webShopTest2.removeCustomer("Klaus", "dir");
+		assertTrue(result == NULL));
+	}
+	 */
+	
 }
+
+

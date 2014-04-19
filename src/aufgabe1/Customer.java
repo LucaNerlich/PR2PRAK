@@ -14,7 +14,10 @@ package aufgabe1;
  */
 
 /**
-* Objektvariablen
+* Die Objektvariable Vorname repräsentiert den Vornamen vom Kunden,
+* die Objektvariable Nachname repräsentiert den Nachnamen vom Kunden,
+* die Objektvariable ID repräsentiert eine eindeutige Nummer die dem Kunden beim erzeugen zugeordnet wird
+* die Objektvariable (Klassenvariale) objektzaehler erzeugt unabhängig von den Objekten die ID für den Kunden
 */
 public class Customer {
 	private String vorname;
@@ -23,9 +26,9 @@ public class Customer {
 	public static int objektzaehler = 0; //Static damit Objekt unabhängig (eindeutig) gezählt werden kann
 	
 	/**
-	 * Konstruktor
-	 * @param vorname
-	 * @param nachname
+	 * Konstruktor erzeugt das Kundenobjekt 
+	 * @param vorname ist der Vorname vom Kunden
+	 * @param nachname ist der Nachname vom Kunden
 	 */
 	public Customer(String vorname, String nachname){
 		objektzaehler++;
