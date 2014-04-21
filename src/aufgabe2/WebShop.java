@@ -27,31 +27,42 @@ public class WebShop {
 			stringComparator);
 
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
-	
+
 	/**
 	 * Der WebShop wird mit Produktobjekten gefüllt
 	 */
 	Product product1 = new Product("Seife", 1.2);
 	Product product2 = new Product("Auto", 42000);
-	Product product3 = new Product("MacBrotPro",  13.37);
+	Product product3 = new Product("MacBrotPro", 13.37);
 	Product product4 = new Product("Stueck Kaese", 4.99);
-	
 
-	public WebShop(){
-		try{
-		tree.addKnoten(new BinaryNode<String, Product>(product1.getSchluessel(), product1), tree.getWurzel());
-		tree.addKnoten(new BinaryNode<String, Product>(product2.getSchluessel(), product2), tree.getWurzel());	
-		tree.addKnoten(new BinaryNode<String, Product>(product3.getSchluessel(), product3), tree.getWurzel());	
-		tree.addKnoten(new BinaryNode<String, Product>(product4.getSchluessel(), product4), tree.getWurzel());	
-		
-		System.out.println("\n-------------- Ausgabe bei Produkten --------------");
-		tree.ausgeben();	
-		
-		System.out.println("\n-------------- Ausgabe Knotenanzahl + Tiefe bei Produkten --------------");
-		System.out.println("Knotenanzahl: " + treeHelper.countNodes(tree.getWurzel()));
-		System.out.println("Knotentiefe: " + treeHelper.treeDepth(tree.getWurzel()));
-	}	
-		
+	public WebShop() {
+		try {
+			tree.addKnoten(
+					new BinaryNode<String, Product>(product1.getSchluessel(),
+							product1), tree.getWurzel());
+			tree.addKnoten(
+					new BinaryNode<String, Product>(product2.getSchluessel(),
+							product2), tree.getWurzel());
+			tree.addKnoten(
+					new BinaryNode<String, Product>(product3.getSchluessel(),
+							product3), tree.getWurzel());
+			tree.addKnoten(
+					new BinaryNode<String, Product>(product4.getSchluessel(),
+							product4), tree.getWurzel());
+
+			System.out
+					.println("\n-------------- Ausgabe bei Produkten --------------");
+			tree.ausgeben();
+
+			System.out
+					.println("\n-------------- Ausgabe Knotenanzahl + Tiefe bei Produkten --------------");
+			System.out.println("Knotenanzahl: "
+					+ treeHelper.countNodes(tree.getWurzel()));
+			System.out.println("Knotentiefe: "
+					+ treeHelper.treeDepth(tree.getWurzel()));
+		}
+
 		catch (NodeException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -66,8 +77,11 @@ public class WebShop {
 
 	/**
 	 * Fuegt ein neues Element zur ArrayList hinzu.
-	 * @param vorname -> repräsentiert den Vornamen vom Kunden 
-	 * @param nachname -> repräsentiert den Nachnamen vom Kunden
+	 * 
+	 * @param vorname
+	 *            -> repräsentiert den Vornamen vom Kunden
+	 * @param nachname
+	 *            -> repräsentiert den Nachnamen vom Kunden
 	 */
 	public void addCustomer(String vorname, String nachname) {
 		kundenListe.add(new Customer(vorname, nachname));
@@ -75,8 +89,11 @@ public class WebShop {
 
 	/**
 	 * Entfernt alle passenden Elemente
-	 * @param vorname -> repräsentiert den Vornamen vom Kunden 
-	 * @param nachname -> repräsentiert den Nachnamen vom Kunden
+	 * 
+	 * @param vorname
+	 *            -> repräsentiert den Vornamen vom Kunden
+	 * @param nachname
+	 *            -> repräsentiert den Nachnamen vom Kunden
 	 */
 	public void removeCustomer(String vorname, String nachname) {
 		// Customer rmvCustomer = null;
@@ -91,8 +108,11 @@ public class WebShop {
 	}
 
 	/**
-	 * Soritert die Elemente der ArrayList. Nach dem Namen oder der ID von Customer.
-	 * @param comp -> repräsentiert den Comparator
+	 * Soritert die Elemente der ArrayList. Nach dem Namen oder der ID von
+	 * Customer.
+	 * 
+	 * @param comp
+	 *            -> repräsentiert den Comparator
 	 * @return ausgabe -> repräsentiert die Liste der Customer - sortiert
 	 */
 	public String printListOfCustomer(SortingCriterion comp) {
@@ -116,6 +136,7 @@ public class WebShop {
 
 	/**
 	 * Gibt einfach die ArrayList aus.
+	 * 
 	 * @return ausgabe -> repräsentiert die Liste der Customer - unsortiert
 	 */
 	public String printListUnsorted() {

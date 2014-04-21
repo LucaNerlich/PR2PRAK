@@ -9,8 +9,10 @@ package aufgabe2;
 
 /**
  * Enum Represaentation fuer schnellen sortier Wechsel
- * @author  (Daniel.Sommerlig@haw-hamburg.de) & (Lucasteffen.Nerlich@haw-hamburg.de) 
- *
+ * 
+ * @author (Daniel.Sommerlig@haw-hamburg.de) &
+ *         (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 
  */
 public enum SortingCriterion {
 	SORT_BY_LASTNAME_FIRSTNAME, SORT_BY_ID

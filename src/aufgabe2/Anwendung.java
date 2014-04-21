@@ -10,14 +10,16 @@ package aufgabe2;
 
 /**
  * Anwendung zum testen und starten des Programms
- * @author (Daniel.Sommerlig@haw-hamburg.de) & (Lucasteffen.Nerlich@haw-hamburg.de) 
- *
+ * 
+ * @author (Daniel.Sommerlig@haw-hamburg.de) &
+ *         (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 
  */
 
 public class Anwendung {
 
 	public static void main(String[] args) {
-		
+
 		/**
 		 * Der WebShop wird mit Kundenobjekten gefüllt
 		 */
@@ -37,7 +39,7 @@ public class Anwendung {
 			 * BinaryNode<String,Customer> customerNode = new
 			 * BinaryNode<String,Customer>(customer.getSchluessel(), customer);
 			 */
-			
+
 			BinaryTree<String, Customer> tree = new BinaryTree<String, Customer>(
 					stringComparator);
 			BinaryTreeHelper treeHelper = new BinaryTreeHelper();
@@ -62,20 +64,23 @@ public class Anwendung {
 			tree.addKnoten(
 					new BinaryNode<String, Customer>(customer4.getSchluessel(),
 							customer4), tree.getWurzel());
-			
-			System.out.println("\n-------------- Ausgabe bei Kunden --------------");
+
+			System.out
+					.println("\n-------------- Ausgabe bei Kunden --------------");
 			tree.ausgeben();
 
-			//System.out.println(tree.findKey("F, Tjorben"));
+			// System.out.println(tree.findKey("F, Tjorben"));
 
 			/**
 			 * Knoten und die Knotentiefe zählen und ausgeben
 			 */
-			System.out.println("\n-------------- Ausgabe Knotenanzahl + Tiefe bei Kunden --------------");
-			System.out.println("Knotenanzahl: " + treeHelper.countNodes(tree.getWurzel()));
-			System.out.println("Knotentiefe: " + treeHelper.treeDepth(tree.getWurzel()));
-			
-			
+			System.out
+					.println("\n-------------- Ausgabe Knotenanzahl + Tiefe bei Kunden --------------");
+			System.out.println("Knotenanzahl: "
+					+ treeHelper.countNodes(tree.getWurzel()));
+			System.out.println("Knotentiefe: "
+					+ treeHelper.treeDepth(tree.getWurzel()));
+
 			WebShop webShop = new WebShop();
 		} catch (NodeException e) {
 			System.out.println(e.getMessage());

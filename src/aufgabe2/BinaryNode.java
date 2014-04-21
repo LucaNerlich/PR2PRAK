@@ -17,11 +17,10 @@ package aufgabe2;
  */
 
 /**
-* Schlüssel hat die Typvariable T zugewiesen
-* Wert hat die Typvariable U zugewiesen 
-* Typvariablen sind Platzhalter für einen konkreten Typen
-* Jeder Knoten kann einen linken und rechten Kinderknoten haben
-*/
+ * Schlüssel hat die Typvariable T zugewiesen Wert hat die Typvariable U
+ * zugewiesen Typvariablen sind Platzhalter für einen konkreten Typen Jeder
+ * Knoten kann einen linken und rechten Kinderknoten haben
+ */
 public class BinaryNode<T, U> {
 
 	private T schluessel;
@@ -72,7 +71,7 @@ public class BinaryNode<T, U> {
 
 	public void setWert(U wert) {
 		this.wert = wert;
-	}	
+	}
 
 	/**
 	 * Gibt den Wert und den Schluessel des Knoten aus.

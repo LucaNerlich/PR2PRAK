@@ -9,9 +9,11 @@ package aufgabe2;
  */
 
 /**
- * Dies ist die Hauptklasse des Binaerbaums
- *  * @author (Daniel.Sommerlig@haw-hamburg.de) &
+ * Dies ist die Hauptklasse des Binaerbaums *
+ * 
+ * @author (Daniel.Sommerlig@haw-hamburg.de) &
  *         (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 
  */
 public class BinaryTree<T, U> {
 
@@ -45,10 +47,13 @@ public class BinaryTree<T, U> {
 	 * entsprechenden dem definierten Comparator. Geht rekursiv den vorhandenen
 	 * Baum durch, um den besten Platz zu finden.
 	 * 
-	 * @param neu -> repräsentiert den neuen Knoten
-	 * @param current -> repräsentiert den aktuellen Knoten
-	 * @throws NodeException -> Kann eine NodeException werfen wenn ein Knoten
-	 * bereits mit demselben Schlüssel vorhanden ist
+	 * @param neu
+	 *            -> repräsentiert den neuen Knoten
+	 * @param current
+	 *            -> repräsentiert den aktuellen Knoten
+	 * @throws NodeException
+	 *             -> Kann eine NodeException werfen wenn ein Knoten bereits mit
+	 *             demselben Schlüssel vorhanden ist
 	 */
 	@SuppressWarnings("unchecked")
 	public void addKnoten(BinaryNode<T, U> neu, BinaryNode<T, U> current)
@@ -85,6 +90,7 @@ public class BinaryTree<T, U> {
 
 	/**
 	 * Testmethode zur Ausgabe aller Knoten
+	 * 
 	 * @param b
 	 */
 	private void draw(BinaryNode<T, U> b) {
@@ -103,26 +109,32 @@ public class BinaryTree<T, U> {
 	public void ausgeben() {
 		draw(wurzel);
 	}
-	
+
 	/**
 	 * Aufruf der Hilfsmethode findKeyHelper um einen Schlüssel zu finden
-	 * @param givenKey -> repräsentiert den gesuchten Wert
+	 * 
+	 * @param givenKey
+	 *            -> repräsentiert den gesuchten Wert
 	 */
 	public U findKey(T givenKey) {
 
 		/*
-		 * findKeyHelper(new BinaryNode<T, U>(givenKey, null), wurzel);
-		 * return value;
+		 * findKeyHelper(new BinaryNode<T, U>(givenKey, null), wurzel); return
+		 * value;
 		 */
 
 		return findKeyHelper(new BinaryNode<T, U>(givenKey, null), wurzel);
 	}
 
 	/**
-	 * Hilfsmethode zur FindKeymethode. Sucht zum gegeben Key den passenden Wert.
-	 * @param nodeFind -> repräsentiert den gesuchten Knotenschlüssel
-	 * @param current -> repräsentiert den aktuellen Knoten
-	 * @return value -> repräsentiert den gesuchten Wert 
+	 * Hilfsmethode zur FindKeymethode. Sucht zum gegeben Key den passenden
+	 * Wert.
+	 * 
+	 * @param nodeFind
+	 *            -> repräsentiert den gesuchten Knotenschlüssel
+	 * @param current
+	 *            -> repräsentiert den aktuellen Knoten
+	 * @return value -> repräsentiert den gesuchten Wert
 	 */
 	@SuppressWarnings("unchecked")
 	private U findKeyHelper(BinaryNode<T, U> nodeFind, BinaryNode<T, U> current) {

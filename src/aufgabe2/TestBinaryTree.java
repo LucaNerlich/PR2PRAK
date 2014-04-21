@@ -16,28 +16,28 @@ import aufgabe2.Customer;
 
 /**
  * Diese Klasse repräsentiert den JUnit-Test
- * @author  (Daniel.Sommerlig@haw-hamburg.de) & (Lucasteffen.Nerlich@haw-hamburg.de) 
- *
+ * 
+ * @author (Daniel.Sommerlig@haw-hamburg.de) &
+ *         (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 
  */
 
 public class TestBinaryTree {
 
 	@Test
-	public void test() throws NodeException{
+	public void test() throws NodeException {
 		StringComparator stringComparatorTest = new StringComparator();
-		
+
 		Customer customer1 = new Customer("Alex", "Schmidt");
 		Customer customer2 = new Customer("Bernd", "Hansen");
 		Customer customer3 = new Customer("Dieter", "Vogtendbauer");
-		Customer customer4 = new Customer("Mannfred", "Dacksen");	
-		
-		
+		Customer customer4 = new Customer("Mannfred", "Dacksen");
+
 		BinaryTree<String, Customer> treeTest = new BinaryTree<String, Customer>(
 				stringComparatorTest);
-		
+
 		BinaryTreeHelper treeHelperTest = new BinaryTreeHelper();
 
-				
 		treeTest.addKnoten(
 				new BinaryNode<String, Customer>(customer1.getSchluessel(),
 						customer1), treeTest.getWurzel());
@@ -50,16 +50,15 @@ public class TestBinaryTree {
 		treeTest.addKnoten(
 				new BinaryNode<String, Customer>(customer4.getSchluessel(),
 						customer4), treeTest.getWurzel());
-		
-		
+
 		int result = treeHelperTest.countNodes(treeTest.getWurzel());
 		assertTrue(result == 4);
-		
+
 		int result2 = treeHelperTest.treeDepth(treeTest.getWurzel());
 		assertTrue(result2 == 3);
-		
-		 Customer result3 = treeTest.findKey("Hansen, Bernd");
-		 assertTrue(result3.getId() == 2);
+
+		Customer result3 = treeTest.findKey("Hansen, Bernd");
+		assertTrue(result3.getId() == 2);
 	}
-	
+
 }
