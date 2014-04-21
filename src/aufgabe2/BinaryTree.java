@@ -46,7 +46,7 @@ public class BinaryTree<T, U> {
 	 * Baum durch, um den besten Platz zu finden.
 	 * 
 	 * @param neu -> repräsentiert den neuen Knoten
-	 * @param current -> repräsentiert die Wurzel
+	 * @param current -> repräsentiert den aktuellen Knoten
 	 * @throws NodeException -> Kann eine NodeException werfen wenn ein Knoten
 	 * bereits mit demselben Schlüssel vorhanden ist
 	 */
@@ -121,7 +121,7 @@ public class BinaryTree<T, U> {
 	/**
 	 * Hilfsmethode zur FindKeymethode. Sucht zum gegeben Key den passenden Wert.
 	 * @param nodeFind -> repräsentiert den gesuchten Knotenschlüssel
-	 * @param current -> repräsentiert die Wurzel
+	 * @param current -> repräsentiert den aktuellen Knoten
 	 * @return value -> repräsentiert den gesuchten Wert 
 	 */
 	@SuppressWarnings("unchecked")

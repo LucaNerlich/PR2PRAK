@@ -44,10 +44,12 @@ public class WebShop {
 		tree.addKnoten(new BinaryNode<String, Product>(product3.getSchluessel(), product3), tree.getWurzel());	
 		tree.addKnoten(new BinaryNode<String, Product>(product4.getSchluessel(), product4), tree.getWurzel());	
 		
+		System.out.println("\n-------------- Ausgabe bei Produkten --------------");
 		tree.ausgeben();	
 		
-		System.out.println(treeHelper.countNodes(tree.getWurzel()));
-		System.out.println(treeHelper.treeDepth(tree.getWurzel()));
+		System.out.println("\n-------------- Ausgabe Knotenanzahl + Tiefe bei Produkten --------------");
+		System.out.println("Knotenanzahl: " + treeHelper.countNodes(tree.getWurzel()));
+		System.out.println("Knotentiefe: " + treeHelper.treeDepth(tree.getWurzel()));
 	}	
 		
 		catch (NodeException e) {
