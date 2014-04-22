@@ -83,12 +83,6 @@ public class WebShop {
         return ausgabe;		
 	}
 	
-	public void checkCustomer(Customer customer){
-		if(kundenListe.contains(customer)){
-			System.out.println("Kunde mit dem Namen: " + customer + "wurde gefunden!");
-		}
-	}
-	
 	public int getSize(){
 		int size = 0;
 		size = kundenListe.size();
