@@ -24,8 +24,12 @@ import aufgabe2.Customer;
 
 public class TestBinaryTree {
 
+	@SuppressWarnings("static-access")
 	@Test
-	public void test() throws NodeException {
+	public void test(){
+		
+		try{
+		@SuppressWarnings("rawtypes")
 		StringComparator stringComparatorTest = new StringComparator();
 
 		Customer customer1 = new Customer("Alex", "Schmidt");
@@ -59,6 +63,12 @@ public class TestBinaryTree {
 
 		Customer result3 = treeTest.findKey("Hansen, Bernd");
 		assertTrue(result3.getId() == 2);
+		}
+		
+		catch(NodeException e){
+			e.printStackTrace();
+			e.getMessage();
+		}
 	}
 
 }

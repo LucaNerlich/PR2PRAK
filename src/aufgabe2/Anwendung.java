@@ -18,6 +18,7 @@ package aufgabe2;
 
 public class Anwendung {
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		/**
@@ -69,7 +70,9 @@ public class Anwendung {
 					.println("\n-------------- Ausgabe bei Kunden --------------");
 			tree.ausgeben();
 
-			// System.out.println(tree.findKey("F, Tjorben"));
+			System.out
+			.println("\n-------------- findKey(F, Tjorben) Ausgabe --------------");
+			System.out.println(tree.findKey("F, Tjorben"));
 
 			/**
 			 * Knoten und die Knotentiefe zählen und ausgeben

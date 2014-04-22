@@ -91,14 +91,14 @@ public class BinaryTree<T, U> {
 	/**
 	 * Testmethode zur Ausgabe aller Knoten
 	 * 
-	 * @param b
+	 * @param node
 	 */
-	private void draw(BinaryNode<T, U> b) {
+	private void draw(BinaryNode<T, U> node) {
 
-		if (b != null) {
-			draw(b.getLeft());
-			System.out.println(b.toString());
-			draw(b.getRight());
+		if (node != null) {
+			draw(node.getLeft());
+			System.out.println(node.toString());
+			draw(node.getRight());
 		}
 	}
 
@@ -114,7 +114,7 @@ public class BinaryTree<T, U> {
 	 * Aufruf der Hilfsmethode findKeyHelper um einen Schlüssel zu finden
 	 * 
 	 * @param givenKey
-	 *            -> repräsentiert den gesuchten Wert
+	 *            -> Schluessel zum gesuchten Wert
 	 */
 	public U findKey(T givenKey) {
 
@@ -150,7 +150,7 @@ public class BinaryTree<T, U> {
 				System.out.println("Es gibt kein Objekt mit dem Schluessel: "
 						+ nodeFind.getSchluessel());
 			} else {
-				System.err.println(current.getSchluessel());
+				// System.err.println(current.getSchluessel());
 				return findKeyHelper(nodeFind, current.getLeft()); // return
 																	// wichtig
 																	// fuers
@@ -163,7 +163,7 @@ public class BinaryTree<T, U> {
 				System.out.println("Es gibt kein Objekt mit dem Schluessel: "
 						+ nodeFind.getSchluessel());
 			} else {
-				System.err.println(current.getSchluessel());
+				// System.err.println(current.getSchluessel());
 				return findKeyHelper(nodeFind, current.getRight()); // return
 																	// wichtig
 																	// fuers
@@ -172,7 +172,7 @@ public class BinaryTree<T, U> {
 		}
 
 		else if (comp.compare(nodeFind, current) == 0) {
-			System.err.println(current.getWert());
+			// System.err.println(current.getWert());
 			return current.getWert(); // return wichtig fuers hochreichen
 		}
 		return value;

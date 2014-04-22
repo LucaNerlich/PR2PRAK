@@ -21,6 +21,7 @@ import java.util.Collections;
  */
 public class WebShop {
 
+	@SuppressWarnings("rawtypes")
 	StringComparator stringComparator = new StringComparator();
 
 	BinaryTree<String, Product> tree = new BinaryTree<String, Product>(
@@ -36,6 +37,7 @@ public class WebShop {
 	Product product3 = new Product("MacBrotPro", 13.37);
 	Product product4 = new Product("Stueck Kaese", 4.99);
 
+	@SuppressWarnings("static-access")
 	public WebShop() {
 		try {
 			tree.addKnoten(
