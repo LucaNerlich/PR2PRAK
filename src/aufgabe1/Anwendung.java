@@ -60,6 +60,8 @@ public class Anwendung {
 			webShop.addCustomer("aaaa", "cccc");
 			System.out.println(webShop.printListUnsorted());
 			webShop.removeCustomer("aaaa", "cccc");
-			System.out.println(webShop.printListUnsorted());
+			System.out.println(webShop.printListUnsorted());	
+			
+			System.out.println("Size: " + webShop.getSize());
 	}
 }
