@@ -84,6 +84,7 @@ public class Anwendung {
 			System.out.println("Knotentiefe: "
 					+ treeHelper.treeDepth(tree.getWurzel()));
 
+			@SuppressWarnings("unused")
 			WebShop webShop = new WebShop();
 		} catch (NodeException e) {
 			System.out.println(e.getMessage());
