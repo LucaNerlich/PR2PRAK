@@ -54,11 +54,11 @@ public class OrderGenerator extends Thread {
 			// Puffer!
 			currentBuffer.enter(item);
 
-			
+			/*
 			if (!isInterrupted()) {
 				// Fuer unbestimmte Zeit anhalten
 				pause();
-			} 
+			} */ 
 		}
 	}
 
@@ -140,10 +140,10 @@ public class OrderGenerator extends Thread {
 	 * sein
 	 */
 	public void pause() {
-		// int sleepTime = (int) (MAX_IDLE_TIME * Math.random());
+		 int sleepTime  = (int) (MAX_IDLE_TIME * Math.random());
 		try {
 			// Thread blockieren
-			Thread.sleep(1000);
+			Thread.sleep(sleepTime);
 		} catch (InterruptedException e) {
 			// Erneutes Setzen des Interrupt-Flags fuer den eigenen Thread
 			this.interrupt();
