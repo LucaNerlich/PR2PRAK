@@ -5,7 +5,7 @@
  * Aufgabe: Aufgabenblatt 1, Aufgabe 1
  * SortingCriterion.java
  */
-package aufgabe3.alteAufgaben;
+package aufgabe3;
 
 /**
  * Enum Represaentation fuer schnellen sortier Wechsel

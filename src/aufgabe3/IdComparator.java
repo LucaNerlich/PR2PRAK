@@ -5,12 +5,9 @@
  * Aufgabe: Aufgabenblatt 1, Aufgabe 1
  * IdComparator.java
  */
-package aufgabe3.alteAufgaben;
+package aufgabe3;
 
 import java.util.Comparator;
-
-import aufgabe2.Customer;
-
 /**
  * Diese Klasse repräsentiert den ID-Comparator (Vergleich von IDs)
  * @author  (Daniel.Sommerlig@haw-hamburg.de) & (Lucasteffen.Nerlich@haw-hamburg.de) 

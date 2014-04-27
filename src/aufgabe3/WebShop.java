@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import aufgabe2.SortingCriterion;
-import aufgabe3.alteAufgaben.NachnameVornameComparator;
 
 /**
  * Diese Klasse repräsentiert den Webshop und die Verwaltung der Customer (add,

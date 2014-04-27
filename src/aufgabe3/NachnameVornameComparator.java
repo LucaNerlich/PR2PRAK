@@ -5,11 +5,9 @@
  * Aufgabe: Aufgabenblatt 1, Aufgabe 1
  * NachnameVornameComparator.java
  */
-package aufgabe3.alteAufgaben;
+package aufgabe3;
 
 import java.util.Comparator;
-
-import aufgabe3.Customer;
 
 /**
  * Diese Klasse repräsentiert den Nachname/Vorname-Comparator (Vergleich von

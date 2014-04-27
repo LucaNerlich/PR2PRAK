@@ -1,5 +1,6 @@
 package aufgabe3;
 
+
 /**
  * Praktikum WIPR2, SS 2014  
  * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)

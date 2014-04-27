@@ -52,7 +52,7 @@ public class Consumer extends Thread {
     public void statusmeldungZugriffswunsch() {
 
         System.err.println("                                           "
-                + this.getName() + " möchte auf den Puffer zugreifen!");
+                + this.getName() + " moechte auf den Puffer zugreifen!");
     }
 
     /**

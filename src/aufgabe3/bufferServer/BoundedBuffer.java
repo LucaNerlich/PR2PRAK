@@ -42,7 +42,7 @@ public class BoundedBuffer<E> {
         System.err
                 .println("          ENTER: "
                         + Thread.currentThread().getName()
-                        + " hat ein Objekt in den Puffer gelegt. Aktuelle Puffergröße: "
+                        + " hat ein Objekt in den Puffer gelegt. Aktuelle Puffergroesse: "
                         + buffer.size());
         this.notifyAll();
     }
@@ -65,7 +65,7 @@ public class BoundedBuffer<E> {
         System.err
                 .println("          REMOVE: "
                         + Thread.currentThread().getName()
-                        + " hat ein Objekt aus dem Puffer entnommen. Aktuelle Puffergröße: "
+                        + " hat ein Objekt aus dem Puffer entnommen. Aktuelle Puffergroesse�ße: "
                         + buffer.size());
         this.notifyAll();
         return item;

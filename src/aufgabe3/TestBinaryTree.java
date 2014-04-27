@@ -6,18 +6,13 @@
  * TestBinaryTree.java
  */
 
-package aufgabe3.alteAufgaben;
+package aufgabe3;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import aufgabe2.Customer;
-import aufgabe3.BinaryNode;
-import aufgabe3.BinaryTree;
-import aufgabe3.BinaryTreeHelper;
-import aufgabe3.NodeException;
-import aufgabe3.StringComparator;
 
 /**
  * Diese Klasse repräsentiert den JUnit-Test

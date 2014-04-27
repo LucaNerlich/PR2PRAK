@@ -21,7 +21,7 @@ public class BoundedBufferServer {
 
     /**
      * Das Puffer-Objekt mit Elementtyp Date und vorgegebener Platzanzahl
-     * (Größe)
+     * (Groesse)
      */
     public BoundedBuffer<Date> server = new BoundedBuffer<Date>(2);
 
