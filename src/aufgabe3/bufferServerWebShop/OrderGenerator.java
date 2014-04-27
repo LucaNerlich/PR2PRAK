@@ -36,13 +36,13 @@ public class OrderGenerator extends Thread {
 
 	static ArrayList<Customer> customerListe = new ArrayList<Customer>();
 	static ArrayList<Product> produktListe = new ArrayList<Product>();
-	
-	public OrderGenerator(BoundedBuffer<Order> buffer) {		
+
+	public OrderGenerator(BoundedBuffer<Order> buffer) {
 		currentBuffer = buffer;
 	}
 
 	public void run() {
-		while (!isInterrupted()) {
+		while (!isInterrupted() && (currentBuffer.getCounter() <= 9)) {
 
 			/**
 			 * Order-Objekt erzeugen
@@ -54,21 +54,23 @@ public class OrderGenerator extends Thread {
 			// Puffer!
 			currentBuffer.enter(item);
 
+			
 			if (!isInterrupted()) {
 				// Fuer unbestimmte Zeit anhalten
 				pause();
-			}
+			} 
 		}
 	}
 
 	/**
 	 * Helfermethode zur zufaelligen Generierung einer Bestellung
+	 * 
 	 * @return order Objekt
 	 */
-	private Order getContent() {		
-		int customerRndm = (int) (Math.random() * 10 +1);
-		int prductRndm = (int) (Math.random() * 10 +1);
-		
+	private Order getContent() {
+		int customerRndm = (int) (Math.random() * 10 + 1);
+		int prductRndm = (int) (Math.random() * 10 + 1);
+
 		// System.err.println("CUSTOMERrndm "+ customerRndm);
 		// System.err.println("PRODUCTrndm "+ prductRndm);
 
@@ -86,16 +88,21 @@ public class OrderGenerator extends Thread {
 				productCache = product;
 			}
 		}
+
+		// sychro Methode zum Zaehlen der Bestellvorgaenge
+		currentBuffer.counter();
+
+		System.err.println("COUNTER: " + currentBuffer.getCounter());
 		Order order = new Order(customerCache, productCache);
-		
+
 		System.err.println(order.toString());
 		return order;
 	}
-	
+
 	/**
 	 * Fuegt die Customer und Produkte in die Arraylist ein.
 	 */
-	public static void addToList(){
+	public static void addToList() {
 		customerListe.add(customer1);
 		customerListe.add(customer2);
 		customerListe.add(customer3);

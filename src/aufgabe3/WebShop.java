@@ -32,96 +32,88 @@ public class WebShop extends Thread {
 			stringComparator);
 
 	public final int MAX_IDLE_TIME = 100;
-    private BoundedBuffer<Order> currentBuffer;
-    private Order item;
+	private BoundedBuffer<Order> currentBuffer;
+	private Order item;
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
 	/**
 	 * Der WebShop wird mit Produktobjekten gefüllt
-	 */	 
-	
+	 */
+
 	public WebShop(BoundedBuffer<Order> buffer) {
 		currentBuffer = buffer;
 		/*
-		Product product1 = new Product("Seife", 1.2);
-		Product product2 = new Product("Auto", 42000);
-		Product product3 = new Product("Computer", 1337);
-		Product product4 = new Product("Stueck Kaese", 4.99);
-		
-		try {
-			tree.addKnoten(
-					new BinaryNode<String, Product>(product1.getSchluessel(),
-							product1), tree.getWurzel());
-			tree.addKnoten(
-					new BinaryNode<String, Product>(product2.getSchluessel(),
-							product2), tree.getWurzel());
-			tree.addKnoten(
-					new BinaryNode<String, Product>(product3.getSchluessel(),
-							product3), tree.getWurzel());
-			tree.addKnoten(
-					new BinaryNode<String, Product>(product4.getSchluessel(),
-							product4), tree.getWurzel());
-
-			System.out
-					.println("\n-------------- Ausgabe bei Produkten --------------");
-			tree.ausgeben();
-
-			System.out
-					.println("\n-------------- Ausgabe Knotenanzahl + Tiefe bei Produkten --------------");
-			System.out.println("Knotenanzahl: "
-					+ treeHelper.countNodes(tree.getWurzel()));
-			System.out.println("Knotentiefe: "
-					+ treeHelper.treeDepth(tree.getWurzel()));
-		}
-
-		catch (NodeException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		} */
+		 * Product product1 = new Product("Seife", 1.2); Product product2 = new
+		 * Product("Auto", 42000); Product product3 = new Product("Computer",
+		 * 1337); Product product4 = new Product("Stueck Kaese", 4.99);
+		 * 
+		 * try { tree.addKnoten( new BinaryNode<String,
+		 * Product>(product1.getSchluessel(), product1), tree.getWurzel());
+		 * tree.addKnoten( new BinaryNode<String,
+		 * Product>(product2.getSchluessel(), product2), tree.getWurzel());
+		 * tree.addKnoten( new BinaryNode<String,
+		 * Product>(product3.getSchluessel(), product3), tree.getWurzel());
+		 * tree.addKnoten( new BinaryNode<String,
+		 * Product>(product4.getSchluessel(), product4), tree.getWurzel());
+		 * 
+		 * System.out
+		 * .println("\n-------------- Ausgabe bei Produkten --------------");
+		 * tree.ausgeben();
+		 * 
+		 * System.out .println(
+		 * "\n-------------- Ausgabe Knotenanzahl + Tiefe bei Produkten --------------"
+		 * ); System.out.println("Knotenanzahl: " +
+		 * treeHelper.countNodes(tree.getWurzel()));
+		 * System.out.println("Knotentiefe: " +
+		 * treeHelper.treeDepth(tree.getWurzel())); }
+		 * 
+		 * catch (NodeException e) { System.out.println(e.getMessage());
+		 * e.printStackTrace(); }
+		 */
 	}
-	
+
 	public void run() {
 
-        while (!isInterrupted()) {
-            statusmeldungZugriffswunsch();
-            // Date-Objekt dem Puffer entnehmen, dazu Puffer-Zugriffsmethode
-            // aufrufen --> Synchronisation ueber den Puffer!
-            // Hier sollte dann etwas mit dem item-Objekt getan werden ...
-            item = currentBuffer.remove();
-            System.err.println("Item removed: " + item);
+		while (!isInterrupted()) {
+			statusmeldungZugriffswunsch();
+			// Date-Objekt dem Puffer entnehmen, dazu Puffer-Zugriffsmethode
+			// aufrufen --> Synchronisation ueber den Puffer!
+			// Hier sollte dann etwas mit dem item-Objekt getan werden ...
+			item = currentBuffer.remove();
+			if (item != null) {
+				System.err.println("Item removed: " + item);
+			}
 
-            if (!isInterrupted()) {
-                // Fuer unbestimmte Zeit anhalten
-                pause();
-            }
-        }
-    }
+			if (!isInterrupted()) {
+				// Fuer unbestimmte Zeit anhalten
+				pause();
+			}
+		}
+	}
 
-    /**
-     * Gib einen Zugriffswunsch auf der Konsole aus.
-     */
-    public void statusmeldungZugriffswunsch() {
+	/**
+	 * Gib einen Zugriffswunsch auf der Konsole aus.
+	 */
+	public void statusmeldungZugriffswunsch() {
 
-        System.err.println("                                           "
-                + this.getName() + " moechte auf den Puffer zugreifen!");
-    }
+		System.err.println("                                           "
+				+ this.getName() + " moechte auf den Puffer zugreifen!");
+	}
 
-    /**
-     * Verbraucher benutzen diese Methode, um fuer eine Zufallszeit untaetig zu
-     * sein
-     */
-    public void pause() {
-        int sleepTime = (int) (MAX_IDLE_TIME * Math.random());
-        try {
-            // Thread blockieren
-            Thread.sleep(sleepTime);
-        } catch (InterruptedException e) {
-            // Erneutes Setzen des Interrupt-Flags fuer den eigenen Thread
-            this.interrupt();
-        }
-    }
-	
-	
+	/**
+	 * Verbraucher benutzen diese Methode, um fuer eine Zufallszeit untaetig zu
+	 * sein
+	 */
+	public void pause() {
+		int sleepTime = (int) (MAX_IDLE_TIME * Math.random());
+		try {
+			// Thread blockieren
+			Thread.sleep(sleepTime);
+		} catch (InterruptedException e) {
+			// Erneutes Setzen des Interrupt-Flags fuer den eigenen Thread
+			this.interrupt();
+		}
+	}
 
 	private ArrayList<Customer> kundenListe = new ArrayList<Customer>();
 

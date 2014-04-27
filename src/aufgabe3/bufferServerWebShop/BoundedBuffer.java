@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Datenpuffer fuer Elemente vom Typ E mit Zugriffsmethoden enter und remove.
- * Stellt einen generischen Datenpuffer mit Zugriffsmethoden zur Verfügung
+ * Stellt einen generischen Datenpuffer mit Zugriffsmethoden zur Verfuegung
  */
 public class BoundedBuffer<E> {
 
@@ -12,6 +12,7 @@ public class BoundedBuffer<E> {
      * Maximale Puffergröße
      */
     private int bufferMaxSize;
+    private int counter;
 
     /**
      * Liste als Speicher
@@ -69,5 +70,13 @@ public class BoundedBuffer<E> {
                         + buffer.size());
         this.notifyAll();
         return item;
+    }
+    
+    public synchronized void counter(){
+    	counter++;
+    }
+    
+    public int getCounter(){
+    	return counter;
     }
 }

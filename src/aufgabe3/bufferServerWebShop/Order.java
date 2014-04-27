@@ -2,7 +2,6 @@ package aufgabe3.bufferServerWebShop;
 
 import aufgabe3.Customer;
 import aufgabe3.Product;
-import aufgabe3.WebShop;
 
 /**
  * Diese Klasse repraesentiert eine Bestellung.
@@ -14,11 +13,13 @@ public class Order {
 
 	private Customer customer;
 	private Product product;
+	public static int objektzaehler = 0;	
 	
 	public Order(Customer customer, Product product){	
+		objektzaehler++;
 		this.customer = customer;
 		this.product = product;		
-		
+		System.err.println(objektzaehler);		
 	}
 
 	public Customer getCustomer() {
@@ -35,6 +36,10 @@ public class Order {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+	
+	public int getAnzOrder(){
+		return objektzaehler;
 	}
 
 	@Override
