@@ -29,6 +29,7 @@ public class Product {
 	 * Konstruktor erzeugt das Produktobjekt
 	 */
 	public Product(String name, double preis) {
+		objektzaehler++;
 		this.preis = preis;
 		this.name = name;
 		this.id = objektzaehler;

@@ -39,9 +39,6 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [customer=" + customer + ", product=" + product + "]";
-	}
-	
-	
-	
+		return "TOSTRING: Order [customer=" + customer + ", product=" + product + "]";
+	}	
 }

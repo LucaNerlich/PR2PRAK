@@ -2,6 +2,8 @@ package aufgabe3.bufferServerWebShop;
 
 import java.util.*;
 
+import aufgabe3.WebShop;
+
 /**
  * Erzeugt eine Simulationsumgebung für ein Erzeuger/Verbrauchersystem
  * 
@@ -12,18 +14,18 @@ public class BoundedBufferServer {
     /**
      * Anzahl Erzeuger-Threads
      */
-    public final int NO_PRODUCER = 5;
+    public final int NO_PRODUCER = 3;
 
     /**
      * Anzahl Verbraucher-Threads
      */
-    public final int NO_CONSUMER = 5;
+    public final int NO_CONSUMER = 2;
 
     /**
      * Das Puffer-Objekt mit Elementtyp Date und vorgegebener Platzanzahl
      * (Groesse)
      */
-    public BoundedBuffer<Order> server = new BoundedBuffer<Order>(5);
+    public BoundedBuffer<Order> server = new BoundedBuffer<Order>(2);
 
     /**
      * Programeinstieg
@@ -39,13 +41,13 @@ public class BoundedBufferServer {
     public void startSimulation() {
         // Starte und beende Threads
         LinkedList<OrderGenerator> producerList = new LinkedList<OrderGenerator>();
-        LinkedList<Consumer> consumerList = new LinkedList<Consumer>();
+        LinkedList<WebShop> consumerList = new LinkedList<WebShop>();
 
         System.err.println("-------------------- START -------------------");
 
         // Verbraucher - Threads erzeugen
         for (int i = 1; i <= NO_CONSUMER; i++) {
-            Consumer current = new Consumer(server);
+        	WebShop current = new WebShop(server);
             current.setName("Verbraucher-" + i);
             consumerList.add(current);
             current.start();
@@ -53,6 +55,7 @@ public class BoundedBufferServer {
 
         // Erzeuger - Threads erzeugen
         for (int i = 1; i <= NO_PRODUCER; i++) {
+        	OrderGenerator.addToList();
         	OrderGenerator current = new OrderGenerator(server);
             current.setName("Erzeuger-" + i);
             producerList.add(current);

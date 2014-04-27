@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import aufgabe2.SortingCriterion;
+import aufgabe3.bufferServerWebShop.BoundedBuffer;
 import aufgabe3.bufferServerWebShop.Order;
 
 /**
@@ -31,16 +32,17 @@ public class WebShop extends Thread {
 			stringComparator);
 
 	public final int MAX_IDLE_TIME = 100;
+    private BoundedBuffer<Order> currentBuffer;
+    private Order item;
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
 	/**
 	 * Der WebShop wird mit Produktobjekten gefüllt
-	 */
+	 */	 
 	
-
-	@SuppressWarnings("static-access")
-	public WebShop() {
-		
+	public WebShop(BoundedBuffer<Order> buffer) {
+		currentBuffer = buffer;
+		/*
 		Product product1 = new Product("Seife", 1.2);
 		Product product2 = new Product("Auto", 42000);
 		Product product3 = new Product("Computer", 1337);
@@ -75,8 +77,49 @@ public class WebShop extends Thread {
 		catch (NodeException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-		}
+		} */
 	}
+	
+	public void run() {
+
+        while (!isInterrupted()) {
+            statusmeldungZugriffswunsch();
+            // Date-Objekt dem Puffer entnehmen, dazu Puffer-Zugriffsmethode
+            // aufrufen --> Synchronisation ueber den Puffer!
+            // Hier sollte dann etwas mit dem item-Objekt getan werden ...
+            item = currentBuffer.remove();
+            System.err.println("Item removed: " + item);
+
+            if (!isInterrupted()) {
+                // Fuer unbestimmte Zeit anhalten
+                pause();
+            }
+        }
+    }
+
+    /**
+     * Gib einen Zugriffswunsch auf der Konsole aus.
+     */
+    public void statusmeldungZugriffswunsch() {
+
+        System.err.println("                                           "
+                + this.getName() + " moechte auf den Puffer zugreifen!");
+    }
+
+    /**
+     * Verbraucher benutzen diese Methode, um fuer eine Zufallszeit untaetig zu
+     * sein
+     */
+    public void pause() {
+        int sleepTime = (int) (MAX_IDLE_TIME * Math.random());
+        try {
+            // Thread blockieren
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            // Erneutes Setzen des Interrupt-Flags fuer den eigenen Thread
+            this.interrupt();
+        }
+    }
 	
 	
 
