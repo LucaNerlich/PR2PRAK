@@ -1,13 +1,15 @@
-package aufgabe3.bufferServer;
+package aufgabe3.bufferServerWebShop;
 
 import java.util.*;
 
 /**
- * Code der Erzeuger-Threads fuer ein Erzeuger/Verbrauchersystem
+ * Code der Verbraucher-Threads für ein Erzeuger/Verbrauchersystem
  * 
  * @author Philipp Jenke
+ * 
  */
-public class Producer extends Thread {
+public class Consumer extends Thread {
+
     /**
      * Max. Pause zwischen den Pufferzugriffen in ms
      */
@@ -17,28 +19,25 @@ public class Producer extends Thread {
     private Date item;
 
     /**
-     * Konstruktor mit Uebergabe des Puffers
-     * */
-    public Producer(BoundedBuffer<Date> buffer) {
+     * Konstruktor mit Übergabe des Puffers
+     */
+    public Consumer(BoundedBuffer<Date> buffer) {
         currentBuffer = buffer;
     }
 
     /**
-     * Erzeuge Date-Objekte und lege sie in den Puffer. Halte nach jeder Ablage
-     * fuer eine Zufallszeit an.
+     * Entnimm ein Date-Objekt aus dem Puffer. Nach jeder Entnahme fuer eine
+     * Zufallszeit anhalten.
      */
     public void run() {
 
         while (!isInterrupted()) {
-            /**
-             * Date-Objekt erzeugen
-             **/
-            item = new Date();
             statusmeldungZugriffswunsch();
-
-            // Puffer-Zugriffsmethode aufrufen --> Synchronisation ueber den
-            // Puffer!
-            currentBuffer.enter(item);
+            // Date-Objekt dem Puffer entnehmen, dazu Puffer-Zugriffsmethode
+            // aufrufen --> Synchronisation ueber den Puffer!
+            // Hier sollte dann etwas mit dem item-Objekt getan werden ...
+            item = currentBuffer.remove();
+            System.out.println("Item removed: " + item);
 
             if (!isInterrupted()) {
                 // Fuer unbestimmte Zeit anhalten
@@ -48,7 +47,7 @@ public class Producer extends Thread {
     }
 
     /**
-     * Gib einen Zugriffswunsch auf der Konsole aus
+     * Gib einen Zugriffswunsch auf der Konsole aus.
      */
     public void statusmeldungZugriffswunsch() {
 
@@ -56,8 +55,9 @@ public class Producer extends Thread {
                 + this.getName() + " moechte auf den Puffer zugreifen!");
     }
 
-    /*
-     * Erzeuger benutzen diese Methode, um fuer eine Zufallszeit untaetig zu sein
+    /**
+     * Verbraucher benutzen diese Methode, um fuer eine Zufallszeit untaetig zu
+     * sein
      */
     public void pause() {
         int sleepTime = (int) (MAX_IDLE_TIME * Math.random());

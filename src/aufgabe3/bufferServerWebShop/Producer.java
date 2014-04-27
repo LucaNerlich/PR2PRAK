@@ -1,4 +1,4 @@
-package aufgabe3.bufferServer;
+package aufgabe3.bufferServerWebShop;
 
 import java.util.*;
 

@@ -26,7 +26,7 @@ public class Consumer extends Thread {
     }
 
     /**
-     * Entnimm ein Date-Objekt aus dem Puffer. Nach jeder Entnahme für eine
+     * Entnimm ein Date-Objekt aus dem Puffer. Nach jeder Entnahme fuer eine
      * Zufallszeit anhalten.
      */
     public void run() {
@@ -34,13 +34,13 @@ public class Consumer extends Thread {
         while (!isInterrupted()) {
             statusmeldungZugriffswunsch();
             // Date-Objekt dem Puffer entnehmen, dazu Puffer-Zugriffsmethode
-            // aufrufen --> Synchronisation über den Puffer!
+            // aufrufen --> Synchronisation ueber den Puffer!
             // Hier sollte dann etwas mit dem item-Objekt getan werden ...
             item = currentBuffer.remove();
             System.out.println("Item removed: " + item);
 
             if (!isInterrupted()) {
-                // Für unbestimmte Zeit anhalten
+                // Fuer unbestimmte Zeit anhalten
                 pause();
             }
         }
@@ -56,7 +56,7 @@ public class Consumer extends Thread {
     }
 
     /**
-     * Verbraucher benutzen diese Methode, um für eine Zufallszeit untätig zu
+     * Verbraucher benutzen diese Methode, um fuer eine Zufallszeit untaetig zu
      * sein
      */
     public void pause() {
@@ -65,7 +65,7 @@ public class Consumer extends Thread {
             // Thread blockieren
             Thread.sleep(sleepTime);
         } catch (InterruptedException e) {
-            // Erneutes Setzen des Interrupt-Flags für den eigenen Thread
+            // Erneutes Setzen des Interrupt-Flags fuer den eigenen Thread
             this.interrupt();
         }
     }
