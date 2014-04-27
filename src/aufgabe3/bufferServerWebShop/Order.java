@@ -18,8 +18,7 @@ public class Order {
 	public Order(Customer customer, Product product){	
 		objektzaehler++;
 		this.customer = customer;
-		this.product = product;		
-		System.err.println(objektzaehler);		
+		this.product = product;					
 	}
 
 	public Customer getCustomer() {

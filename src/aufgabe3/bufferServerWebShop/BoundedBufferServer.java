@@ -45,15 +45,14 @@ public class BoundedBufferServer {
 
 		System.err.println("-------------------- START -------------------");
 		// Erzeuger - Threads erzeugen
-				for (int i = 1; i <= NO_PRODUCER; i++) {
-					OrderGenerator.addToList();
-					OrderGenerator current = new OrderGenerator(server);
-					current.setName("Erzeuger-" + i);
-					producerList.add(current);
-					current.start();
+		for (int i = 1; i <= NO_PRODUCER; i++) {
+			OrderGenerator.addToList();
+			OrderGenerator current = new OrderGenerator(server);
+			current.setName("Erzeuger-" + i);
+			producerList.add(current);
+			current.start();
+		}
 
-				}
-		
 		// Verbraucher - Threads erzeugen
 		for (int i = 1; i <= NO_CONSUMER; i++) {
 			WebShop current = new WebShop(server);
@@ -61,25 +60,22 @@ public class BoundedBufferServer {
 			consumerList.add(current);
 			current.start();
 		}
-		
 
 		// Laufzeit abwarten
-
 		try {
-			Thread.sleep(1000);
-			System.err.println("-------------------- ENDE -------------------");		
-			
+			Thread.sleep(10500);
+			System.err.println("-------------------- ENDE -------------------");
+
 			// Erzeuger - Threads stoppen
-						for (int i = 0; i < NO_PRODUCER; i++) {
-							producerList.get(i).interrupt();
-						}
-			
+			for (int i = 0; i < NO_PRODUCER; i++) {
+				producerList.get(i).interrupt();
+			}
+
 			// Verbraucher - Threads stoppen
 			for (int i = 0; i < NO_CONSUMER; i++) {
 				consumerList.get(i).interrupt();
 			}
 
-			
 		} catch (InterruptedException e) {
 		}
 	}
