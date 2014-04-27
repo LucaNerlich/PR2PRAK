@@ -8,6 +8,7 @@
 
 package aufgabe2;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -24,7 +25,7 @@ import aufgabe2.Customer;
 
 public class TestBinaryTree {
 
-	@SuppressWarnings("static-access")
+	@SuppressWarnings({ "static-access", "unchecked", "unused" })
 	@Test
 	public void test(){
 		
@@ -58,11 +59,28 @@ public class TestBinaryTree {
 		int result = treeHelperTest.countNodes(treeTest.getWurzel());
 		assertTrue(result == 4);
 
-		int result2 = treeHelperTest.treeDepth(treeTest.getWurzel());
-		assertTrue(result2 == 3);
+		result = treeHelperTest.treeDepth(treeTest.getWurzel());
+		assertTrue(result == 3);
 
 		Customer result3 = treeTest.findKey("Hansen, Bernd");
 		assertTrue(result3.getId() == 2);
+		
+		
+		result = stringComparatorTest.compare(new BinaryNode<String, Customer>(customer2.getSchluessel(),
+				customer2), new BinaryNode<String, Customer>(customer1.getSchluessel(),
+						customer1));
+		assertTrue(result < 0);
+
+		result = stringComparatorTest.compare(new BinaryNode<String, Customer>(customer1.getSchluessel(),
+				customer1), new BinaryNode<String, Customer>(customer2.getSchluessel(),
+						customer2));
+		assertTrue(result > 0);
+
+		result = stringComparatorTest.compare(new BinaryNode<String, Customer>(customer2.getSchluessel(),
+				customer2), new BinaryNode<String, Customer>(customer2.getSchluessel(),
+						customer2));
+		assertEquals(result, 0);
+		
 		}
 		
 		catch(NodeException e){
