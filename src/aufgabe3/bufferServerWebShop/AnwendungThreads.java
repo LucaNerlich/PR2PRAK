@@ -1,4 +1,4 @@
-package aufgabe3;
+package aufgabe3.bufferServerWebShop;
 
 public class AnwendungThreads {
 

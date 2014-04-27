@@ -3,7 +3,7 @@ package aufgabe3.bufferServerWebShop;
 import java.util.*;
 
 /**
- * Datenpuffer für Elemente vom Typ E mit Zugriffsmethoden enter und remove.
+ * Datenpuffer fuer Elemente vom Typ E mit Zugriffsmethoden enter und remove.
  * Stellt einen generischen Datenpuffer mit Zugriffsmethoden zur Verfügung
  */
 public class BoundedBuffer<E> {

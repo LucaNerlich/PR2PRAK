@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import aufgabe2.SortingCriterion;
+import aufgabe3.bufferServerWebShop.Order;
 
 /**
  * Diese Klasse repräsentiert den Webshop und die Verwaltung der Customer (add,
@@ -21,7 +22,7 @@ import aufgabe2.SortingCriterion;
  *         (Lucasteffen.Nerlich@haw-hamburg.de)
  * 
  */
-public class WebShop {
+public class WebShop extends Thread {
 
 	@SuppressWarnings("rawtypes")
 	StringComparator stringComparator = new StringComparator();
@@ -29,18 +30,22 @@ public class WebShop {
 	BinaryTree<String, Product> tree = new BinaryTree<String, Product>(
 			stringComparator);
 
+	public final int MAX_IDLE_TIME = 100;
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
 	/**
 	 * Der WebShop wird mit Produktobjekten gefüllt
 	 */
-	Product product1 = new Product("Seife", 1.2);
-	Product product2 = new Product("Auto", 42000);
-	Product product3 = new Product("MacBrotPro", 13.37);
-	Product product4 = new Product("Stueck Kaese", 4.99);
+	
 
 	@SuppressWarnings("static-access")
 	public WebShop() {
+		
+		Product product1 = new Product("Seife", 1.2);
+		Product product2 = new Product("Auto", 42000);
+		Product product3 = new Product("Computer", 1337);
+		Product product4 = new Product("Stueck Kaese", 4.99);
+		
 		try {
 			tree.addKnoten(
 					new BinaryNode<String, Product>(product1.getSchluessel(),
@@ -72,6 +77,8 @@ public class WebShop {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 	private ArrayList<Customer> kundenListe = new ArrayList<Customer>();
 

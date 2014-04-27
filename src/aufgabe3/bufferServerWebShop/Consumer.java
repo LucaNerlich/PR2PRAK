@@ -15,13 +15,13 @@ public class Consumer extends Thread {
      */
     public final int MAX_IDLE_TIME = 100;
 
-    private BoundedBuffer<Date> currentBuffer;
-    private Date item;
+    private BoundedBuffer<Order> currentBuffer;
+    private Order item;
 
     /**
-     * Konstruktor mit Übergabe des Puffers
+     * Konstruktor mit Uebergabe des Puffers
      */
-    public Consumer(BoundedBuffer<Date> buffer) {
+    public Consumer(BoundedBuffer<Order> buffer) {
         currentBuffer = buffer;
     }
 

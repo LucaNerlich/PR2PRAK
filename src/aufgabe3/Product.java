@@ -22,6 +22,8 @@ public class Product {
 	 */
 	private double preis;
 	private String name;
+	private final int id;
+	public static int objektzaehler = 0;	
 
 	/**
 	 * Konstruktor erzeugt das Produktobjekt
@@ -29,6 +31,7 @@ public class Product {
 	public Product(String name, double preis) {
 		this.preis = preis;
 		this.name = name;
+		this.id = objektzaehler;
 	}
 
 	@Override
@@ -53,6 +56,10 @@ public class Product {
 
 	public void setSchluessel(String name) {
 		this.name = name;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 }

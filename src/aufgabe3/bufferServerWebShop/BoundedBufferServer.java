@@ -12,18 +12,18 @@ public class BoundedBufferServer {
     /**
      * Anzahl Erzeuger-Threads
      */
-    public final int NO_PRODUCER = 3;
+    public final int NO_PRODUCER = 5;
 
     /**
      * Anzahl Verbraucher-Threads
      */
-    public final int NO_CONSUMER = 2;
+    public final int NO_CONSUMER = 5;
 
     /**
      * Das Puffer-Objekt mit Elementtyp Date und vorgegebener Platzanzahl
      * (Groesse)
      */
-    public BoundedBuffer<Date> server = new BoundedBuffer<Date>(2);
+    public BoundedBuffer<Order> server = new BoundedBuffer<Order>(5);
 
     /**
      * Programeinstieg
@@ -38,7 +38,7 @@ public class BoundedBufferServer {
      */
     public void startSimulation() {
         // Starte und beende Threads
-        LinkedList<Producer> producerList = new LinkedList<Producer>();
+        LinkedList<OrderGenerator> producerList = new LinkedList<OrderGenerator>();
         LinkedList<Consumer> consumerList = new LinkedList<Consumer>();
 
         System.err.println("-------------------- START -------------------");
@@ -53,7 +53,7 @@ public class BoundedBufferServer {
 
         // Erzeuger - Threads erzeugen
         for (int i = 1; i <= NO_PRODUCER; i++) {
-            Producer current = new Producer(server);
+        	OrderGenerator current = new OrderGenerator(server);
             current.setName("Erzeuger-" + i);
             producerList.add(current);
             current.start();
