@@ -4,8 +4,10 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -28,15 +30,15 @@ public class ContentBuilder {
 	 * @return ToggleButton
 	 */
 	public ToggleButton createToggleButton(String text){
-		ToggleButton btn = new ToggleButton();
-		btn.setText(text);
+		ToggleButton tBtn = new ToggleButton();
+		tBtn.setText(text);
 				
-		return btn;
+		return tBtn;
 	}
 	
 	/**
 	 * returned eine Combobox
-	 * @param String vararg content -> "x1", "x2" ... "xn"
+	 * @param String vararg -> "x1", "x2" ... "xn"
 	 * @return ComboBox
 	 */
 	public ComboBox<String> createComboBox(String ... content ){
@@ -47,10 +49,37 @@ public class ContentBuilder {
 		return comboBox;
 	}
 	
+	/**
+	 * returned eine CheckBox /unchecked
+	 * @param String text
+	 * @return ComboBox
+	 */
 	public CheckBox createCheckBox(String text){
 		CheckBox ckBox = new CheckBox(text);
 		ckBox.setSelected(false);
 		
 		return ckBox;
+	}
+	
+	/**
+	 * returned ein TextField
+	 * @param String text
+	 * @return TextField
+	 */
+	public TextField createTextField(String text){
+		TextField txField = new TextField(text);
+		
+		return txField;
+	}
+	
+	/**
+	 * returned einen Button
+	 * @param String text
+	 * @return Button
+	 */
+	public Button createButton(String text){
+		Button btn = new Button(text);
+		
+		return btn;
 	}
 }
