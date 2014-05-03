@@ -1,17 +1,12 @@
 package aufgabe4;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.*;
+
 
 /**
  * Erzeugt Inhalte fuer die Gridpane etc
