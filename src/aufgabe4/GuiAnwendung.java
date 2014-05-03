@@ -46,24 +46,22 @@ public class GuiAnwendung extends Application {
 
 		// erstellt die Flaeche des Fensters
 		// StackPane root = new StackPane();
-		Group root = new Group();		
-		
+		Group root = new Group();
+
 		// Table:
 		Label label = new Label("Person");
 		gridpane.add(label, 0, 1);
 		GridPane.setHalignment(label, HPos.CENTER);
-		
-		
-		
+
 		root.getChildren().add(gridpane);
 		// fuege Button zur Gridpane hinzu
 		gridpane.add(tBtn1, 0, 3);
 		gridpane.add(comboBox1, 0, 2);
 		gridpane.add(ckBox1, 1, 1);
 		gridpane.add(tField, 2, 0);
-		gridpane.add(btn, 2, 1);	
-		gridpane.add(createMenu(),0 , 0);
-		gridpane.add(createTable(),0 , 5);
+		gridpane.add(btn, 2, 1);
+		gridpane.add(createMenu(), 0, 0);
+		gridpane.add(createTable(), 0, 5);
 
 		// steckt die Flache in das Fenster
 		primaryStage.setScene(new Scene(root, 1024, 720, Color.WHITE));
@@ -71,7 +69,8 @@ public class GuiAnwendung extends Application {
 	}
 
 	/**
-	 * returned eine Menubar 
+	 * returned eine Menubar
+	 * 
 	 * @return Menubar
 	 */
 	private MenuBar createMenu() {
@@ -88,43 +87,39 @@ public class GuiAnwendung extends Application {
 
 		return menuBar;
 	}
-	
-	private TableView createTable(){
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private TableView createTable() {
 		final TableView<Person> personTableView = new TableView();
 		personTableView.setPrefWidth(350);
 		personTableView.setPrefHeight(300);
 		personTableView.setItems(Person.getPeople());
-		
+
 		// Setup the first column: vName
-		TableColumn<Person, String> vNameCol = new TableColumn<>(
-				"vName");
+		TableColumn<Person, String> vNameCol = new TableColumn<>("vName");
 		vNameCol.setEditable(true);
-		vNameCol
-				.setCellValueFactory(new PropertyValueFactory<Person, String>(
-						"vName"));
+		vNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>(
+				"vName"));
 		vNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
 
 		// Setup the second column: nName
-		TableColumn<Person, String> nNameCol = new TableColumn<>(
-				"nName");
-		nNameCol
-				.setCellValueFactory(new PropertyValueFactory<Person, String>(
-						"nName"));
+		TableColumn<Person, String> nNameCol = new TableColumn<>("nName");
+		nNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>(
+				"nName"));
 		nNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
 
 		// Setup the third colum: alter
-				TableColumn<Person, String> lastNameCol = new TableColumn<>(
-						"alter");
-				lastNameCol
-						.setCellValueFactory(new PropertyValueFactory<Person, String>(
-								"alter"));
-				lastNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
+		TableColumn<Person, String> lastNameCol = new TableColumn<>("alter");
+		lastNameCol
+				.setCellValueFactory(new PropertyValueFactory<Person, String>(
+						"alter"));
+		lastNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
 
 		// Assemble table from the columns
 		personTableView.getColumns().add(vNameCol);
 		personTableView.getColumns().add(nNameCol);
 		personTableView.getColumns().add(lastNameCol);
-		
+
 		return personTableView;
 	}
 
