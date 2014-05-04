@@ -39,7 +39,7 @@ public class GuiAnwendung extends Application {
 
 		ToggleButton tBtn1 = contBuilder.createToggleButton("Toggle Button");
 		ComboBox comboBox1 = contBuilder.createComboBox("Luca", "Fabian",
-				"Laura");
+				"Laura", "Daniel");
 		CheckBox ckBox1 = contBuilder.createCheckBox("el babo");
 		TextField tField = contBuilder.createTextField("");
 		Button btn = contBuilder.createButton("Button");
