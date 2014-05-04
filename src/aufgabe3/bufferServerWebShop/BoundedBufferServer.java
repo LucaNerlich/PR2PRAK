@@ -14,12 +14,12 @@ public class BoundedBufferServer {
 	/**
 	 * Anzahl Erzeuger-Threads
 	 */
-	public final int NO_PRODUCER = 3;
+	public final int NO_PRODUCER = 1;
 
 	/**
 	 * Anzahl Verbraucher-Threads
 	 */
-	public final int NO_CONSUMER = 3;
+	public final int NO_CONSUMER = 1;
 
 	/**
 	 * Das Puffer-Objekt mit Elementtyp Date und vorgegebener Platzanzahl
@@ -52,7 +52,7 @@ public class BoundedBufferServer {
 			producerList.add(current);
 			current.start();
 		}
-
+		
 		// Verbraucher - Threads erzeugen
 		for (int i = 1; i <= NO_CONSUMER; i++) {
 			WebShop current = new WebShop(server);
@@ -60,22 +60,30 @@ public class BoundedBufferServer {
 			consumerList.add(current);
 			current.start();
 		}
+		
+		Timer timer = new Timer();
+		timer.schedule(new AbortOrderTimerTask(), 0, 1200);
+		
+		
 
 		// Laufzeit abwarten
 		try {
 			Thread.sleep(10500);
-			System.err.println("-------------------- ENDE -------------------");
+			
 
 			// Erzeuger - Threads stoppen
 			for (int i = 0; i < NO_PRODUCER; i++) {
 				producerList.get(i).interrupt();
 			}
-
+			
 			// Verbraucher - Threads stoppen
 			for (int i = 0; i < NO_CONSUMER; i++) {
 				consumerList.get(i).interrupt();
 			}
-
+			
+			timer.cancel();
+			System.err.println("Simulation done");
+			
 		} catch (InterruptedException e) {
 		}
 	}

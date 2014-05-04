@@ -10,8 +10,9 @@ package aufgabe3;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
+import java.util.Timer;
 import aufgabe2.SortingCriterion;
+import aufgabe3.bufferServerWebShop.AbortOrderTimerTask;
 import aufgabe3.bufferServerWebShop.BoundedBuffer;
 import aufgabe3.bufferServerWebShop.Order;
 
@@ -31,61 +32,26 @@ public class WebShop extends Thread {
 	BinaryTree<String, Product> tree = new BinaryTree<String, Product>(
 			stringComparator);
 
-	public final int MAX_IDLE_TIME = 100;
-	private BoundedBuffer<Order> currentBuffer;
-	private Order item;
+//	public final int MAX_IDLE_TIME = 100;
+	public static BoundedBuffer<Order> currentBuffer;
+	public static Order item;
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
-	/**
-	 * Der WebShop wird mit Produktobjekten gefüllt
-	 */
-
 	public WebShop(BoundedBuffer<Order> buffer) {
-		currentBuffer = buffer;
-		/*
-		 * Product product1 = new Product("Seife", 1.2); Product product2 = new
-		 * Product("Auto", 42000); Product product3 = new Product("Computer",
-		 * 1337); Product product4 = new Product("Stueck Kaese", 4.99);
-		 * 
-		 * try { tree.addKnoten( new BinaryNode<String,
-		 * Product>(product1.getSchluessel(), product1), tree.getWurzel());
-		 * tree.addKnoten( new BinaryNode<String,
-		 * Product>(product2.getSchluessel(), product2), tree.getWurzel());
-		 * tree.addKnoten( new BinaryNode<String,
-		 * Product>(product3.getSchluessel(), product3), tree.getWurzel());
-		 * tree.addKnoten( new BinaryNode<String,
-		 * Product>(product4.getSchluessel(), product4), tree.getWurzel());
-		 * 
-		 * System.out
-		 * .println("\n-------------- Ausgabe bei Produkten --------------");
-		 * tree.ausgeben();
-		 * 
-		 * System.out .println(
-		 * "\n-------------- Ausgabe Knotenanzahl + Tiefe bei Produkten --------------"
-		 * ); System.out.println("Knotenanzahl: " +
-		 * treeHelper.countNodes(tree.getWurzel()));
-		 * System.out.println("Knotentiefe: " +
-		 * treeHelper.treeDepth(tree.getWurzel())); }
-		 * 
-		 * catch (NodeException e) { System.out.println(e.getMessage());
-		 * e.printStackTrace(); }
-		 */
+		currentBuffer = buffer;		
 	}
 
 	public void run() {
 
 		while (!isInterrupted()) {
-			statusmeldungZugriffswunsch();
-			// Date-Objekt dem Puffer entnehmen, dazu Puffer-Zugriffsmethode
-			// aufrufen --> Synchronisation ueber den Puffer!
-			// Hier sollte dann etwas mit dem item-Objekt getan werden ...
-			item = currentBuffer.remove();
+			statusmeldungZugriffswunsch();			
+			item = currentBuffer.remove();	
+			
 			if (item != null) {
-				System.err.println("Item removed: " + item);
+				System.err.println("Item removed: " + item + "\n");
 			}
 
-			if (!isInterrupted()) {
-				// Fuer unbestimmte Zeit anhalten
+			if (!isInterrupted()) {				
 				pause();
 			}
 		}
