@@ -47,7 +47,7 @@ public class GuiAnwendung extends Application {
 		// erstellt die Flaeche des Fensters
 		// StackPane root = new StackPane();
 		// Group root = new Group();
-		Scene scene = new Scene(new VBox(), 400, 350);
+		Scene scene = new Scene(new VBox(8), 1280, 1024);
 		
 		// Table:
 		Label label = new Label("Person");
@@ -68,7 +68,7 @@ public class GuiAnwendung extends Application {
 		// gridpane.add(btn, 2, 1);
 	//	root.getChildren().add(createMenu());
 		 // gridpane.add(createMenu(), 0, 0);
-		 gridpane.add(createTable(), 0, 5);
+		 gridpane.add(createTable(), 50, 5);
 
 		// steckt die Flache in das Fenster
 		 primaryStage.setScene(scene);
