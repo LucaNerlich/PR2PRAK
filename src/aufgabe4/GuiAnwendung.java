@@ -46,26 +46,36 @@ public class GuiAnwendung extends Application {
 
 		// erstellt die Flaeche des Fensters
 		// StackPane root = new StackPane();
-		Group root = new Group();
-
+		// Group root = new Group();
+		Scene scene = new Scene(new VBox(), 400, 350);
+		
 		// Table:
 		Label label = new Label("Person");
 		gridpane.add(label, 0, 1);
 		GridPane.setHalignment(label, HPos.CENTER);
-
-		root.getChildren().add(gridpane);
+		
+		 ((VBox) scene.getRoot()).getChildren().addAll(createMenu()); 
+		 //mit VBox klappt das Menu...
+		 
+		 ((VBox) scene.getRoot()).getChildren().addAll(gridpane);
+		 
+		// root.getChildren().add(gridpane);
 		// fuege Button zur Gridpane hinzu
-		gridpane.add(tBtn1, 0, 3);
-		gridpane.add(comboBox1, 0, 2);
-		gridpane.add(ckBox1, 1, 1);
-		gridpane.add(tField, 2, 0);
-		gridpane.add(btn, 2, 1);
-		gridpane.add(createMenu(), 0, 0);
-		gridpane.add(createTable(), 0, 5);
+		 gridpane.add(tBtn1, 0, 3);
+		 gridpane.add(comboBox1, 0, 2);
+		 gridpane.add(ckBox1, 1, 1);
+		// gridpane.add(tField, 2, 0);
+		// gridpane.add(btn, 2, 1);
+	//	root.getChildren().add(createMenu());
+		 // gridpane.add(createMenu(), 0, 0);
+		 gridpane.add(createTable(), 0, 5);
 
 		// steckt die Flache in das Fenster
-		primaryStage.setScene(new Scene(root, 1024, 720, Color.WHITE));
-		primaryStage.show();
+		 primaryStage.setScene(scene);
+		 primaryStage.show();		 
+		 
+		// primaryStage.setScene(new Scene(root, 1024, 720, Color.WHITE));
+		// primaryStage.show();
 	}
 
 	/**
