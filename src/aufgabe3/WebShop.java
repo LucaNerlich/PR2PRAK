@@ -11,6 +11,7 @@ package aufgabe3;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
+
 import aufgabe2.SortingCriterion;
 import aufgabe3.bufferServerWebShop.AbortOrderTimerTask;
 import aufgabe3.bufferServerWebShop.BoundedBuffer;
@@ -35,6 +36,29 @@ public class WebShop extends Thread {
 //	public final int MAX_IDLE_TIME = 100;
 	public static BoundedBuffer<Order> currentBuffer;
 	public static Order item;
+	
+	public static Customer customer1 = new Customer("vA", "nA");
+	public static Customer customer2 = new Customer("vB", "nB");
+	public static Customer customer3 = new Customer("vC", "nC");
+	public static Customer customer4 = new Customer("vD", "nD");
+	public static Customer customer5 = new Customer("vE", "nE");
+	public static Customer customer6 = new Customer("vF", "nF");
+	public static Customer customer7 = new Customer("vG", "nG");
+	public static Customer customer8 = new Customer("vH", "nH");
+	public static Customer customer9 = new Customer("vI", "nI");
+	public static Customer customer10 = new Customer("vJ", "nJ");
+
+	public static Product product1 = new Product("Seife", 1.2);
+	public static Product product2 = new Product("Auto", 42000);
+	public static Product product3 = new Product("Computer", 1337);
+	public static Product product4 = new Product("Stueck Kaese", 4.99);
+	public static Product product5 = new Product("Wurst", 4.99);
+	public static Product product6 = new Product("Huhn", 12.99);
+	public static Product product7 = new Product("Salat", 0.89);
+	public static Product product8 = new Product("Broetchen", 3.25);
+	public static Product product9 = new Product("Sixpack Bier", 6.99);
+	public static Product product10 = new Product("Schnapps", 9.99);
+	
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
 	public WebShop(BoundedBuffer<Order> buffer) {
