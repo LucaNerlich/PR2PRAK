@@ -3,13 +3,12 @@ package aufgabe4;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.stage.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class GuiAnwendung extends Application {
 
@@ -33,7 +32,7 @@ public class GuiAnwendung extends Application {
 
 		// init Gridpane
 		GridPane gridpane = new GridPane();
-		gridpane.setPadding(new Insets(5)); // rand außen
+		gridpane.setPadding(new Insets(5)); // rand auï¿½en
 		gridpane.setHgap(10);
 		gridpane.setVgap(10);
 
@@ -106,20 +105,23 @@ public class GuiAnwendung extends Application {
 		personTableView.setItems(Person.getPeople());
 
 		// Setup the first column: vName
-		TableColumn<Person, String> vNameCol = new TableColumn<>("vName");
+        // 	TableColumn<Person, String> vNameCol = new TableColumn<>("vName");
+		TableColumn<Person, String> vNameCol = new TableColumn("vName");
 		vNameCol.setEditable(true);
 		vNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>(
 				"vName"));
 		vNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
 
 		// Setup the second column: nName
-		TableColumn<Person, String> nNameCol = new TableColumn<>("nName");
+        // TableColumn<Person, String> nNameCol = new TableColumn<>("nName");
+		 TableColumn<Person, String> nNameCol = new TableColumn("nName");
 		nNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>(
 				"nName"));
 		nNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
 
 		// Setup the third colum: alter
-		TableColumn<Person, String> lastNameCol = new TableColumn<>("alter");
+        // TableColumn<Person, String> lastNameCol = new TableColumn<>("alter");
+		TableColumn<Person, String> lastNameCol = new TableColumn("alter");
 		lastNameCol
 				.setCellValueFactory(new PropertyValueFactory<Person, String>(
 						"alter"));
