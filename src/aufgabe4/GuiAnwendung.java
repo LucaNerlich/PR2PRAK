@@ -1,6 +1,7 @@
 package aufgabe4;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -54,7 +55,7 @@ public class GuiAnwendung extends Application {
 
         // init Gridpane
 
-		gridpane.setPadding(new Insets(5)); // rand au�en
+		gridpane.setPadding(new Insets(5)); // rand aussen
 		gridpane.setHgap(10);
 		gridpane.setVgap(10);
 
@@ -67,7 +68,7 @@ public class GuiAnwendung extends Application {
 				"Laura", "Daniel");
 		CheckBox ckBox1 = contBuilder.createCheckBox("el babo");
 		TextField tField = contBuilder.createTextField("");
-		Button btn = contBuilder.createButton("Button");
+		Button btn = contBuilder.createButton("ADD PERSON");
         btn.setOnAction(new ButtonWithEventHandler());
 
        final Button btn2 = contBuilder.createButton("Button2");
@@ -78,6 +79,17 @@ public class GuiAnwendung extends Application {
                 System.out.println(" - ID: " + btn2.getId());
             }
         });
+
+        final Button closeButton = contBuilder.createButton("CLOSE");
+        closeButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Platform.exit();
+            }
+        });
+
+        borderPane.setBottom(closeButton);
+
 		// erstellt die Flaeche des Fensters
 		// StackPane root = new StackPane();
 		// Group root = new Group();
@@ -96,19 +108,58 @@ public class GuiAnwendung extends Application {
         label.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_MOVED, new MouseEventHandler());
 	// 	GridPane.setHalignment(label, HPos.CENTER);
 
-        //Objekte an die Gridpane haengen
+        // Objekte an die Gridpane haengen
 		// root.getChildren().add(gridpane);
 		// fuege Button zur Gridpane hinzu
 		// gridpane.add(tBtn1, 0, 3);
 		// gridpane.add(comboBox1, 0, 2);
 		// gridpane.add(ckBox1, 1, 1);
 		// gridpane.add(tField, 2, 0);
-		 gridpane.add(btn, 2, 1);
+        Label customersLabel = new Label("Customers");
+        Label productsLabel = new Label("Products");
+
+        gridpane.add(customersLabel,1, 1);
+        gridpane.add(productsLabel,2, 1);
+
+		 gridpane.add(btn, 2, 2);
         // gridpane.add(btn2, 2, 2);
 	    // root.getChildren().add(createMenu());
 		 // gridpane.add(createMenu(), 0, 0);
-         gridpane.add(label, 2, 2);
-		 gridpane.add(createTable(), 2, 4);
+         gridpane.add(label, 1, 2);
+
+        Button addCustomer = contBuilder.createButton("Add customer");
+        gridpane.add(addCustomer, 1, 3);
+
+        addCustomer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                //todo user input dialog
+                Customers.addCustomer("Tjorben", "Eckermann");
+            }
+        });
+
+        Button addProduct = contBuilder.createButton("Add product");
+        gridpane.add(addProduct, 2, 3);
+
+        addProduct.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                //todo user input dialog
+                Products.addProduct("Tastatur", 150);
+            }
+        });
+
+        Button removeCustomer = contBuilder.createButton("Remove selected customer");
+        gridpane.add(removeCustomer, 1, 4);
+
+        Button removeProducts = contBuilder.createButton("Remove selected product");
+        gridpane.add(removeProducts, 2, 4);
+
+        Button placeOrder = contBuilder.createButton("Place order");
+        gridpane.add(placeOrder, 1, 5);
+
+		gridpane.add(createCustomers(), 1, 2);
+        gridpane.add(createProducts(),  2, 2);
 
         //css laden
         ObservableList<String> cssList = loadCss("stylesheet.css");
@@ -116,14 +167,14 @@ public class GuiAnwendung extends Application {
             scene.getStylesheets().addAll(cssList);
         }
         else{
-            System.out.println("Failed to load CSS file.");
+            System.err.println("Failed to load CSS file.");
         }
 
         // steckt die Flaeche in das Fenster
         primaryStage.setScene(scene);
 
         // zeigt die Linien innerhalb der Gridpane
-         gridpane.setGridLinesVisible(true);
+        // gridpane.setGridLinesVisible(true);
 		 primaryStage.show();		 
 		 
 		// primaryStage.setScene(new Scene(root, 1024, 720, Color.WHITE));
@@ -187,6 +238,64 @@ public class GuiAnwendung extends Application {
 
 		return personTableView;
 	}
+
+    private TableView createCustomers(){
+        final TableView<Customers> customerTableView = new TableView();
+        customerTableView.setPrefWidth(350);
+        customerTableView.setPrefHeight(300);
+        customerTableView.setItems(Customers.getCustomers());
+
+        // Setup the first column: vName
+        // 	TableColumn<Customers, String> vNameCol = new TableColumn<>("vName");  // intellij kann keine <>
+        TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
+        vNameCol.setEditable(true);
+        vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+                "vName"));
+        vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+
+        // Setup the second column: nName
+        // TableColumn<Customers, String> nNameCol = new TableColumn<>("nName"); // intellij kann keine <>
+        TableColumn<Customers, String> nNameCol = new TableColumn("Nachname");
+        nNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+                "nName"));
+        nNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+
+        // Assemble table from the columns
+        customerTableView.getColumns().add(vNameCol);
+        customerTableView.getColumns().add(nNameCol);
+
+        return customerTableView;
+    }
+
+    private TableView createProducts(){
+        final TableView<Products> productsTableView = new TableView();
+
+        productsTableView.setPrefWidth(350);
+        productsTableView.setPrefHeight(300);
+        productsTableView.setItems(Products.getProducts());
+
+        // Setup the first column: Name
+        // 	TableColumn<Products, String> vNameCol = new TableColumn<>("vName"); // intellij kann keine <>
+        TableColumn<Products, String> NameCol = new TableColumn("Name");
+        NameCol.setEditable(true);
+        NameCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
+                "Name"));
+        NameCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
+
+        // Setup the second colum: Price
+        // TableColumn<Products, String> lastNameCol = new TableColumn<>("alter");
+        TableColumn<Products, String> priceCol = new TableColumn("Price");
+        priceCol
+                .setCellValueFactory(new PropertyValueFactory<Products, String>(
+                        "Price"));
+        priceCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
+
+        // Assemble table from the columns
+        productsTableView.getColumns().add(NameCol);
+        productsTableView.getColumns().add(priceCol);
+
+        return productsTableView;
+    }
 
     private ObservableList<String> loadCss(String cssFileName){
         ObservableList<String> cssStyle = FXCollections.observableArrayList();

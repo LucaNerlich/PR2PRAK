@@ -11,6 +11,6 @@ import javafx.event.EventHandler;
 public class ButtonWithEventHandler implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent event){
-        System.out.println("TEST BUTTON");
+        System.out.println("ADD PERSON");
     }
 }
