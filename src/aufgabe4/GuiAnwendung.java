@@ -113,7 +113,7 @@ public class GuiAnwendung extends Application {
 		vNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
 
 		// Setup the second column: nName
-        // TableColumn<Person, String> nNameCol = new TableColumn<>("nName");
+        // TableColumn<Person, String> nNameCol = new TableColumn<>("nName"); // intellij kann keine <>
 		 TableColumn<Person, String> nNameCol = new TableColumn("nName");
 		nNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>(
 				"nName"));

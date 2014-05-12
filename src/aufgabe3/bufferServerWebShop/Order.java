@@ -1,3 +1,10 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 3, Aufgabe 1
+ * Order.java
+ */
 package aufgabe3.bufferServerWebShop;
 
 import aufgabe3.Customer;

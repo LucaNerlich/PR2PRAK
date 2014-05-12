@@ -1,10 +1,18 @@
-package aufgabe3.bufferServerWebShop;
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 3, Aufgabe 1
+ * OrderGenerator.java
+ */
 
-import java.util.ArrayList;
+package aufgabe3.bufferServerWebShop;
 
 import aufgabe3.Customer;
 import aufgabe3.Product;
 import aufgabe3.WebShop;
+
+import java.util.ArrayList;
 
 public class OrderGenerator extends Thread {
 
@@ -13,8 +21,11 @@ public class OrderGenerator extends Thread {
 	private BoundedBuffer<Order> currentBuffer;
 	private Order item;
 
-	
 
+    /**
+     * ArrayListen zum Speichern der Kunden und Produkte.
+     * Hiermit wird dann die Bestellung generiert.
+     */
 	static ArrayList<Customer> customerListe = new ArrayList<Customer>();
 	static ArrayList<Product> produktListe = new ArrayList<Product>();
 
@@ -22,6 +33,9 @@ public class OrderGenerator extends Thread {
 		currentBuffer = buffer;
 	}
 
+    /**
+     * Dieser Thread generiert zufaellig eine "Bestellung" (customer/product)
+     */
 	public void run() {
 		while (!isInterrupted() && (currentBuffer.getCounter() <= 9)) {
 
@@ -43,8 +57,7 @@ public class OrderGenerator extends Thread {
 	}
 
 	/**
-	 * Helfermethode zur zufaelligen Generierung einer Bestellung
-	 * 
+	 * Helfermethode zur zufaelligen Generierung einer Bestellung	 *
 	 * @return order Objekt
 	 */
 	private Order getContent() {
@@ -81,7 +94,7 @@ public class OrderGenerator extends Thread {
 	}
 
 	/**
-	 * Fuegt die Customer und Produkte in die Arraylist ein.
+	 * Fuegt die Customer und Produkte (aus dem Webshop) in die Arraylist ein.
 	 */
 	public static void addToList() {
 		customerListe.add(WebShop.customer1);
@@ -115,7 +128,10 @@ public class OrderGenerator extends Thread {
 		System.err.println("                                           "
 				+ this.getName() + " moechte auf den Puffer zugreifen! \n");
 	}
-	
+
+    /**
+     * schlaeft fuer die angebene Zeit.
+     */
 	public void pause() {
 		// int sleepTime = (int) (MAX_IDLE_TIME * Math.random());
 		try {

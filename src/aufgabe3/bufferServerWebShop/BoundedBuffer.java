@@ -1,3 +1,10 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 3, Aufgabe 1
+ * BoundedBuffer.java
+ */
 package aufgabe3.bufferServerWebShop;
 
 import java.util.*;
@@ -21,6 +28,7 @@ public class BoundedBuffer<E> {
 
 	/**
 	 * Konstruktor
+     * Setzt die Groesse des Buffers
 	 */
 	public BoundedBuffer(int bufferSize) {
 		bufferMaxSize = bufferSize;
@@ -29,6 +37,7 @@ public class BoundedBuffer<E> {
 
 	/**
 	 * Producer (Erzeuger) rufen die Methode enter() auf
+     * Diese legt das item in den Puffer mit der add() Methode
 	 **/
 	public synchronized void enter(E item) {
 		while (buffer.size() >= bufferMaxSize) {
@@ -39,6 +48,7 @@ public class BoundedBuffer<E> {
 				return;
 			}
 		}
+        //Mehtode von LinkedList
 		buffer.add(item);
 		System.err
 				.println("          ENTER: "
@@ -50,6 +60,7 @@ public class BoundedBuffer<E> {
 
 	/**
 	 * Consumer (Verbraucher) rufen die Methode REMOVE auf
+     * Entfernt das erste Element der Liste / Buffer
 	 **/
 	public synchronized E remove() {
 		E item;
@@ -62,12 +73,14 @@ public class BoundedBuffer<E> {
 				return null;
 			}
 		}
+        //Methode von LinkedList
 		item = buffer.removeFirst();
 		System.err
 				.println("          REMOVE: "
 						+ Thread.currentThread().getName()
 						+ " hat ein Objekt aus dem Puffer entnommen. Aktuelle Puffergroesse: "
 						+ buffer.size());
+        //informiert alle wartenden Threads
 		this.notifyAll();
 		return item;
 	}

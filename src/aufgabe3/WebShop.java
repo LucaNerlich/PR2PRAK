@@ -2,23 +2,21 @@
  * Praktikum WIPR2, SS 2014  
  * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
  * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
- * Aufgabe: Aufgabenblatt 1, Aufgabe 1
+ * Aufgabe: Aufgabenblatt 3, Aufgabe 1
  * WebShop.java
  */
 
 package aufgabe3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Timer;
-
 import aufgabe2.SortingCriterion;
-import aufgabe3.bufferServerWebShop.AbortOrderTimerTask;
 import aufgabe3.bufferServerWebShop.BoundedBuffer;
 import aufgabe3.bufferServerWebShop.Order;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
- * Diese Klasse repräsentiert den Webshop und die Verwaltung der Customer (add,
+ * Diese Klasse repraesentiert den Webshop und die Verwaltung der Customer (add,
  * remove und print)
  * 
  * @author (Daniel.Sommerlig@haw-hamburg.de) &
@@ -33,7 +31,7 @@ public class WebShop extends Thread {
 	BinaryTree<String, Product> tree = new BinaryTree<String, Product>(
 			stringComparator);
 
-//	public final int MAX_IDLE_TIME = 100;
+
 	public static BoundedBuffer<Order> currentBuffer;
 	public static Order item;
 	
@@ -57,7 +55,7 @@ public class WebShop extends Thread {
 	public static Product product7 = new Product("Salat", 0.89);
 	public static Product product8 = new Product("Broetchen", 3.25);
 	public static Product product9 = new Product("Sixpack Bier", 6.99);
-	public static Product product10 = new Product("Schnapps", 9.99);
+	public static Product product10 = new Product("Smartphone", 299.99);
 	
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
@@ -108,16 +106,16 @@ public class WebShop extends Thread {
 	private ArrayList<Customer> kundenListe = new ArrayList<Customer>();
 
 	/**
-	 * Methoden für die Nutzerverwaltung
+	 * Methoden fï¿½r die Nutzerverwaltung
 	 */
 
 	/**
 	 * Fuegt ein neues Element zur ArrayList hinzu.
 	 * 
 	 * @param vorname
-	 *            -> repräsentiert den Vornamen vom Kunden
+	 *            -> reprï¿½sentiert den Vornamen vom Kunden
 	 * @param nachname
-	 *            -> repräsentiert den Nachnamen vom Kunden
+	 *            -> reprï¿½sentiert den Nachnamen vom Kunden
 	 */
 	public void addCustomer(String vorname, String nachname) {
 		kundenListe.add(new Customer(vorname, nachname));
@@ -127,9 +125,9 @@ public class WebShop extends Thread {
 	 * Entfernt alle passenden Elemente
 	 * 
 	 * @param vorname
-	 *            -> repräsentiert den Vornamen vom Kunden
+	 *            -> reprï¿½sentiert den Vornamen vom Kunden
 	 * @param nachname
-	 *            -> repräsentiert den Nachnamen vom Kunden
+	 *            -> reprï¿½sentiert den Nachnamen vom Kunden
 	 */
 	public void removeCustomer(String vorname, String nachname) {
 		// Customer rmvCustomer = null;
@@ -148,8 +146,8 @@ public class WebShop extends Thread {
 	 * Customer.
 	 * 
 	 * @param comp
-	 *            -> repräsentiert den Comparator
-	 * @return ausgabe -> repräsentiert die Liste der Customer - sortiert
+	 *            -> reprï¿½sentiert den Comparator
+	 * @return ausgabe -> reprï¿½sentiert die Liste der Customer - sortiert
 	 */
 	public String printListOfCustomer(SortingCriterion comp) {
 
@@ -173,7 +171,7 @@ public class WebShop extends Thread {
 	/**
 	 * Gibt einfach die ArrayList aus.
 	 * 
-	 * @return ausgabe -> repräsentiert die Liste der Customer - unsortiert
+	 * @return ausgabe -> reprï¿½sentiert die Liste der Customer - unsortiert
 	 */
 	public String printListUnsorted() {
 		String ausgabe = "";
