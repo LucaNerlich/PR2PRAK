@@ -9,7 +9,7 @@ package aufgabe3;
  */
 
 /**
- * Standard Klasse zur Repräsentation der Produkte
+ * Standard Klasse zur Reprï¿½sentation der Produkte
  * 
  * @author (Daniel.Sommerlig@haw-hamburg.de) &
  *         (Lucasteffen.Nerlich@haw-hamburg.de)
@@ -17,8 +17,8 @@ package aufgabe3;
  */
 public class Product {
 	/**
-	 * Die Objektvariable Preis repräsentiert den Preis vom Produkt, die
-	 * Objektvariable Name repräsentiert den Namen vom Produkt,
+	 * Die Objektvariable Preis reprï¿½sentiert den Preis vom Produkt, die
+	 * Objektvariable Name reprï¿½sentiert den Namen vom Produkt,
 	 */
 	private double preis;
 	private String name;
@@ -37,10 +37,10 @@ public class Product {
 
 	@Override
 	/**
-	 * Repräsentiert das Produktobjekt 
+	 * Reprï¿½sentiert das Produktobjekt 
 	 */
 	public String toString() {
-		return "Product [preis=" + preis + ", name=" + name + "]";
+		return "Product [preis= " + preis + ", name= " + name + "]";
 	}
 
 	public double getWert() {

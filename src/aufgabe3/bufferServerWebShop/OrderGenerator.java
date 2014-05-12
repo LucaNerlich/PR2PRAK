@@ -62,8 +62,8 @@ public class OrderGenerator extends Thread {
 	 */
 	private Order getContent() {
 		// +1 ?
-		int customerRndm = (int) (Math.random() * 10);
-		int prductRndm = (int) (Math.random() * 10);
+		int customerRndm = (int) (Math.random() * 10 +1);
+		int prductRndm = (int) (Math.random() * 10 +1);
 
 		// System.err.println("CUSTOMERrndm "+ customerRndm);
 		// System.err.println("PRODUCTrndm "+ prductRndm);

@@ -50,6 +50,6 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "TOSTRING: Order [customer=" + customer + ", product=" + product + "]";
+		return "( " + customer + ": " + product + ")";
 	}	
 }

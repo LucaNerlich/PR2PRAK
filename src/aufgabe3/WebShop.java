@@ -35,26 +35,26 @@ public class WebShop extends Thread {
 	public static BoundedBuffer<Order> currentBuffer;
 	public static Order item;
 	
-	public static Customer customer1 = new Customer("vA", "nA");
-	public static Customer customer2 = new Customer("vB", "nB");
-	public static Customer customer3 = new Customer("vC", "nC");
-	public static Customer customer4 = new Customer("vD", "nD");
-	public static Customer customer5 = new Customer("vE", "nE");
-	public static Customer customer6 = new Customer("vF", "nF");
-	public static Customer customer7 = new Customer("vG", "nG");
-	public static Customer customer8 = new Customer("vH", "nH");
-	public static Customer customer9 = new Customer("vI", "nI");
-	public static Customer customer10 = new Customer("vJ", "nJ");
+	public static Customer customer1 = new Customer("vAnton", "nA");
+	public static Customer customer2 = new Customer("vBjoern", "nB");
+	public static Customer customer3 = new Customer("vClaus", "nC");
+	public static Customer customer4 = new Customer("vDetlef", "nD");
+	public static Customer customer5 = new Customer("vErwin", "nE");
+	public static Customer customer6 = new Customer("vFriedrich", "nF");
+	public static Customer customer7 = new Customer("vGregor", "nG");
+	public static Customer customer8 = new Customer("vHubert", "nH");
+	public static Customer customer9 = new Customer("vIver", "nI");
+	public static Customer customer10 = new Customer("vJoern", "nJ");
 
 	public static Product product1 = new Product("Seife", 1.2);
 	public static Product product2 = new Product("Auto", 42000);
-	public static Product product3 = new Product("Computer", 1337);
-	public static Product product4 = new Product("Stueck Kaese", 4.99);
-	public static Product product5 = new Product("Wurst", 4.99);
-	public static Product product6 = new Product("Huhn", 12.99);
-	public static Product product7 = new Product("Salat", 0.89);
+	public static Product product3 = new Product("Computer", 1250);
+	public static Product product4 = new Product("Stueck Kaese", 5.99);
+	public static Product product5 = new Product("Wurst", 3.99);
+	public static Product product6 = new Product("Huhn", 12.49);
+	public static Product product7 = new Product("Salat", 1.29);
 	public static Product product8 = new Product("Broetchen", 3.25);
-	public static Product product9 = new Product("Sixpack Bier", 6.99);
+	public static Product product9 = new Product("Sixpack Bier", 7.99);
 	public static Product product10 = new Product("Smartphone", 299.99);
 	
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
@@ -70,7 +70,7 @@ public class WebShop extends Thread {
 			item = currentBuffer.remove();	
 			
 			if (item != null) {
-				System.err.println("Item removed: " + item + "\n");
+				System.err.println("Successfully processed: Order " + item + "\n");
 			}
 
 			if (!isInterrupted()) {				
