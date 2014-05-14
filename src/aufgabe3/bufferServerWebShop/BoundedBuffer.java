@@ -57,7 +57,8 @@ public class BoundedBuffer<E> {
 				.println("=> ENTER: "
 						+ Thread.currentThread().getName()
 						+ " hat ein Objekt in den Puffer gelegt. Aktuelle Puffergroesse: "
-						+ buffer.size());
+						+ buffer.size()
+                        + "\n");
 		// Alle Threads die in der Warteschlange werden geweckt
 		this.notifyAll();
 	}
