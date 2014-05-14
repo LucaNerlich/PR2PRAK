@@ -12,17 +12,19 @@ import aufgabe3.WebShop;
 import java.util.TimerTask;
 
 /**
- * Bildet die Grundlage des Timers. Wird regelmaessig durch den timer aufgerufen.
+ * Bildet die Grundlage des Timers. Wird regelmaessig durch den timer
+ * aufgerufen.
  */
 public class AbortOrderTimerTask extends TimerTask {
 
-    /**
-     * Agiert wie die Anderen Verbraucher / Consumer.
-     * Entnimmt das erste Objekt des Buffers.
-     */
+	/**
+	 * Agiert wie die Anderen Verbraucher / Consumer. Entnimmt das erste Objekt
+	 * des Buffers.
+	 */
 	@Override
 	public void run() {
 		WebShop.item = WebShop.currentBuffer.remove();
-		System.err.println("Bestellung abgebrochen! \n");
+		System.err.println("\n### Achtung ###\n"
+				+ "Benutzer hat die Bestellung abgebrochen! \n");
 	}
 }

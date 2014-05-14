@@ -31,10 +31,9 @@ public class WebShop extends Thread {
 	BinaryTree<String, Product> tree = new BinaryTree<String, Product>(
 			stringComparator);
 
-
 	public static BoundedBuffer<Order> currentBuffer;
 	public static Order item;
-	
+
 	public static Customer customer1 = new Customer("vAnton", "nA");
 	public static Customer customer2 = new Customer("vBjoern", "nB");
 	public static Customer customer3 = new Customer("vClaus", "nC");
@@ -56,24 +55,26 @@ public class WebShop extends Thread {
 	public static Product product8 = new Product("Broetchen", 3.25);
 	public static Product product9 = new Product("Sixpack Bier", 7.99);
 	public static Product product10 = new Product("Smartphone", 299.99);
-	
+
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
 	public WebShop(BoundedBuffer<Order> buffer) {
-		currentBuffer = buffer;		
+		currentBuffer = buffer;
 	}
 
 	public void run() {
 
 		while (!isInterrupted()) {
-			statusmeldungZugriffswunsch();			
-			item = currentBuffer.remove();	
-			
+			statusmeldungZugriffswunsch();
+			item = currentBuffer.remove();
+
 			if (item != null) {
-				System.err.println("Successfully processed: Order " + item + "\n");
+				System.err.println("\nStatus der Bestellung:"
+						+ "\nSuccessfully processed: Order " + item + "\n");
+
 			}
 
-			if (!isInterrupted()) {				
+			if (!isInterrupted()) {
 				pause();
 			}
 		}
@@ -84,8 +85,8 @@ public class WebShop extends Thread {
 	 */
 	public void statusmeldungZugriffswunsch() {
 
-		System.err.println("                                           "
-				+ this.getName() + " moechte auf den Puffer zugreifen!");
+		System.err.println("<<<< " +this.getName()
+				+ " moechte auf den Puffer zugreifen!");
 	}
 
 	/**
@@ -106,7 +107,7 @@ public class WebShop extends Thread {
 	private ArrayList<Customer> kundenListe = new ArrayList<Customer>();
 
 	/**
-	 * Methoden f�r die Nutzerverwaltung
+	 * Methoden fuer die Nutzerverwaltung
 	 */
 
 	/**
@@ -125,9 +126,9 @@ public class WebShop extends Thread {
 	 * Entfernt alle passenden Elemente
 	 * 
 	 * @param vorname
-	 *            -> repr�sentiert den Vornamen vom Kunden
+	 *            -> repraesentiert den Vornamen vom Kunden
 	 * @param nachname
-	 *            -> repr�sentiert den Nachnamen vom Kunden
+	 *            -> repraesentiert den Nachnamen vom Kunden
 	 */
 	public void removeCustomer(String vorname, String nachname) {
 		// Customer rmvCustomer = null;
@@ -146,8 +147,8 @@ public class WebShop extends Thread {
 	 * Customer.
 	 * 
 	 * @param comp
-	 *            -> repr�sentiert den Comparator
-	 * @return ausgabe -> repr�sentiert die Liste der Customer - sortiert
+	 *            -> repraesentiert den Comparator
+	 * @return ausgabe -> repraesentiert die Liste der Customer - sortiert
 	 */
 	public String printListOfCustomer(SortingCriterion comp) {
 
@@ -171,7 +172,7 @@ public class WebShop extends Thread {
 	/**
 	 * Gibt einfach die ArrayList aus.
 	 * 
-	 * @return ausgabe -> repr�sentiert die Liste der Customer - unsortiert
+	 * @return ausgabe -> repraesentiert die Liste der Customer - unsortiert
 	 */
 	public String printListUnsorted() {
 		String ausgabe = "";

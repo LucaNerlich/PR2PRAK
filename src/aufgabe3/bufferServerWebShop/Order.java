@@ -11,21 +11,20 @@ import aufgabe3.Customer;
 import aufgabe3.Product;
 
 /**
- * Diese Klasse repraesentiert eine Bestellung.
- * Jede Bestellung hat einen Kunden und das zugehoerige Produkt.
- * @author Luca
- *
+ * Diese Klasse repraesentiert eine Bestellung. Jede Bestellung hat einen Kunden
+ * und das zugehoerige Produkt. Der Objektzaehler wird verwendet um die
+ * generierten Bestellungen zu zählen
  */
 public class Order {
 
 	private Customer customer;
 	private Product product;
-	public static int objektzaehler = 0;	
-	
-	public Order(Customer customer, Product product){	
+	public static int objektzaehler = 0;
+
+	public Order(Customer customer, Product product) {
 		objektzaehler++;
 		this.customer = customer;
-		this.product = product;					
+		this.product = product;
 	}
 
 	public Customer getCustomer() {
@@ -43,13 +42,13 @@ public class Order {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
-	public int getAnzOrder(){
+
+	public int getAnzOrder() {
 		return objektzaehler;
 	}
 
 	@Override
 	public String toString() {
 		return "( " + customer + ": " + product + ")";
-	}	
+	}
 }

@@ -16,7 +16,7 @@ import java.util.*;
 public class BoundedBuffer<E> {
 
 	/**
-	 * Maximale Puffergröße
+	 * Maximale Puffergroesse
 	 */
 	private int bufferMaxSize;
 	private int counter;
@@ -27,8 +27,7 @@ public class BoundedBuffer<E> {
 	private LinkedList<E> buffer;
 
 	/**
-	 * Konstruktor
-     * Setzt die Groesse des Buffers
+	 * Konstruktor Setzt die Groesse des Buffers
 	 */
 	public BoundedBuffer(int bufferSize) {
 		bufferMaxSize = bufferSize;
@@ -36,10 +35,14 @@ public class BoundedBuffer<E> {
 	}
 
 	/**
-	 * Producer (Erzeuger) rufen die Methode enter() auf
-     * Diese legt das item in den Puffer mit der add() Methode
+	 * Producer (Erzeuger) rufen die Methode enter() auf Diese legt das item in
+	 * den Puffer mit der add() Methode Synchronized da es sich um einen
+	 * kritischen Bereich handelt es wird in die Pufferliste geschrieben ->
+	 * Monitor
 	 **/
 	public synchronized void enter(E item) {
+		// Prueft ob noch Platz im Puffer ist, falls nicht geht der Thread in
+		// die Warteschlange
 		while (buffer.size() >= bufferMaxSize) {
 			try {
 				this.wait();
@@ -48,19 +51,20 @@ public class BoundedBuffer<E> {
 				return;
 			}
 		}
-        //Mehtode von LinkedList
+		// Mehtode von LinkedList
 		buffer.add(item);
 		System.err
-				.println("          ENTER: "
+				.println("=> ENTER: "
 						+ Thread.currentThread().getName()
 						+ " hat ein Objekt in den Puffer gelegt. Aktuelle Puffergroesse: "
 						+ buffer.size());
+		// Alle Threads die in der Warteschlange werden geweckt
 		this.notifyAll();
 	}
 
 	/**
-	 * Consumer (Verbraucher) rufen die Methode REMOVE auf
-     * Entfernt das erste Element der Liste / Buffer
+	 * Consumer (Verbraucher) rufen die Methode REMOVE auf Entfernt das erste
+	 * Element der Liste / Buffer
 	 **/
 	public synchronized E remove() {
 		E item;
@@ -73,14 +77,14 @@ public class BoundedBuffer<E> {
 				return null;
 			}
 		}
-        //Methode von LinkedList
+		// Methode von LinkedList
 		item = buffer.removeFirst();
 		System.err
-				.println("          REMOVE: "
+				.println("<= REMOVE: "
 						+ Thread.currentThread().getName()
 						+ " hat ein Objekt aus dem Puffer entnommen. Aktuelle Puffergroesse: "
 						+ buffer.size());
-        //informiert alle wartenden Threads
+		// informiert alle wartenden Threads
 		this.notifyAll();
 		return item;
 	}

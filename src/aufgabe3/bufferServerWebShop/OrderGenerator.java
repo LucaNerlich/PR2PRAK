@@ -14,6 +14,10 @@ import aufgabe3.WebShop;
 
 import java.util.ArrayList;
 
+/**
+ * Diese Klasse repraesentiert unseren Generator für Bestellungen, die
+ * Bestellung wird zufaellig aus Product/Customer erzeugt dient als Erzeuger
+ */
 public class OrderGenerator extends Thread {
 
 	public final int MAX_IDLE_TIME = 100;
@@ -21,11 +25,10 @@ public class OrderGenerator extends Thread {
 	private BoundedBuffer<Order> currentBuffer;
 	private Order item;
 
-
-    /**
-     * ArrayListen zum Speichern der Kunden und Produkte.
-     * Hiermit wird dann die Bestellung generiert.
-     */
+	/**
+	 * ArrayListen zum Speichern der Kunden und Produkte. Hiermit wird dann die
+	 * Bestellung generiert.
+	 */
 	static ArrayList<Customer> customerListe = new ArrayList<Customer>();
 	static ArrayList<Product> produktListe = new ArrayList<Product>();
 
@@ -33,9 +36,9 @@ public class OrderGenerator extends Thread {
 		currentBuffer = buffer;
 	}
 
-    /**
-     * Dieser Thread generiert zufaellig eine "Bestellung" (customer/product)
-     */
+	/**
+	 * Dieser Thread generiert zufaellig eine "Bestellung" (customer/product)
+	 */
 	public void run() {
 		while (!isInterrupted() && (currentBuffer.getCounter() <= 9)) {
 
@@ -46,24 +49,24 @@ public class OrderGenerator extends Thread {
 			statusmeldungZugriffswunsch();
 
 			// Puffer-Zugriffsmethode aufrufen --> Synchronisation ueber den
-			// Puffer!
+			// Puffer! Fuegt unsere Bestellung Customer + Product in den Puffer
 			currentBuffer.enter(item);
 
-			
-			if (!isInterrupted()) {			
+			if (!isInterrupted()) {
 				pause();
-			}  
+			}
 		}
 	}
 
 	/**
-	 * Helfermethode zur zufaelligen Generierung einer Bestellung	 *
+	 * Helfermethode zur zufaelligen Generierung einer Bestellung
+	 * 
 	 * @return order Objekt
 	 */
 	private Order getContent() {
-		// +1 ?
-		int customerRndm = (int) (Math.random() * 10 +1);
-		int prductRndm = (int) (Math.random() * 10 +1);
+		// +1 da er nach einem Kommawert nur von 0 bis 9 gehen wuerde
+		int customerRndm = (int) (Math.random() * 10 + 1);
+		int prductRndm = (int) (Math.random() * 10 + 1);
 
 		// System.err.println("CUSTOMERrndm "+ customerRndm);
 		// System.err.println("PRODUCTrndm "+ prductRndm);
@@ -71,12 +74,13 @@ public class OrderGenerator extends Thread {
 		Customer customerCache = null;
 		Product productCache = null;
 
+		// Den zufaellig gewaehlten Customer mit Hilfe der ID zuordnen
 		for (Customer customer : customerListe) {
 			if (customer.getId() == customerRndm) {
 				customerCache = customer;
 			}
 		}
-
+		// Das zufaellig gewaehlte product mit Hilfe der ID zuordnen
 		for (Product product : produktListe) {
 			if (product.getId() == prductRndm) {
 				productCache = product;
@@ -85,11 +89,13 @@ public class OrderGenerator extends Thread {
 
 		// sychro Methode zum Zaehlen der Bestellvorgaenge
 		currentBuffer.counter();
-
-		System.err.println("COUNTER: " + currentBuffer.getCounter());
 		Order order = new Order(customerCache, productCache);
 
-		System.err.println(order.toString());
+		System.err
+				.println("\nBestellungsnummer: " + currentBuffer.getCounter()
+						+"\nKunde: " + order.toString()
+						+ " im Warenkorb.\n----------------------------------------------"+
+						"\n");
 		return order;
 	}
 
@@ -125,20 +131,20 @@ public class OrderGenerator extends Thread {
 	 */
 	public void statusmeldungZugriffswunsch() {
 
-		System.err.println("                                           "
-				+ this.getName() + " moechte auf den Puffer zugreifen! \n");
+		System.err.println(">>>> " +this.getName() + " moechte auf den Puffer zugreifen!");
 	}
 
-    /**
-     * schlaeft fuer die angebene Zeit.
-     */
+	/**
+	 * schlaeft fuer die angebene Zeit.
+	 */
 	public void pause() {
 		// int sleepTime = (int) (MAX_IDLE_TIME * Math.random());
 		try {
-			// Thread blockieren
+			// haelt den Thread fuer 500ms an (blockieren)
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			// Erneutes Setzen des Interrupt-Flags fuer den eigenen Thread
+			// noetig, da Catch-Aufruft das Flag auf false zuruecksetzt
 			this.interrupt();
 		}
 	}

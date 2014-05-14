@@ -14,9 +14,10 @@ import java.util.LinkedList;
 import java.util.Timer;
 
 /**
- * Erzeugt eine Simulationsumgebung für ein Erzeuger/Verbrauchersystem
+ * Erzeugt eine Simulationsumgebung fuer ein Erzeuger/Verbrauchersystem
  * 
- * @author Philipp Jenke angepasst und erweitert von Luca Nerlich & Daniel Sommerlig
+ * @author Philipp Jenke angepasst und erweitert von Luca Nerlich & Daniel
+ *         Sommerlig
  * 
  */
 public class BoundedBufferServer {
@@ -53,20 +54,27 @@ public class BoundedBufferServer {
 		LinkedList<WebShop> consumerList = new LinkedList<WebShop>();
 
 		System.err.println("-------------------- START -------------------");
+		// Fuegt die Customer und Produkte (aus dem Webshop) in die Arraylist
+		// ein.
 		OrderGenerator.addToList();
-		
+
 		// Erzeuger(produziert Bestellungen) - Threads erzeugen
-		for (int i = 1; i <= NO_PRODUCER; i++) {			
+		for (int i = 1; i <= NO_PRODUCER; i++) {
+
+			// Den Generator fuer Bestellungen erzeugen mit einem Puffer der
+			// groesse 3
 			OrderGenerator current = new OrderGenerator(server);
 			current.setName("Erzeuger-" + i);
 			producerList.add(current);
 			current.start();
 		}
-
 		try {
-			Thread.sleep(3000); // Zum testen Objekte in Buffer schieben
+			Thread.sleep(3000); // Bevor die naechste Bestellung erzeugt wird
+								// 3sek warten. Zum testen Objekte in Buffer
+								// schieben
 		} catch (InterruptedException e) {
 		}
+
 		// Verbraucher (entnimmt Bestellungen) - Threads erzeugen
 		for (int i = 1; i <= NO_CONSUMER; i++) {
 			WebShop current = new WebShop(server);
@@ -75,10 +83,11 @@ public class BoundedBufferServer {
 			current.start();
 		}
 
-        /**
-         * Timer - stellt die "abgebrochenen" Bestellungen da.
-         * Entnimmt ebenfalls aus dem Buffer
-         */
+		/**
+		 * Timer - stellt die "abgebrochenen" Bestellungen da. Entnimmt
+		 * ebenfalls aus dem Buffer, bricht im Intervall von 1,2sek die
+		 * Bestellung ab
+		 */
 		Timer timer = new Timer();
 		timer.schedule(new AbortOrderTimerTask(), 0, 1200);
 
@@ -96,9 +105,10 @@ public class BoundedBufferServer {
 				consumerList.get(i).interrupt();
 			}
 
-            //Stoppt den Timer
+			// Stoppt den Timer
 			timer.cancel();
-			System.err.println("Simulation done");
+			System.err
+					.println("-------------------- Simulation done -------------------");
 
 		} catch (InterruptedException e) {
 		}
