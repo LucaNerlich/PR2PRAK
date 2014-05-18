@@ -1,3 +1,10 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 3, Aufgabe 1
+ * BufferTesting.java
+ */
 package aufgabe3.bufferServerWebShop;
 
 import aufgabe3.WebShop;
@@ -9,7 +16,8 @@ import java.util.Timer;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Luca on 18.05.2014.
+ * @author (Daniel.Sommerlig@haw-hamburg.de) &
+ *         (Lucasteffen.Nerlich@haw-hamburg.de)
  */
 public class BufferTesting {
 

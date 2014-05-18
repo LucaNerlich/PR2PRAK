@@ -8,11 +8,6 @@
 
 package aufgabe3.bufferServerWebShop;
 
-/**
- * Created by Luca on 18.05.2014.
- */
-
-
 import aufgabe3.Customer;
 import aufgabe3.Product;
 import java.util.ArrayList;
