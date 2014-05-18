@@ -25,7 +25,6 @@ import java.util.Collections;
  */
 public class WebShop extends Thread {
 
-	@SuppressWarnings("rawtypes")
 	StringComparator stringComparator = new StringComparator();
 
 	BinaryTree<String, Product> tree = new BinaryTree<String, Product>(
@@ -33,28 +32,6 @@ public class WebShop extends Thread {
 
 	public static BoundedBuffer<Order> currentBuffer;
 	public static Order item;
-
-	public static Customer customer1 = new Customer("vAnton", "nA");
-	public static Customer customer2 = new Customer("vBjoern", "nB");
-	public static Customer customer3 = new Customer("vClaus", "nC");
-	public static Customer customer4 = new Customer("vDetlef", "nD");
-	public static Customer customer5 = new Customer("vErwin", "nE");
-	public static Customer customer6 = new Customer("vFriedrich", "nF");
-	public static Customer customer7 = new Customer("vGregor", "nG");
-	public static Customer customer8 = new Customer("vHubert", "nH");
-	public static Customer customer9 = new Customer("vIver", "nI");
-	public static Customer customer10 = new Customer("vJoern", "nJ");
-
-	public static Product product1 = new Product("Seife", 1.2);
-	public static Product product2 = new Product("Auto", 42000);
-	public static Product product3 = new Product("Computer", 1250);
-	public static Product product4 = new Product("Stueck Kaese", 5.99);
-	public static Product product5 = new Product("Wurst", 3.99);
-	public static Product product6 = new Product("Huhn", 12.49);
-	public static Product product7 = new Product("Salat", 1.29);
-	public static Product product8 = new Product("Broetchen", 3.25);
-	public static Product product9 = new Product("Sixpack Bier", 7.99);
-	public static Product product10 = new Product("Smartphone", 299.99);
 
 	BinaryTreeHelper treeHelper = new BinaryTreeHelper();
 
@@ -182,3 +159,27 @@ public class WebShop extends Thread {
 		return ausgabe;
 	}
 }
+
+/*
+	public static Customer customer1 = new Customer("vAnton", "nA");
+	public static Customer customer2 = new Customer("vBjoern", "nB");
+	public static Customer customer3 = new Customer("vClaus", "nC");
+	public static Customer customer4 = new Customer("vDetlef", "nD");
+	public static Customer customer5 = new Customer("vErwin", "nE");
+	public static Customer customer6 = new Customer("vFriedrich", "nF");
+	public static Customer customer7 = new Customer("vGregor", "nG");
+	public static Customer customer8 = new Customer("vHubert", "nH");
+	public static Customer customer9 = new Customer("vIver", "nI");
+	public static Customer customer10 = new Customer("vJoern", "nJ");
+
+	public static Product product1 = new Product("Seife", 1.2);
+	public static Product product2 = new Product("Auto", 42000);
+	public static Product product3 = new Product("Computer", 1250);
+	public static Product product4 = new Product("Stueck Kaese", 5.99);
+	public static Product product5 = new Product("Wurst", 3.99);
+	public static Product product6 = new Product("Huhn", 12.49);
+	public static Product product7 = new Product("Salat", 1.29);
+	public static Product product8 = new Product("Broetchen", 3.25);
+	public static Product product9 = new Product("Sixpack Bier", 7.99);
+	public static Product product10 = new Product("Smartphone", 299.99);
+*/

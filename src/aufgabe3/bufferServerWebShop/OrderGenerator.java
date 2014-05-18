@@ -8,14 +8,8 @@
 
 package aufgabe3.bufferServerWebShop;
 
-import aufgabe3.Customer;
-import aufgabe3.Product;
-import aufgabe3.WebShop;
-
-import java.util.ArrayList;
-
 /**
- * Diese Klasse repraesentiert unseren Generator für Bestellungen, die
+ * Diese Klasse repraesentiert unseren Generator fuer Bestellungen, die
  * Bestellung wird zufaellig aus Product/Customer erzeugt dient als Erzeuger
  */
 public class OrderGenerator extends Thread {
@@ -29,8 +23,8 @@ public class OrderGenerator extends Thread {
 	 * ArrayListen zum Speichern der Kunden und Produkte. Hiermit wird dann die
 	 * Bestellung generiert.
 	 */
-	static ArrayList<Customer> customerListe = new ArrayList<Customer>();
-	static ArrayList<Product> produktListe = new ArrayList<Product>();
+	// static ArrayList<Customer> customerListe = new ArrayList<Customer>();
+	// static ArrayList<Product> produktListe = new ArrayList<Product>();
 
 	public OrderGenerator(BoundedBuffer<Order> buffer) {
 		currentBuffer = buffer;
@@ -45,12 +39,18 @@ public class OrderGenerator extends Thread {
 			/**
 			 * Order-Objekt erzeugen
 			 **/
-			item = getContent();
+			item = AnwendungBuffer.getContent();
 			statusmeldungZugriffswunsch();
 
 			// Puffer-Zugriffsmethode aufrufen --> Synchronisation ueber den
 			// Puffer! Fuegt unsere Bestellung Customer + Product in den Puffer
 			currentBuffer.enter(item);
+            currentBuffer.counter();
+            System.err
+                    .println("\nBestellungsnummer: " + currentBuffer.getCounter()
+                            +"\nKunde: " + item.toString()
+                            + " im Warenkorb.\n----------------------------------------------"+
+                            "\n");
 
 			if (!isInterrupted()) {
 				pause();
@@ -63,6 +63,8 @@ public class OrderGenerator extends Thread {
 	 * 
 	 * @return order Objekt
 	 */
+
+    /*
 	private Order getContent() {
 		// +1 da er nach einem Kommawert nur von 0 bis 9 gehen wuerde
 		int customerRndm = (int) (Math.random() * 10 + 1);
@@ -99,9 +101,13 @@ public class OrderGenerator extends Thread {
 		return order;
 	}
 
+	*/
+
 	/**
 	 * Fuegt die Customer und Produkte (aus dem Webshop) in die Arraylist ein.
 	 */
+
+    /*
 	public static void addToList() {
 		customerListe.add(WebShop.customer1);
 		customerListe.add(WebShop.customer2);
@@ -125,6 +131,7 @@ public class OrderGenerator extends Thread {
 		produktListe.add(WebShop.product9);
 		produktListe.add(WebShop.product10);
 	}
+	*/
 
 	/**
 	 * Gib einen Zugriffswunsch auf der Konsole aus

@@ -42,7 +42,7 @@ public class BoundedBufferServer {
 	 */
 	public static void main(String[] args) {
 
-		new BoundedBufferServer().startSimulation();
+	     new BoundedBufferServer().startSimulation();
 	}
 
 	/**
@@ -56,7 +56,8 @@ public class BoundedBufferServer {
 		System.err.println("-------------------- START -------------------");
 		// Fuegt die Customer und Produkte (aus dem Webshop) in die Arraylist
 		// ein.
-		OrderGenerator.addToList();
+		// OrderGenerator.addToList();
+        AnwendungBuffer anwendungBuffer = new AnwendungBuffer(server);
 
 		// Erzeuger(produziert Bestellungen) - Threads erzeugen
 		for (int i = 1; i <= NO_PRODUCER; i++) {

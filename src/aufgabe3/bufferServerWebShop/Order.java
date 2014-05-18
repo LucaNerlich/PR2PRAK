@@ -13,7 +13,7 @@ import aufgabe3.Product;
 /**
  * Diese Klasse repraesentiert eine Bestellung. Jede Bestellung hat einen Kunden
  * und das zugehoerige Produkt. Der Objektzaehler wird verwendet um die
- * generierten Bestellungen zu zählen
+ * generierten Bestellungen zu zaehlen
  */
 public class Order {
 
