@@ -21,10 +21,14 @@ public class AbortOrderTimerTask extends TimerTask {
 	 * Agiert wie die Anderen Verbraucher / Consumer. Entnimmt das erste Objekt
 	 * des Buffers.
 	 */
+
+	public static boolean isDone = false;
+	
 	@Override
 	public void run() {
 		WebShop.item = WebShop.currentBuffer.remove();
 		System.err.println("\n### Achtung ###\n"
 				+ "Benutzer hat die Bestellung abgebrochen! \n");
+		isDone = true;
 	}
 }

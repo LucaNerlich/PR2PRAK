@@ -35,7 +35,7 @@ public class OrderGenerator extends Thread {
 	 */
 	public void run() {
 		while (!isInterrupted() && (currentBuffer.getCounter() <= 9)) {
-
+		
 			/**
 			 * Order-Objekt erzeugen
 			 **/
