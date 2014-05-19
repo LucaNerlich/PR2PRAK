@@ -36,6 +36,14 @@ public class Customers {
         nNameProperty().set(value);
     }
 
+    @Override
+    public String toString() {
+        return "Customers{" +
+                "vName=" + vName +
+                ", nName=" + nName +
+                '}';
+    }
+
     public StringProperty nNameProperty() {
         if (nName == null) {
             nName = new SimpleStringProperty();

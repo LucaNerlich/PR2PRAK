@@ -32,8 +32,13 @@ public class GuiAnwendung extends Application {
         }
     }
 
-    public TableView<Customers> customerTableView = new TableView();
-    public TableView<Products> productsTableView = new TableView();
+    public static TableView<Customers> customerTableView = new TableView();
+    public static TableView<Products> productsTableView = new TableView();
+
+    public static Label progressLabel = new Label("Working ...");
+    public static ProgressTask progressTask = new ProgressTask(progressLabel);
+    public static ProgressBar progressBar = new ProgressBar(0);
+
 
     @SuppressWarnings("rawtypes")
     @Override
@@ -129,7 +134,6 @@ public class GuiAnwendung extends Application {
         addProduct.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                //todo user input dialog
                 //Per input zahl als string holen, dann string in int parsen und exception abfangen
 
                 Stage stage = new Stage();
@@ -148,11 +152,30 @@ public class GuiAnwendung extends Application {
 
         Button placeOrder = contBuilder.createButton("Place order");
         gridpane.add(placeOrder, 1, 5);
+        placeOrder.setOnAction(new ButtonWithEventHandler());
 
+        // Progress Bar
+
+        gridpane.add(progressBar, 2, 5);
+        gridpane.add(progressLabel, 2, 6);
+
+        // Progress Bar mit dem label verknüpfen
+        progressBar.progressProperty().unbind();
+        progressBar.progressProperty().bind(progressTask.progressProperty());
+
+        Button resetProgBar = contBuilder.createButton("Initiate next Order");
+        gridpane.add(resetProgBar, 1, 6);
+        resetProgBar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                progressBar.progressProperty().unbind();
+                progressBar.setProgress(0);
+                System.err.println("NEXT ORDER");
+                }
+        });
 
         Button removeCustomer = contBuilder.createButton("Remove selected customer");
         gridpane.add(removeCustomer, 1, 4);
-
         // Entfernt selektiertes Item - Customer
         removeCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -261,7 +284,7 @@ public class GuiAnwendung extends Application {
     }
 
     /**
-     * returned eine Menubar     *
+     * returned eine Menubar
      * @return Menubar
      */
     private MenuBar createMenu() {
@@ -289,5 +312,10 @@ public class GuiAnwendung extends Application {
         }
         cssStyle.addAll(url.toExternalForm());
         return cssStyle;
+    }
+
+    public static void progressBarStart(){
+        Thread worker = new Thread(GuiAnwendung.progressTask);
+        worker.start();
     }
 }

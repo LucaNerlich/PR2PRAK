@@ -10,7 +10,11 @@ import javafx.event.EventHandler;
  */
 public class ButtonWithEventHandler implements EventHandler<ActionEvent> {
 
-    public void handle(ActionEvent event){
-        System.out.println("test button");
+       public void handle(ActionEvent event){
+
+            System.out.println(GuiAnwendung.customerTableView.getSelectionModel().getSelectedItems().toString());
+            // GuiAnwendung.customerTableView.getItems().remove(selectedIndex);
+
+        GuiAnwendung.progressBarStart();
     }
 }

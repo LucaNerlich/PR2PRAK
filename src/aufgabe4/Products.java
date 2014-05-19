@@ -61,4 +61,12 @@ public class Products {
     public static void addProduct(String name, int price){
         products.add(new Products(name, price));
     }
+
+    @Override
+    public String toString() {
+        return "Products{" +
+                "name=" + name +
+                ", price=" + price +
+                '}';
+    }
 }
