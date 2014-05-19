@@ -2,6 +2,8 @@ package aufgabe4;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -137,8 +139,8 @@ public class GuiAnwendung extends Application {
                 String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
                 String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");
                  try{
-                    int vornameInt = Integer.parseInt(vorname);
-                    int nachnameInt = Integer.parseInt(nachname);
+                    int vInt = Integer.parseInt(vorname);
+                    int nInt = Integer.parseInt(nachname);
                 }
                  //exception wird geworfen, wenn der input string ist.
                 catch(NumberFormatException e){
@@ -169,17 +171,119 @@ public class GuiAnwendung extends Application {
             }
         });
 
-        Button removeCustomer = contBuilder.createButton("Remove selected customer");
-        gridpane.add(removeCustomer, 1, 4);
 
-        Button removeProducts = contBuilder.createButton("Remove selected product");
-        gridpane.add(removeProducts, 2, 4);
+
+
 
         Button placeOrder = contBuilder.createButton("Place order");
         gridpane.add(placeOrder, 1, 5);
 
-		gridpane.add(createCustomers(), 1, 2);
-        gridpane.add(createProducts(),  2, 2);
+		//gridpane.add(createCustomers(), 1, 2);
+
+        // CUSTOMER TABLE VIEW  // CUSTOMER TABLE VIEW  // CUSTOMER TABLE VIEW  // CUSTOMER TABLE VIEW
+        final TableView<Customers> customerTableView = new TableView();
+
+        customerTableView.setPrefWidth(350);
+        customerTableView.setPrefHeight(300);
+        customerTableView.setItems(Customers.getCustomers());
+
+        // Setup the first column: vName
+        // 	TableColumn<Customers, String> vNameCol = new TableColumn<>("vName");  // intellij kann keine <>
+        TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
+        vNameCol.setEditable(true);
+        vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+                "vName"));
+        vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+
+        // Setup the second column: nName
+        // TableColumn<Customers, String> nNameCol = new TableColumn<>("nName"); // intellij kann keine <>
+        TableColumn<Customers, String> nNameCol = new TableColumn("Nachname");
+        nNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+                "nName"));
+        nNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+
+        // Assemble table from the columns
+        customerTableView.getColumns().add(vNameCol);
+        customerTableView.getColumns().add(nNameCol);
+
+        //LISTEN FOR CHANGES (eintrag markiert etc.)
+        customerTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Customers>() {
+            @Override
+            public void changed(ObservableValue<? extends Customers> observableValue, Customers customers, Customers customers2) {
+            }
+        });
+
+        gridpane.add(customerTableView, 1, 2);
+
+        Button removeCustomer = contBuilder.createButton("Remove selected customer");
+        gridpane.add(removeCustomer, 1, 4);
+
+        // Entfernt selektiertes Item
+        removeCustomer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                int selectedIndex = customerTableView.getSelectionModel().getSelectedIndex();
+                try{
+                customerTableView.getItems().remove(selectedIndex);
+            }
+                catch(ArrayIndexOutOfBoundsException e){
+                    Stage stage = new Stage();
+                    Dialogs.showInformationDialog(stage, "Bitte waehlen Sie zuerst einen Eintrag aus!", "Warning");
+                }
+            }
+        });
+        // CUSTOMER ENDE // CUSTOMER ENDE // CUSTOMER ENDE // CUSTOMER ENDE // CUSTOMER ENDE // CUSTOMER ENDE
+
+        // PRODUCT TABLE VIEW // PRODUCT TABLE VIEW // PRODUCT TABLE VIEW // PRODUCT TABLE VIEW // PRODUCT TABLE VIEW
+
+        final TableView<Products> productsTableView = new TableView();
+
+        productsTableView.setPrefWidth(350);
+        productsTableView.setPrefHeight(300);
+        productsTableView.setItems(Products.getProducts());
+
+        // Setup the first column: Name
+        // 	TableColumn<Products, String> NameCol = new TableColumn<>("Name"); // intellij kann keine <>
+        TableColumn<Products, String> NameCol = new TableColumn("Name");
+        NameCol.setEditable(true);
+        NameCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
+                "Name"));
+        NameCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
+
+        // Setup the second colum: Price
+        // TableColumn<Products, String> priceCol = new TableColumn<>("price");
+        TableColumn<Products, String> priceCol = new TableColumn("Price");
+        priceCol
+                .setCellValueFactory(new PropertyValueFactory<Products, String>(
+                        "Price"));
+        priceCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
+
+        // Assemble table from the columns
+        productsTableView.getColumns().add(NameCol);
+        productsTableView.getColumns().add(priceCol);
+
+        gridpane.add(productsTableView, 2 ,2);
+        //gridpane.add(createProducts(),  2, 2);
+
+        Button removeProducts = contBuilder.createButton("Remove selected product");
+        gridpane.add(removeProducts, 2, 4);
+
+        // Entfernt selektiertes Item
+        removeProducts.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                int selectedIndex = productsTableView.getSelectionModel().getSelectedIndex();
+                try{
+                productsTableView.getItems().remove(selectedIndex);
+                }
+                catch(ArrayIndexOutOfBoundsException e){
+                    Stage stage = new Stage();
+                    Dialogs.showInformationDialog(stage, "Bitte waehlen Sie zuerst einen Eintrag aus!", "Warning");
+                }
+            }
+        });
+
+        // PRODUKT ENDE // PRODUKT ENDE // PRODUKT ENDE // PRODUKT ENDE // PRODUKT ENDE // PRODUKT ENDE
 
         //css laden
         ObservableList<String> cssList = loadCss("stylesheet.css");
@@ -221,6 +325,21 @@ public class GuiAnwendung extends Application {
 		return menuBar;
 	}
 
+    private ObservableList<String> loadCss(String cssFileName){
+        ObservableList<String> cssStyle = FXCollections.observableArrayList();
+        URL url = getClass().getResource(cssFileName);
+        if (url == null){
+            return null;
+        }
+        cssStyle.addAll(url.toExternalForm());
+        return cssStyle;
+    }
+}
+/* ALTE TABELLEN - initalisierung durch methoden aufruf
+    Dann aber probleme mit dem Loeschen der Eintraege,
+    da nicht direkt draufzugegriffen werden kann.
+
+ // CUSTOMER TABLE VIEW
     private TableView createCustomers(){
         final TableView<Customers> customerTableView = new TableView();
         customerTableView.setPrefWidth(350);
@@ -246,9 +365,18 @@ public class GuiAnwendung extends Application {
         customerTableView.getColumns().add(vNameCol);
         customerTableView.getColumns().add(nNameCol);
 
+        //LISTEN FOR CHANGES (eintrag markiert etc.)
+        customerTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Customers>() {
+            @Override
+            public void changed(ObservableValue<? extends Customers> observableValue, Customers customers, Customers customers2) {
+
+            }
+        });
+
         return customerTableView;
     }
 
+        // PRODUCTS TABLE VIEW
     private TableView createProducts(){
         final TableView<Products> productsTableView = new TableView();
 
@@ -279,14 +407,4 @@ public class GuiAnwendung extends Application {
         return productsTableView;
     }
 
-    private ObservableList<String> loadCss(String cssFileName){
-        ObservableList<String> cssStyle = FXCollections.observableArrayList();
-        URL url = getClass().getResource(cssFileName);
-        if (url == null){
-            return null;
-        }
-        cssStyle.addAll(url.toExternalForm());
-        return cssStyle;
-    }
-
-}
+ */
