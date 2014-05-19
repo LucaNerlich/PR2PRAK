@@ -133,8 +133,17 @@ public class GuiAnwendung extends Application {
         addCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                //todo user input dialog
-                Customers.addCustomer("Tjorben", "Eckermann");
+               Stage stage = new Stage();
+                String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
+                String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");
+                 try{
+                    int vornameInt = Integer.parseInt(vorname);
+                    int nachnameInt = Integer.parseInt(nachname);
+                }
+                 //exception wird geworfen, wenn der input string ist.
+                catch(NumberFormatException e){
+                    Customers.addCustomer(vorname, nachname);
+                }
             }
         });
 
@@ -145,7 +154,18 @@ public class GuiAnwendung extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 //todo user input dialog
-                Products.addProduct("Tastatur", 150);
+                //Per input zahl als string holen, dann string in int parsen und exception abfangen
+
+                Stage stage = new Stage();
+                String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
+                String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
+                try{
+                int preisInt = Integer.parseInt(preis);
+                    Products.addProduct(item, preisInt);
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Bitte geben sie einen Integer Wert ein!");
+                }
             }
         });
 
@@ -201,44 +221,6 @@ public class GuiAnwendung extends Application {
 		return menuBar;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private TableView createTable() {
-		final TableView<Person> personTableView = new TableView();
-		personTableView.setPrefWidth(350);
-		personTableView.setPrefHeight(300);
-		personTableView.setItems(Person.getPeople());
-
-		// Setup the first column: vName
-        // 	TableColumn<Person, String> vNameCol = new TableColumn<>("vName");
-		TableColumn<Person, String> vNameCol = new TableColumn("vName");
-		vNameCol.setEditable(true);
-		vNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>(
-				"vName"));
-		vNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
-
-		// Setup the second column: nName
-        // TableColumn<Person, String> nNameCol = new TableColumn<>("nName"); // intellij kann keine <>
-		 TableColumn<Person, String> nNameCol = new TableColumn("nName");
-		nNameCol.setCellValueFactory(new PropertyValueFactory<Person, String>(
-				"nName"));
-		nNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
-
-		// Setup the third colum: alter
-        // TableColumn<Person, String> lastNameCol = new TableColumn<>("alter");
-		TableColumn<Person, String> lastNameCol = new TableColumn("alter");
-		lastNameCol
-				.setCellValueFactory(new PropertyValueFactory<Person, String>(
-						"alter"));
-		lastNameCol.setPrefWidth(personTableView.getPrefWidth() / 3);
-
-		// Assemble table from the columns
-		personTableView.getColumns().add(vNameCol);
-		personTableView.getColumns().add(nNameCol);
-		personTableView.getColumns().add(lastNameCol);
-
-		return personTableView;
-	}
-
     private TableView createCustomers(){
         final TableView<Customers> customerTableView = new TableView();
         customerTableView.setPrefWidth(350);
@@ -275,7 +257,7 @@ public class GuiAnwendung extends Application {
         productsTableView.setItems(Products.getProducts());
 
         // Setup the first column: Name
-        // 	TableColumn<Products, String> vNameCol = new TableColumn<>("vName"); // intellij kann keine <>
+        // 	TableColumn<Products, String> NameCol = new TableColumn<>("Name"); // intellij kann keine <>
         TableColumn<Products, String> NameCol = new TableColumn("Name");
         NameCol.setEditable(true);
         NameCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
@@ -283,7 +265,7 @@ public class GuiAnwendung extends Application {
         NameCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
 
         // Setup the second colum: Price
-        // TableColumn<Products, String> lastNameCol = new TableColumn<>("alter");
+        // TableColumn<Products, String> priceCol = new TableColumn<>("price");
         TableColumn<Products, String> priceCol = new TableColumn("Price");
         priceCol
                 .setCellValueFactory(new PropertyValueFactory<Products, String>(
