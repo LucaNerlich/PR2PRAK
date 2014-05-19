@@ -1,0 +1,33 @@
+.label{
+    /*
+    -fx-text-fill: rgba(17, 156, 213);
+    -fx-border-color: rgba(100, 200, 100, .80);
+    -fx-border-radius: 5;
+    -fx-padding: 5 5 5 5;
+    -fx-font: bold italic 12pt "LucidaBrightDemiBold";
+    -fx-text-alignment: CENTER;
+    -fx-background-color: Grey;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+    */
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-font: bold italic 12pt "LucidaBrightDemiBold";
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.root{
+    -fx-background-image: url("background.jpg");
+}
+
+.button {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
