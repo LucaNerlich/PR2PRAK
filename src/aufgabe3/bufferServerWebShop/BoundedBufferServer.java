@@ -20,6 +20,8 @@ import java.util.Timer;
  *         Sommerlig
  * 
  */
+
+//TODO FORSCHLEIFEN ENTFERNEN
 public class BoundedBufferServer {
 	/**
 	 * Anzahl Erzeuger-Threads
