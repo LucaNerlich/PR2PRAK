@@ -26,12 +26,12 @@ public class BoundedBufferServer {
 	/**
 	 * Anzahl Erzeuger-Threads
 	 */
-	public final int NO_PRODUCER = 1;
+	//public final int NO_PRODUCER = 1;
 
 	/**
 	 * Anzahl Verbraucher-Threads
 	 */
-	public final int NO_CONSUMER = 1;
+	// public final int NO_CONSUMER = 1;
 
 	/**
 	 * Das Puffer-Objekt mit Elementtyp Order und vorgegebener Platzanzahl
@@ -52,9 +52,9 @@ public class BoundedBufferServer {
 	 */
 	public void startSimulation() {
 		// Starte und beende Threads
-		LinkedList<OrderGenerator> producerList = new LinkedList<OrderGenerator>();
-		LinkedList<WebShop> consumerList = new LinkedList<WebShop>();
-
+		// LinkedList<OrderGenerator> producerList = new LinkedList<OrderGenerator>();
+		// LinkedList<WebShop> consumerList = new LinkedList<WebShop>();
+        try {
 		System.err.println("-------------------- START -------------------");
 		// Fuegt die Customer und Produkte (aus dem Webshop) in die Arraylist
 		// ein.
@@ -62,29 +62,28 @@ public class BoundedBufferServer {
         AnwendungBuffer anwendungBuffer = new AnwendungBuffer(server);
 
 		// Erzeuger(produziert Bestellungen) - Threads erzeugen
-		for (int i = 1; i <= NO_PRODUCER; i++) {
+		//for (int i = 1; i <= NO_PRODUCER; i++) {
 
 			// Den Generator fuer Bestellungen erzeugen mit einem Puffer der
 			// groesse 3
-			OrderGenerator current = new OrderGenerator(server);
-			current.setName("Erzeuger-" + i);
-			producerList.add(current);
-			current.start();
-		}
-		try {
+			OrderGenerator currentProd = new OrderGenerator(server);
+        currentProd.setName("Erzeuger-1");
+			// producerList.add(current);
+        currentProd.start();
+		//}
+
 			Thread.sleep(3000); // Bevor die naechste Bestellung erzeugt wird
 								// 3sek warten. Zum testen Objekte in Buffer
 								// schieben
-		} catch (InterruptedException e) {
-		}
+
 
 		// Verbraucher (entnimmt Bestellungen) - Threads erzeugen
-		for (int i = 1; i <= NO_CONSUMER; i++) {
-			WebShop current = new WebShop(server);
-			current.setName("Verbraucher-" + i);
-			consumerList.add(current);
-			current.start();
-		}
+		// for (int i = 1; i <= NO_CONSUMER; i++) {
+			WebShop currentCons = new WebShop(server);
+        currentCons.setName("Verbraucher-1");
+		//	consumerList.add(current);
+        currentCons.start();
+		//}
 
 		/**
 		 * Timer - stellt die "abgebrochenen" Bestellungen da. Entnimmt
@@ -95,18 +94,19 @@ public class BoundedBufferServer {
 		timer.schedule(new AbortOrderTimerTask(), 0, 1200);
 
 		// Laufzeit abwarten. Die anderen Threads laufen waehrenddessen weiter
-		try {
+
 			Thread.sleep(10500);
 
 			// Erzeuger - Threads stoppen
-			for (int i = 0; i < NO_PRODUCER; i++) {
-				producerList.get(i).interrupt();
-			}
+			// for (int i = 0; i < NO_PRODUCER; i++) {
+				// producerList.get(i).interrupt();
+                currentProd.interrupt();
+			//}
 
 			// Verbraucher - Threads stoppen
-			for (int i = 0; i < NO_CONSUMER; i++) {
-				consumerList.get(i).interrupt();
-			}
+			// for (int i = 0; i < NO_CONSUMER; i++) {
+                currentCons.interrupt();
+			//}
 
 			// Stoppt den Timer
 			timer.cancel();
