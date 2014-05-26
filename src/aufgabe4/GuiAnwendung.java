@@ -38,9 +38,12 @@ public class GuiAnwendung extends Application {
     public static Label progressLabel = new Label("Working ...");
     public static ProgressTask progressTask = new ProgressTask(progressLabel);
     public static ProgressBar progressBar = new ProgressBar(0);
+    public static ProgressBar progressBarTimeLine = new ProgressBar(0);
 
+    public ProgressBarTask pBT = new ProgressBarTask();
 
-    @SuppressWarnings("rawtypes")
+    private float imgUpdater = 0;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         // erstellt das Fenster mit Titel
@@ -84,7 +87,7 @@ public class GuiAnwendung extends Application {
 
         borderPane.setBottom(closeButton);
 
-        Label label = new Label("Person_Table");
+
         Label label2 = new Label("VBOX 8 LEFT");
         Label label3 = new Label("VBOX 8 RIGHT");
 
@@ -98,7 +101,7 @@ public class GuiAnwendung extends Application {
 
         gridpane.add(customersLabel, 1, 1);
         gridpane.add(productsLabel, 2, 1);
-        gridpane.add(label, 1, 2);
+
 
         initCustomTable();
         gridpane.add(customerTableView, 1, 2);
@@ -150,18 +153,49 @@ public class GuiAnwendung extends Application {
             }
         });
 
+        /*
         Button placeOrder = contBuilder.createButton("Place order");
         gridpane.add(placeOrder, 1, 5);
         placeOrder.setOnAction(new ButtonWithEventHandler());
+*/
+
+
 
         // Progress Bar
 
         gridpane.add(progressBar, 2, 5);
+        gridpane.add(progressBarTimeLine, 2, 7);
         gridpane.add(progressLabel, 2, 6);
 
         // Progress Bar mit dem label verknüpfen
         progressBar.progressProperty().unbind();
         progressBar.progressProperty().bind(progressTask.progressProperty());
+
+        Button placeOrder = contBuilder.createButton("Place order");
+        gridpane.add(placeOrder, 1, 5);
+        placeOrder.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                // progressBar.progressProperty().unbind();
+                // progressBar.setProgress(0);
+                // progressBar.progressProperty().bind(progressTask.progressProperty());
+                System.out.println(customerTableView.getSelectionModel().getSelectedItems().toString());
+                System.out.println(productsTableView.getSelectionModel().getSelectedItems().toString());
+
+                Thread worker = new Thread(progressTask);
+                worker.start();
+            }
+        });
+
+        Button placeOrderTimeline = contBuilder.createButton("Place order - TimeLine");
+        gridpane.add(placeOrderTimeline, 1, 7);
+        placeOrderTimeline.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                pBT.task.playFromStart();
+            }
+        });
+
 
         Button resetProgBar = contBuilder.createButton("Initiate next Order");
         gridpane.add(resetProgBar, 1, 6);
@@ -169,7 +203,8 @@ public class GuiAnwendung extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 progressBar.progressProperty().unbind();
-                progressBar.setProgress(0);
+               // progressBar.setProgress(0);
+                progressBar.progressProperty().bind(progressTask.progressProperty());
                 System.err.println("NEXT ORDER");
                 }
         });
@@ -314,7 +349,7 @@ public class GuiAnwendung extends Application {
         return cssStyle;
     }
 
-    public static void progressBarStart(){
+    public void progressBarStart(){
         Thread worker = new Thread(GuiAnwendung.progressTask);
         worker.start();
     }

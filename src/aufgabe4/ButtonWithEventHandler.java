@@ -12,9 +12,15 @@ public class ButtonWithEventHandler implements EventHandler<ActionEvent> {
 
        public void handle(ActionEvent event){
 
-            System.out.println(GuiAnwendung.customerTableView.getSelectionModel().getSelectedItems().toString());
-            // GuiAnwendung.customerTableView.getItems().remove(selectedIndex);
+           System.out.println(GuiAnwendung.customerTableView.getSelectionModel().getSelectedItems().toString());
+           System.out.println(GuiAnwendung.productsTableView.getSelectionModel().getSelectedItems().toString());
 
-        GuiAnwendung.progressBarStart();
+        // GuiAnwendung.progressBarStart();
+           progressBarStart();
+    }
+
+    public void progressBarStart(){
+        Thread worker = new Thread(GuiAnwendung.progressTask);
+        worker.start();
     }
 }

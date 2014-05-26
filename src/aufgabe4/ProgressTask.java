@@ -4,18 +4,22 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * A simple task which performs an action, which takes time. The task is the
  * background operation.
  *
  * @author Philipp Jenke
  */
-public class ProgressTask extends Task<Boolean> {
+public class ProgressTask extends Task<Boolean> implements Observer{
 
     /**
      * Reference to the label in the scene graph
      */
     public final Label label;
+    private int  numberOfSteps = 20;
 
     /**
      * Constructor.
@@ -28,7 +32,7 @@ public class ProgressTask extends Task<Boolean> {
     protected Boolean call() throws Exception {
         // Update progress
         System.err.println("START");
-        int numberOfSteps = 20;
+
         updateProgress(0, numberOfSteps - 1);
         for (int i = 0; i < numberOfSteps; i++) {
             // Sleep some time
@@ -43,6 +47,7 @@ public class ProgressTask extends Task<Boolean> {
         Thread.sleep(500);
         updateLabelReset();
         System.err.println("RESET");
+
 
         // Return success
         return true;
@@ -67,5 +72,15 @@ public class ProgressTask extends Task<Boolean> {
                 label.setText("Working ...");
             }
         });
+        numberOfSteps = 0;
+
+        for (int i = 2; i > numberOfSteps; i--) {
+            updateProgress(i, numberOfSteps - 1);
+        }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }
