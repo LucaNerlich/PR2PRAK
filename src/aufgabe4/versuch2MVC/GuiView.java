@@ -7,7 +7,9 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -18,27 +20,25 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by Luca on 28.05.2014.
  */
-public class GuiView {
+public class GuiView implements Observer {
 
     public Scene scene;
-    public static TableView<Customers> customerTableView = new TableView();
-    public static TableView<Products> productsTableView = new TableView();
-    public static Label progressLabel = new Label("Working ...");
-    public static ProgressTask progressTask = new ProgressTask(progressLabel);
+    private static Label progressLabel = new Label("Working ...");
     public static ProgressBar progressBar = new ProgressBar(0);
-    public static ProgressBar progressBarTimeLine = new ProgressBar(0);
+    ProgressIndicator progressIndicator = new ProgressIndicator(0);
+    private float progressValue = 0.0f;
 
     public GuiView(){
         ContentBuilder contBuilder = new ContentBuilder();
         BorderPane borderPane = new BorderPane();
         scene = new Scene(borderPane);
-
 
         GridPane gridpane = new GridPane();
         VBox vBoxLeft = new VBox(8);
@@ -86,11 +86,9 @@ public class GuiView {
         gridpane.add(new Label("Customers"), 1, 1);
         gridpane.add(new Label("Products"), 2, 1);
 
-        Controller.initCustomTable();
-        gridpane.add(customerTableView, 1, 2);
 
-        Controller.initProduktTable();
-        gridpane.add(productsTableView, 2, 2);
+        gridpane.add(Controller.customerTableView, 1, 2);
+        gridpane.add(Controller.productsTableView, 2, 2);
 
         Button addCustomer = contBuilder.createButton("Add customer");
         gridpane.add(addCustomer, 1, 3);
@@ -98,18 +96,24 @@ public class GuiView {
         addCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Stage stage = new Stage();
-                String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
-                String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");
-                if (!vorname.equals("") && !nachname.equals("")) {
-                    try {
-                        int vInt = Integer.parseInt(vorname);
-                        int nInt = Integer.parseInt(nachname);
+                try {
+                    Stage stage = new Stage();
+                    String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
+                    String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");
+                    if (!vorname.equals("") && !nachname.equals("")) {
+                        try {
+                            int vInt = Integer.parseInt(vorname);
+                            int nInt = Integer.parseInt(nachname);
+                        }
+                        //exception wird geworfen, wenn der input string ist.
+                        catch (NumberFormatException e) {
+                            //TODO abfangen von ints
+                            Customers.addCustomer(vorname, nachname);
+                        }
                     }
-                    //exception wird geworfen, wenn der input string ist.
-                    catch (NumberFormatException e) {
-                        Customers.addCustomer(vorname, nachname);
-                    }
+                }
+                catch(Exception e){
+
                 }
             }
         });
@@ -121,66 +125,64 @@ public class GuiView {
             @Override
             public void handle(ActionEvent actionEvent) {
                 //Per input zahl als string holen, dann string in int parsen und exception abfangen
-
-                Stage stage = new Stage();
-                String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
-                String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
-                if (!item.equals("") && !preis.equals("")) {
-                    try {
-                        int preisInt = Integer.parseInt(preis);
-                        Products.addProduct(item, preisInt);
-                    } catch (NumberFormatException e) {
-                        System.out.println("Bitte geben sie einen Integer Wert ein!");
+                try {
+                    Stage stage = new Stage();
+                    String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
+                    String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
+                    if (!item.equals("") && !preis.equals("")) {
+                        try {
+                            int preisInt = Integer.parseInt(preis);
+                            Products.addProduct(item, preisInt);
+                        } catch (NumberFormatException e) {
+                            System.out.println("Bitte geben sie einen Integer Wert ein!");
+                        }
                     }
+                }
+                catch(Exception e){
+
                 }
             }
         });
 
-        /*
-        Button placeOrder = contBuilder.createButton("Place order");
-        gridpane.add(placeOrder, 1, 5);
-        placeOrder.setOnAction(new ButtonWithEventHandler());
-*/
-
-
         // Progress Bar
-
         gridpane.add(progressBar, 2, 5);
-        gridpane.add(progressBarTimeLine, 2, 7);
         gridpane.add(progressLabel, 2, 6);
-
-        // Progress Bar mit dem label verknüpfen
-        progressBar.progressProperty().unbind();
-        progressBar.progressProperty().bind(progressTask.progressProperty());
 
         Button placeOrder = contBuilder.createButton("Place order");
         gridpane.add(placeOrder, 1, 5);
         placeOrder.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                // progressBar.progressProperty().unbind();
-                // progressBar.setProgress(0);
-                // progressBar.progressProperty().bind(progressTask.progressProperty());
-                /*
-                System.out.println(customerTableView.getSelectionModel().getSelectedItems().toString());
-                System.out.println(productsTableView.getSelectionModel().getSelectedItems().toString());
+              //TODO nullstring abfangen
+                String customer = Controller.customerTableView.getSelectionModel().getSelectedItems().toString();
+                String product = Controller.productsTableView.getSelectionModel().getSelectedItems().toString();
 
-                Thread worker = new Thread(progressTask);
-                worker.start();
-                */
+                if(!(customer.equals("") || product.equals(""))){
+                    System.out.println(customer);
+                    System.out.println(product);
+                }
+
+                for (float i = progressValue; i <= 1.05f; i = i + 0.05f){
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+
+                    }
+                    progressBar.setProgress(i);
+                    System.err.println(i);
+                }
             }
         });
 
 
         Button removeCustomer = contBuilder.createButton("Remove selected customer");
         gridpane.add(removeCustomer, 1, 4);
-        // Entfernt selektiertes Item - Customer
         removeCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                int selectedIndex = customerTableView.getSelectionModel().getSelectedIndex();
+                int selectedIndex = Controller.customerTableView.getSelectionModel().getSelectedIndex();
                 try {
-                    customerTableView.getItems().remove(selectedIndex);
+                    Controller.customerTableView.getItems().remove(selectedIndex);
                 } catch (ArrayIndexOutOfBoundsException e) {
                     Stage stage = new Stage();
                     Dialogs.showInformationDialog(stage, "Bitte waehlen Sie zuerst einen Eintrag aus!", "Warning");
@@ -190,14 +192,12 @@ public class GuiView {
 
         Button removeProducts = contBuilder.createButton("Remove selected product");
         gridpane.add(removeProducts, 2, 4);
-
-        // Entfernt selektiertes Item - Produkt
         removeProducts.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                int selectedIndex = productsTableView.getSelectionModel().getSelectedIndex();
+                int selectedIndex = Controller.productsTableView.getSelectionModel().getSelectedIndex();
                 try {
-                    productsTableView.getItems().remove(selectedIndex);
+                    Controller.productsTableView.getItems().remove(selectedIndex);
                 } catch (ArrayIndexOutOfBoundsException e) {
                     Stage stage = new Stage();
                     Dialogs.showInformationDialog(stage, "Bitte waehlen Sie zuerst einen Eintrag aus!", "Warning");
@@ -215,6 +215,8 @@ public class GuiView {
 
     }
 
+
+
     public void show(Stage stage){
         stage.setTitle("Aufgabe 4 - JavaFX");
         stage.setScene(scene);
@@ -231,5 +233,10 @@ public class GuiView {
         }
         cssStyle.addAll(url.toExternalForm());
         return cssStyle;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        System.err.println("update");
     }
 }

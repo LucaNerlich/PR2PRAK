@@ -12,8 +12,6 @@ import javafx.stage.Stage;
  */
 public class Model {
     private Stage primaryStage = null;
-    public static TableView<Customers> customerTableView = new TableView();
-    public static TableView<Products> productsTableView = new TableView();
 
     public Model(Stage primaryStage){
         this.primaryStage = primaryStage;

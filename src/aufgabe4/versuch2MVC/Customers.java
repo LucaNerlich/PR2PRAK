@@ -5,14 +5,17 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.Observable;
+
 /**
  * Created by lnerlich on 12.05.14.
  */
 
-public class Customers {
+public class Customers extends Observable implements Runnable {
 
     private StringProperty vName;
     private StringProperty nName;
+    private float counter = 0.0f;
 
     private static ObservableList<Customers> customers = FXCollections
             .<Customers> observableArrayList();
@@ -60,13 +63,26 @@ public class Customers {
     }
 
     public static ObservableList<Customers> getCustomers() {
-        customers.add(new Customers("Luca", "Nerlich"));
-        customers.add(new Customers("Daniel", "Sommerlig"));
+       // customers.add(new Customers("Luca", "Nerlich"));
+       // customers.add(new Customers("Daniel", "Sommerlig"));
         return customers;
     }
 
     public static void addCustomer(String vName, String nName){
         customers.add(new Customers(vName, nName));
+    }
+
+    @Override
+    public void run() {
+        for (counter = 0f; counter < 1.0f; counter = counter + 0.05f){
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+
+            }
+            GuiView.progressBar.setProgress(counter);
+            System.err.println(counter);
+        }
     }
 
 }

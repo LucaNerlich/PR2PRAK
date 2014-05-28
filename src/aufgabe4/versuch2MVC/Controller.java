@@ -2,6 +2,7 @@ package aufgabe4.versuch2MVC;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -12,21 +13,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class Controller {
 
-    /*
-    public static void main(String[] args) {
-        try {
-            Controller anwendungController = new Controller();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
     //hier psvm dann guianwendung starten
     // auch nen controller object erstellen auch in psvm
 
     public static TableView<Customers> customerTableView = new TableView();
     public static TableView<Products> productsTableView = new TableView();
+    private ObservableList customerList;
+    private  ObservableList productList;
 
     //in konst guianwendung + "starte alles"
 
@@ -39,19 +32,22 @@ public class Controller {
 
     this.model = model;
     this.view = new GuiView();
+        initCustomTable();
+        initProduktTable();
+
+        this.customerList = Customers.getCustomers();
+        this.productList = Products.getProducts();
     }
 
     public void show(){
         view.show(model.getPrimaryStage());
     }
 
-    //jetzt folgt die logik!
-
     public static MenuBar createMenu() {
        return model.createMenu();
     }
 
-    public static void initCustomTable() {
+    private void initCustomTable() {
         customerTableView.setPrefWidth(350);
         customerTableView.setPrefHeight(300);
         customerTableView.setItems(Customers.getCustomers());
@@ -84,7 +80,7 @@ public class Controller {
         });
     }
 
-    public static void initProduktTable() {
+    private void initProduktTable() {
         productsTableView.setPrefWidth(350);
         productsTableView.setPrefHeight(300);
         productsTableView.setItems(Products.getProducts());
@@ -108,6 +104,19 @@ public class Controller {
         //  Tabelle mit Spalten befuellen
         productsTableView.getColumns().add(NameCol);
         productsTableView.getColumns().add(priceCol);
+
+        //LISTEN FOR CHANGES (eintrag markiert etc.)
+
+        productsTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Products>() {
+            @Override
+            public void changed(ObservableValue<? extends Products> observableValue, Products products, Products products2) { }  });
     }
 
+    public static TableView<Products> getProductsTableView() {
+        return productsTableView;
+    }
+
+    public static TableView<Customers> getCustomerTableView() {
+        return customerTableView;
+    }
 }
