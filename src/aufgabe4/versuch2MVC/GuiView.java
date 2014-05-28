@@ -1,15 +1,10 @@
 package aufgabe4.versuch2MVC;
 
-
-import aufgabe4.ContentBuilder;
-import aufgabe4.ProgressTask;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -32,7 +27,6 @@ public class GuiView implements Observer {
     public Scene scene;
     private static Label progressLabel = new Label("Working ...");
     public static ProgressBar progressBar = new ProgressBar(0);
-    ProgressIndicator progressIndicator = new ProgressIndicator(0);
     private float progressValue = 0.0f;
 
     public GuiView(){
@@ -169,6 +163,7 @@ public class GuiView implements Observer {
 
                     }
                     progressBar.setProgress(i);
+
                     System.err.println(i);
                 }
             }

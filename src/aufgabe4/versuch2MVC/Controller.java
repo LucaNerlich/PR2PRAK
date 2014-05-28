@@ -111,12 +111,4 @@ public class Controller {
             @Override
             public void changed(ObservableValue<? extends Products> observableValue, Products products, Products products2) { }  });
     }
-
-    public static TableView<Products> getProductsTableView() {
-        return productsTableView;
-    }
-
-    public static TableView<Customers> getCustomerTableView() {
-        return customerTableView;
-    }
 }
