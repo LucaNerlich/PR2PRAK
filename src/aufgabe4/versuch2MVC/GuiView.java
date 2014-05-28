@@ -1,9 +1,9 @@
-package aufgabe4;
+package aufgabe4.versuch2MVC;
 
-import javafx.application.Application;
+
+import aufgabe4.ContentBuilder;
+import aufgabe4.ProgressTask;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,7 +11,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -21,42 +20,25 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.Observable;
 
-public class GuiAnwendung extends Application {
+/**
+ * Created by Luca on 28.05.2014.
+ */
+public class GuiView {
 
-    public static void main(String[] args) {
-        try {
-            launch(args);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
+    public Scene scene;
     public static TableView<Customers> customerTableView = new TableView();
     public static TableView<Products> productsTableView = new TableView();
-
     public static Label progressLabel = new Label("Working ...");
     public static ProgressTask progressTask = new ProgressTask(progressLabel);
     public static ProgressBar progressBar = new ProgressBar(0);
     public static ProgressBar progressBarTimeLine = new ProgressBar(0);
 
-    public ProgressBarTask pBT = new ProgressBarTask();
-
-    private Stage primaryStage = null;
-
-    private float imgUpdater = 0;
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        // erstellt das Fenster mit Titel
+    public GuiView(){
         ContentBuilder contBuilder = new ContentBuilder();
-
-        primaryStage.setTitle("Aufgabe4 - JavaFX");
-
         BorderPane borderPane = new BorderPane();
+        scene = new Scene(borderPane);
 
-        Scene scene = new Scene(borderPane);
 
         GridPane gridpane = new GridPane();
         VBox vBoxLeft = new VBox(8);
@@ -64,13 +46,18 @@ public class GuiAnwendung extends Application {
 
         borderPane.setRight(vBoxRight);
         borderPane.setLeft(vBoxLeft);
-        borderPane.setTop(createMenu());
+
+        // Create MENU
+        borderPane.setTop(Controller.createMenu());
         borderPane.setCenter(gridpane);
 
-        // init Gridpane
+        // Gridpane Layout
         gridpane.setPadding(new Insets(5)); // rand aussen
         gridpane.setHgap(10);
         gridpane.setVgap(10);
+
+        // zeigt die Linien innerhalb der Gridpane
+        // gridpane.setGridLinesVisible(true);
 
         Text bgTitle = new Text("Aufgabe 4 - JavaFX");
         bgTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
@@ -91,25 +78,18 @@ public class GuiAnwendung extends Application {
 
         borderPane.setBottom(closeButton);
 
-
-        Label label2 = new Label("VBOX 8 LEFT");
-        Label label3 = new Label("VBOX 8 RIGHT");
-
-        vBoxLeft.getChildren().add(label2);
-        vBoxRight.getChildren().add(label3);
+        vBoxLeft.getChildren().add(new Label("VBOX 8 LEFT"));
+        vBoxRight.getChildren().add(new Label("VBOX 8 RIGHT"));
 
         // label.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_MOVED, new MouseEventHandler());
 
-        Label customersLabel = new Label("Customers");
-        Label productsLabel = new Label("Products");
+        gridpane.add(new Label("Customers"), 1, 1);
+        gridpane.add(new Label("Products"), 2, 1);
 
-        gridpane.add(customersLabel, 1, 1);
-        gridpane.add(productsLabel, 2, 1);
-
-        initCustomTable();
+        Controller.initCustomTable();
         gridpane.add(customerTableView, 1, 2);
 
-        initProduktTable();
+        Controller.initProduktTable();
         gridpane.add(productsTableView, 2, 2);
 
         Button addCustomer = contBuilder.createButton("Add customer");
@@ -175,7 +155,7 @@ public class GuiAnwendung extends Application {
 
         Button placeOrder = contBuilder.createButton("Place order");
         gridpane.add(placeOrder, 1, 5);
-       placeOrder.setOnAction(new EventHandler<ActionEvent>() {
+        placeOrder.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 // progressBar.progressProperty().unbind();
@@ -189,16 +169,6 @@ public class GuiAnwendung extends Application {
                 worker.start();
                 */
             }
-        });
-
-        Button placeOrderTimeline = contBuilder.createButton("Place order - TimeLine");
-        gridpane.add(placeOrderTimeline, 1, 7);
-        placeOrderTimeline.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                pBT.task.playFromStart();
-                System.out.println(customerTableView.getSelectionModel().getSelectedItems().toString());
-                System.out.println(productsTableView.getSelectionModel().getSelectedItems().toString());}
         });
 
 
@@ -243,93 +213,14 @@ public class GuiAnwendung extends Application {
             System.err.println("Failed to load CSS file.");
         }
 
-        // steckt die Flaeche in das Fenster
-        primaryStage.setScene(scene);
-
-        // zeigt die Linien innerhalb der Gridpane
-        // gridpane.setGridLinesVisible(true);
-
-        primaryStage.show();
     }
 
-    private void initCustomTable() {
-        customerTableView.setPrefWidth(350);
-        customerTableView.setPrefHeight(300);
-        customerTableView.setItems(Customers.getCustomers());
-
-        // Setup the first column: vName
-        // TableColumn<Customers, String> vNameCol = new TableColumn<>("vName");  // intellij kann keine <>
-        TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
-        vNameCol.setEditable(true);
-        vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
-                "vName"));
-        vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
-
-        // Setup the second column: nName
-        // TableColumn<Customers, String> nNameCol = new TableColumn<>("nName"); // intellij kann keine <>
-        TableColumn<Customers, String> nNameCol = new TableColumn("Nachname");
-        nNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
-                "nName"));
-        nNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
-
-        // Tabelle mit Spalten befuellen
-        customerTableView.getColumns().add(vNameCol);
-        customerTableView.getColumns().add(nNameCol);
-
-        //LISTEN FOR CHANGES (eintrag markiert etc.)
-
-        customerTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Customers>() {
-            @Override
-            public void changed(ObservableValue<? extends Customers> observableValue, Customers customers, Customers customers2) {
-            }
-        });
+    public void show(Stage stage){
+        stage.setTitle("Aufgabe 4 - JavaFX");
+        stage.setScene(scene);
+        stage.show();
     }
 
-    private void initProduktTable() {
-        productsTableView.setPrefWidth(350);
-        productsTableView.setPrefHeight(300);
-        productsTableView.setItems(Products.getProducts());
-
-        // Setup the first column: Name
-        // 	TableColumn<Products, String> NameCol = new TableColumn<>("Name"); // intellij kann keine <>
-        TableColumn<Products, String> NameCol = new TableColumn("Name");
-        NameCol.setEditable(true);
-        NameCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
-                "Name"));
-        NameCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
-
-        // Setup the second colum: Price
-        // TableColumn<Products, String> priceCol = new TableColumn<>("price");
-        TableColumn<Products, String> priceCol = new TableColumn("Price");
-        priceCol
-                .setCellValueFactory(new PropertyValueFactory<Products, String>(
-                        "Price"));
-        priceCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
-
-        //  Tabelle mit Spalten befuellen
-        productsTableView.getColumns().add(NameCol);
-        productsTableView.getColumns().add(priceCol);
-    }
-
-    /**
-     * returned eine Menubar
-     * @return Menubar
-     */
-    private MenuBar createMenu() {
-        MenuBar menuBar = new MenuBar();
-        Menu menu = new Menu("File");
-        final Menu menuClose = new Menu("Close");
-        menuBar.getMenus().add(menu);
-        menuBar.getMenus().add(menuClose);
-
-        menu.getItems().add(new MenuItem("New"));
-        menu.getItems().add(new MenuItem("Load"));
-        menu.getItems().add(new MenuItem("Save"));
-        menu.getItems().add(new MenuItem("Properties"));
-        menu.getItems().add(new MenuItem("Print"));
-
-        return menuBar;
-    }
 
     // laedt die CSS Datei
     private ObservableList<String> loadCss(String cssFileName) {
@@ -340,10 +231,5 @@ public class GuiAnwendung extends Application {
         }
         cssStyle.addAll(url.toExternalForm());
         return cssStyle;
-    }
-
-    public void progressBarStart(){
-        Thread worker = new Thread(GuiAnwendung.progressTask);
-        worker.start();
     }
 }
