@@ -143,6 +143,7 @@ public class GuiView implements Observer {
         gridpane.add(progressLabel, 2, 6);
 
         Button placeOrder = contBuilder.createButton("Place order");
+        //TODO KNOPF VERHALTEN EXTRA KLASSE, diese observen und damit die progressbar verknüpfen
         gridpane.add(placeOrder, 1, 5);
         placeOrder.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -157,11 +158,11 @@ public class GuiView implements Observer {
                 }
 
                 for (float i = progressValue; i <= 1.05f; i = i + 0.05f){
-                    try {
+                    /*try {
                         Thread.sleep(250);
                     } catch (InterruptedException e) {
 
-                    }
+                    } */
                     progressBar.setProgress(i);
 
                     System.err.println(i);
