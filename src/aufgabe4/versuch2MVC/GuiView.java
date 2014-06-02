@@ -1,6 +1,5 @@
 package aufgabe4.versuch2MVC;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +24,7 @@ import java.net.URL;
 public class GuiView {
 
     public Scene scene;
-    private static Label progressLabel = new Label("Working ...");
+    public static Label progressLabel = new Label("Working ...");
     public static ProgressBarObserver progressBarNew = new ProgressBarObserver();
     private final ConInt controller;
 
@@ -60,16 +59,11 @@ public class GuiView {
         bgTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridpane.add(bgTitle, 0, 0, 2, 1);
 
-    /*
-        Button btn = contBuilder.createButton("test button");
-        btn.setOnAction(new ButtonWithEventHandler());
-    */
-
         final Button closeButton = contBuilder.createButton("CLOSE");
         closeButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Platform.exit();
+                controller.onClickExit();
             }
         });
 
@@ -160,11 +154,4 @@ public class GuiView {
         cssStyle.addAll(url.toExternalForm());
         return cssStyle;
     }
-
-    /*
-    @Override
-    public void update(Observable o, Object arg) {
-        System.err.println("update");
-        progressBar.setProgress(ButtonPlaceOrderEventHandler.progressValue);
-    } */
 }

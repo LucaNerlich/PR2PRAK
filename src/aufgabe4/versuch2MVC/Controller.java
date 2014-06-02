@@ -1,5 +1,6 @@
 package aufgabe4.versuch2MVC;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Dialogs;
@@ -159,5 +160,9 @@ public class Controller implements ConInt{
             Stage stage = new Stage();
             Dialogs.showInformationDialog(stage, "Bitte waehlen Sie zuerst einen Eintrag aus!", "Warning");
         }
+    }
+
+    public void onClickExit(){
+        Platform.exit();
     }
 }

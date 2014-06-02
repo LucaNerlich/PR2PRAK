@@ -21,7 +21,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.Observable;
 
 public class GuiAnwendung extends Application {
 
@@ -75,11 +74,6 @@ public class GuiAnwendung extends Application {
         Text bgTitle = new Text("Aufgabe 4 - JavaFX");
         bgTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         gridpane.add(bgTitle, 0, 0, 2, 1);
-
-    /*
-        Button btn = contBuilder.createButton("test button");
-        btn.setOnAction(new ButtonWithEventHandler());
-    */
 
         final Button closeButton = contBuilder.createButton("CLOSE");
         closeButton.setOnAction(new EventHandler<ActionEvent>() {

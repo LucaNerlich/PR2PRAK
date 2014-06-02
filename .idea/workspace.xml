@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e90370ad-2001-4503-99a1-19855bc9ca21" name="Default" comment="" />
+    <list default="true" id="e90370ad-2001-4503-99a1-19855bc9ca21" name="Default" comment="update&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" afterPath="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Semester2Programmieren.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,16 +72,16 @@
       <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="9" selection-start="6536" selection-end="6536" vertical-scroll-proportion="0.0" vertical-offset="2720" max-vertical-offset="2873">
+            <state line="164" column="27" selection-start="6607" selection-end="6607" vertical-scroll-proportion="0.0" vertical-offset="1943" max-vertical-offset="2822">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConInt.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ConInt.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="27" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="357">
+            <state line="8" column="24" selection-start="152" selection-end="152" vertical-scroll-proportion="0.16504854" vertical-offset="0" max-vertical-offset="824">
               <folding />
             </state>
           </provider>
@@ -85,16 +90,19 @@
       <file leaf-file-name="GuiView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="0" selection-start="4706" selection-end="4706" vertical-scroll-proportion="0.0" vertical-offset="993" max-vertical-offset="2278">
-              <folding />
+            <state line="65" column="41" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="2159">
+              <folding>
+                <element signature="e#1909#2088#0" expanded="true" />
+                <element signature="e#2077#2078#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProgressBarObserver.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ProgressBarObserver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ProgressBarObserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="505" selection-end="505" vertical-scroll-proportion="0.53817505" vertical-offset="0" max-vertical-offset="537">
+            <state line="2" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
               <folding />
             </state>
           </provider>
@@ -103,8 +111,19 @@
       <file leaf-file-name="ButtonPlaceOrderEventHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="867">
+            <state line="26" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GuiAnwendung.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="0" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="5525">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,16 +193,16 @@
         <option value="$PROJECT_DIR$/src/aufgabe4/jenkeCode/progress.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/stylesheet.css" />
         <option value="$PROJECT_DIR$/src/aufgabe4/ProgressBarTask.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/progressBarObserver.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ProgressBarObserver.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Customers.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Products.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ProgressBarObserver.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java" />
       </list>
     </option>
@@ -248,7 +267,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -349,6 +367,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,6 +393,7 @@
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -773,7 +793,8 @@
       <workItem from="1400491964104" duration="17758000" />
       <workItem from="1401097943560" duration="7277000" />
       <workItem from="1401691943512" duration="7848000" />
-      <workItem from="1401700475111" duration="464000" />
+      <workItem from="1401700475111" duration="568000" />
+      <workItem from="1401701072334" duration="1152000" />
     </task>
     <task id="LOCAL-00001" summary="intellij test">
       <created>1399887122756</created>
@@ -827,7 +848,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50194000" />
+    <option name="totallyTimeSpent" value="51450000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -851,13 +872,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1272" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39954075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -866,18 +888,17 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3272101" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -920,11 +941,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/aufgabe3/bufferServerWebShop/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe3/bufferServerWebShop/OrderGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="23" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="2295" />
@@ -1146,17 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="60" selection-start="8914" selection-end="8914" vertical-scroll-proportion="2.6465201" vertical-offset="2142" max-vertical-offset="5678">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6322#6994#0" expanded="true" />
-            <element signature="e#6983#6984#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="76" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
@@ -1192,37 +1197,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="5525">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="9" selection-start="6536" selection-end="6536" vertical-scroll-proportion="0.0" vertical-offset="2177" max-vertical-offset="2754">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="0" selection-start="4706" selection-end="4706" vertical-scroll-proportion="0.0" vertical-offset="993" max-vertical-offset="2278">
+        <state line="26" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ProgressBarObserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="505" selection-end="505" vertical-scroll-proportion="0.53817505" vertical-offset="0" max-vertical-offset="537">
+        <state line="2" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="27" selection-start="6607" selection-end="6607" vertical-scroll-proportion="0.0" vertical-offset="1943" max-vertical-offset="2822">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="41" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="2159">
+          <folding>
+            <element signature="e#1909#2088#0" expanded="true" />
+            <element signature="e#2077#2078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="24" selection-start="152" selection-end="152" vertical-scroll-proportion="0.16504854" vertical-offset="0" max-vertical-offset="824">
           <folding />
         </state>
       </provider>
