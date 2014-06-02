@@ -2,12 +2,36 @@
 <Diagram>
   <ID>JAVA</ID>
   <OriginalElement />
-  <nodes />
+  <nodes>
+    <node x="0.0" y="825.0">aufgabe4.versuch2MVC.Model</node>
+    <node x="477.0" y="451.0">aufgabe4.versuch2MVC.GuiView</node>
+    <node x="691.0" y="825.0">aufgabe4.versuch2MVC.ProgressBarObserver</node>
+    <node x="0.0" y="177.0">aufgabe4.versuch2MVC.Controller</node>
+    <node x="484.0" y="825.0">aufgabe4.versuch2MVC.Main</node>
+    <node x="337.0" y="0.0">aufgabe4.versuch2MVC.Customers</node>
+    <node x="25.5" y="0.0">aufgabe4.versuch2MVC.ConInt</node>
+    <node x="0.0" y="451.0">aufgabe4.versuch2MVC.Products</node>
+    <node x="835.0" y="451.0">aufgabe4.versuch2MVC.ContentBuilder</node>
+    <node x="253.0" y="825.0">aufgabe4.versuch2MVC.ButtonPlaceOrderEventHandler</node>
+  </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
-  <SelectedNodes />
-  <Categories />
+  <edges>
+    <edge source="aufgabe4.versuch2MVC.Controller" target="aufgabe4.versuch2MVC.ConInt">
+      <point x="0.0" y="-114.5" />
+      <point x="0.0" y="63.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.5" y="100.0" />
+  <SelectedNodes>
+    <node>aufgabe4.versuch2MVC.ProgressBarObserver</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
   <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
 </Diagram>
 

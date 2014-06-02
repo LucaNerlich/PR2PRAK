@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e90370ad-2001-4503-99a1-19855bc9ca21" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/JavaFX-Aufgb4UML.uml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/klausurUebungen/Main.java" />
+    <list default="true" id="e90370ad-2001-4503-99a1-19855bc9ca21" name="Default" comment="uml1&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_assets/background.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_assets/diagram.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_assets/diagramJPG.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_assets/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/JavaFX-Aufgb4UML.uml" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/JavaFX-Aufgb4UML.uml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Semester2Programmieren.iws" />
@@ -68,22 +71,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/klausurUebungen/Main.java">
+      <file leaf-file-name="GuiView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-              <folding />
+            <state line="86" column="61" selection-start="2803" selection-end="2803" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3383">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JavaFX-Aufgb4UML.uml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JavaFX-Aufgb4UML.uml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/JavaFX-Aufgb4UML.uml">
           <provider selected="true" editor-type-id="UmlEditorProvider">
             <state>
               <ID>JAVA</ID>
               <OriginalElement />
               <nodes>
+                <node x="948.0" y="825.0">_assets</node>
                 <node x="0.0" y="825.0">aufgabe4.versuch2MVC.Model</node>
                 <node x="477.0" y="451.0">aufgabe4.versuch2MVC.GuiView</node>
                 <node x="691.0" y="825.0">aufgabe4.versuch2MVC.ProgressBarObserver</node>
@@ -97,61 +103,32 @@
               </nodes>
               <notes />
               <edges>
-                <edge source="aufgabe4.versuch2MVC.Main" target="aufgabe4.versuch2MVC.Model">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ContentBuilder">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.Products">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ProgressBarObserver">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ConInt">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.Controller" target="aufgabe4.versuch2MVC.Model">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.Controller" target="aufgabe4.versuch2MVC.GuiView">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.Main" target="aufgabe4.versuch2MVC.Controller">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
                 <edge source="aufgabe4.versuch2MVC.Controller" target="aufgabe4.versuch2MVC.ConInt">
                   <point x="0.0" y="-114.5" />
                   <point x="0.0" y="63.5" />
                 </edge>
-                <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ButtonPlaceOrderEventHandler">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.Customers">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="573.2361111111113" y="497.20833333333337" />
-              <SelectedNodes />
+              <settings layout="Hierarchic Group" zoom="1.0" x="-224.0" y="-69.0" />
+              <SelectedNodes>
+                <node>aufgabe4.versuch2MVC.ProgressBarObserver</node>
+              </SelectedNodes>
               <Categories>
-                <Category>Constructors</Category>
                 <Category>Fields</Category>
+                <Category>Constructors</Category>
                 <Category>Methods</Category>
                 <Category>Inner Classes</Category>
               </Categories>
               <SCOPE>All</SCOPE>
               <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stylesheet.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/_assets/stylesheet.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -376,6 +353,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Semester2Programmieren" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PR2PRAK" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -410,7 +405,11 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="aufgabe4" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\_assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\_assets" />
       <recent name="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\aufgabe4" />
       <recent name="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src" />
     </key>
@@ -805,7 +804,7 @@
       <workItem from="1401097943560" duration="7277000" />
       <workItem from="1401691943512" duration="7848000" />
       <workItem from="1401700475111" duration="568000" />
-      <workItem from="1401701072334" duration="3698000" />
+      <workItem from="1401701072334" duration="4094000" />
     </task>
     <task id="LOCAL-00001" summary="intellij test">
       <created>1399887122756</created>
@@ -859,11 +858,15 @@
       <created>1401702238781</created>
       <updated>1401702238781</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="uml1">
+      <created>1401712634783</created>
+      <updated>1401712634783</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53996000" />
+    <option name="totallyTimeSpent" value="54392000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -894,7 +897,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3295063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39954075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -946,7 +949,8 @@
     <MESSAGE value="riesen update mvc angepasst" />
     <MESSAGE value="update" />
     <MESSAGE value="update&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="update&#10;" />
+    <MESSAGE value="uml1" />
+    <option name="LAST_COMMIT_MESSAGE" value="uml1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -956,11 +960,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/aufgabe3/WebShop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="47" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="3247" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe2/BinaryNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258" />
@@ -1270,6 +1269,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/klausurUebungen/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="86" column="61" selection-start="2803" selection-end="2803" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3383">
@@ -1279,19 +1285,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/klausurUebungen/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/JavaFX-Aufgb4UML.uml">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>JAVA</ID>
           <OriginalElement />
           <nodes>
+            <node x="948.0" y="825.0">_assets</node>
             <node x="0.0" y="825.0">aufgabe4.versuch2MVC.Model</node>
             <node x="477.0" y="451.0">aufgabe4.versuch2MVC.GuiView</node>
             <node x="691.0" y="825.0">aufgabe4.versuch2MVC.ProgressBarObserver</node>
@@ -1305,61 +1305,30 @@
           </nodes>
           <notes />
           <edges>
-            <edge source="aufgabe4.versuch2MVC.Main" target="aufgabe4.versuch2MVC.Model">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ContentBuilder">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.Products">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ProgressBarObserver">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ConInt">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.Controller" target="aufgabe4.versuch2MVC.Model">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.Controller" target="aufgabe4.versuch2MVC.GuiView">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.Main" target="aufgabe4.versuch2MVC.Controller">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
             <edge source="aufgabe4.versuch2MVC.Controller" target="aufgabe4.versuch2MVC.ConInt">
               <point x="0.0" y="-114.5" />
               <point x="0.0" y="63.5" />
             </edge>
-            <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.ButtonPlaceOrderEventHandler">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="aufgabe4.versuch2MVC.GuiView" target="aufgabe4.versuch2MVC.Customers">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="573.2361111111113" y="497.20833333333337" />
-          <SelectedNodes />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-224.0" y="-69.0" />
+          <SelectedNodes>
+            <node>aufgabe4.versuch2MVC.ProgressBarObserver</node>
+          </SelectedNodes>
           <Categories>
-            <Category>Constructors</Category>
             <Category>Fields</Category>
+            <Category>Constructors</Category>
             <Category>Methods</Category>
             <Category>Inner Classes</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+          <folding />
         </state>
       </provider>
     </entry>
