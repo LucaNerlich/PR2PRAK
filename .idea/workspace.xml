@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e90370ad-2001-4503-99a1-19855bc9ca21" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/klausurUebungen/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/klausurUebungen/testRead.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/klausurUebungen/testWrite.txt" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\BinaryFileCopy.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\Contact.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\ContactList.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\CopyTest.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\ExerciseAppendNumberToFile.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\Java7ExceptionHandling.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\ReadFromConsole.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\ReadFromSystemIn.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\ReadTest.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\TestSerialize.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\TextFileIO.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\lnerlich\IdeaProjects\PR2PRAK\src\klausurUebungen\JenkesCode\WriteTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/klausurUebungen/Main.java" afterPath="$PROJECT_DIR$/src/klausurUebungen/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/klausurUebungen/testWrite.txt" afterPath="$PROJECT_DIR$/src/klausurUebungen/testWrite.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Semester2Programmieren.iws" />
@@ -85,7 +71,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/klausurUebungen/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+            <state line="28" column="28" selection-start="844" selection-end="844" vertical-scroll-proportion="0.8702011" vertical-offset="0" max-vertical-offset="663">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -729,7 +715,7 @@
       <workItem from="1401097943560" duration="7277000" />
       <workItem from="1401691943512" duration="7848000" />
       <workItem from="1401700475111" duration="568000" />
-      <workItem from="1401701072334" duration="7377000" />
+      <workItem from="1401701072334" duration="8973000" />
     </task>
     <task id="LOCAL-00001" summary="intellij test">
       <created>1399887122756</created>
@@ -791,11 +777,15 @@
       <created>1401713032441</created>
       <updated>1401713032441</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="reader and writer">
+      <created>1401716337978</created>
+      <updated>1401716337978</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57675000" />
+    <option name="totallyTimeSpent" value="59271000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -841,7 +831,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3272101" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -880,7 +870,8 @@
     <MESSAGE value="update&#10;" />
     <MESSAGE value="uml1" />
     <MESSAGE value="uml jpg update" />
-    <option name="LAST_COMMIT_MESSAGE" value="uml jpg update" />
+    <MESSAGE value="reader and writer" />
+    <option name="LAST_COMMIT_MESSAGE" value="reader and writer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1251,7 +1242,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/klausurUebungen/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+        <state line="28" column="28" selection-start="844" selection-end="844" vertical-scroll-proportion="0.8702011" vertical-offset="0" max-vertical-offset="663">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

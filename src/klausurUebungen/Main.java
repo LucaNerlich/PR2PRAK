@@ -20,11 +20,13 @@ public class Main {
             System.out.println(zeileOut);
         }
 
-        writer.println(new Date());
+        long starTime = new Date().getTime();
         for(int i = 0; i <= 10000; i++){
             writer.println(i);
          }
-        writer.println(new Date());
+        long endTime = new Date().getTime();
+        long passedTime = endTime - starTime;
+        writer.println("Benoetigte Zeit zum verarbeiten in Millisekunden: " + passedTime);
 
        controller.closeWriter(writer);
     }
