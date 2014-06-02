@@ -1,3 +1,13 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 1
+ * ButtonPlaceOrderEventHandler.java
+ *
+ *  http://openbook.galileocomputing.de/javainsel/javainsel_07_005.html#dodtp9e02eb29-7c29-416b-bf6a-f22c19e1397a
+ */
+
 package aufgabe4.versuch2MVC;
 
 import javafx.event.ActionEvent;
@@ -6,8 +16,8 @@ import javafx.event.EventHandler;
 import java.util.Observable;
 
 /**
- * Created by lnerlich on 02.06.14.
- * http://openbook.galileocomputing.de/javainsel/javainsel_07_005.html#dodtp9e02eb29-7c29-416b-bf6a-f22c19e1397a
+ * Kuemmert sich um die Werte der Progressbar - stellt diese Bereit.
+ * "Waechter - update() muss machen was der Waechter sagt"
  */
 public class ButtonPlaceOrderEventHandler extends Observable implements EventHandler<ActionEvent> {
 
@@ -17,8 +27,8 @@ public class ButtonPlaceOrderEventHandler extends Observable implements EventHan
     public void handle(ActionEvent actionEvent) {
 
         System.err.println("START THREAD");
-        System.out.println(Controller.customerTableView.getSelectionModel().getSelectedItems().toString());
-        System.out.println(Controller.productsTableView.getSelectionModel().getSelectedItems().toString());
+        System.out.println(GuiView.customerTableView.getSelectionModel().getSelectedItems().toString());
+        System.out.println(GuiView.productsTableView.getSelectionModel().getSelectedItems().toString());
 
         //anonyme innere Klasse
         new Thread(new Runnable() {

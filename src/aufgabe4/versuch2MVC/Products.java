@@ -1,3 +1,11 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 1
+ * Products.java
+ */
+
 package aufgabe4.versuch2MVC;
 
 import javafx.beans.property.IntegerProperty;
@@ -9,9 +17,6 @@ import javafx.collections.ObservableList;
 
 import java.util.Observable;
 
-/**
- * Created by lnerlich on 12.05.14.
- */
 public class Products extends Observable implements Runnable {
 
     private StringProperty name;

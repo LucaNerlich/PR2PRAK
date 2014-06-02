@@ -1,3 +1,13 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 1
+ * ConInt.java
+ *
+ * orientiert an: http://blog.axxg.de/model-view-controller-mit-javafx/
+ */
+
 package aufgabe4.versuch2MVC;
 
 import javafx.scene.control.Menu;
@@ -6,8 +16,7 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 /**
- * Created by Luca on 28.05.2014.
- * orientiert an: http://blog.axxg.de/model-view-controller-mit-javafx/
+ * speichert die Stage und kuemmert sich um das menu
  */
 public class Model {
     private Stage primaryStage = null;

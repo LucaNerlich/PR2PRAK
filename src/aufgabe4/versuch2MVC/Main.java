@@ -1,10 +1,20 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 1
+ * Main.java
+ */
+
 package aufgabe4.versuch2MVC;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * Created by Luca on 28.05.2014.
+ * Anwendungsklasse
+ * Gibt die Stage dem Model weiter und initiailisert den Controller.
+ * Controller.show zeigt das GUI an.
  */
 public class Main extends Application {
 

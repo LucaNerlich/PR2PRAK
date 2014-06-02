@@ -1,3 +1,11 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 3, Aufgabe 1
+ * Customers.java
+ */
+
 package aufgabe4.versuch2MVC;
 
 import javafx.beans.property.SimpleStringProperty;
@@ -6,10 +14,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.Observable;
-
-/**
- * Created by lnerlich on 12.05.14.
- */
 
 public class Customers extends Observable implements Runnable {
 

@@ -1,5 +1,15 @@
+/**
+ * Praktikum WIPR2, SS 2014
+ * Gruppe: Luca Nerlich (Lucasteffen.Nerlich@haw-hamburg.de)
+ * 		   Daniel Sommerlig (Daniel.Sommerlig@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 3, Aufgabe 1
+ * GuiView.java
+ */
+
 package aufgabe4.versuch2MVC;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +18,9 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -19,13 +32,15 @@ import javafx.stage.Stage;
 import java.net.URL;
 
 /**
- * Created by Luca on 28.05.2014.
+ * View klasse zum Darstellen der einzelnen Komponenten.
  */
 public class GuiView {
 
     public Scene scene;
     public static Label progressLabel = new Label("Working ...");
     public static ProgressBarObserver progressBarNew = new ProgressBarObserver();
+    public static TableView<Customers> customerTableView = new TableView();
+    public static TableView<Products> productsTableView = new TableView();
     private final ConInt controller;
 
 
@@ -75,8 +90,10 @@ public class GuiView {
         gridpane.add(new Label("Customers"), 1, 1);
         gridpane.add(new Label("Products"), 2, 1);
 
-        gridpane.add(Controller.customerTableView, 1, 2);
-        gridpane.add(Controller.productsTableView, 2, 2);
+        initCustomTable();
+        initProduktTable();
+        gridpane.add(GuiView.customerTableView, 1, 2);
+        gridpane.add(GuiView.productsTableView, 2, 2);
 
         Button addCustomer = contBuilder.createButton("Add customer");
         gridpane.add(addCustomer, 1, 3);
@@ -153,5 +170,70 @@ public class GuiView {
         }
         cssStyle.addAll(url.toExternalForm());
         return cssStyle;
+    }
+
+    private void initCustomTable() {
+        customerTableView.setPrefWidth(350);
+        customerTableView.setPrefHeight(300);
+        customerTableView.setItems(Customers.getCustomers());
+
+        // Setup the first column: vName
+        // TableColumn<Customers, String> vNameCol = new TableColumn<>("vName");  // intellij kann keine <>
+        TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
+        vNameCol.setEditable(true);
+        vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+                "vName"));
+        vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+
+        // Setup the second column: nName
+        // TableColumn<Customers, String> nNameCol = new TableColumn<>("nName"); // intellij kann keine <>
+        TableColumn<Customers, String> nNameCol = new TableColumn("Nachname");
+        nNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+                "nName"));
+        nNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+
+        // Tabelle mit Spalten befuellen
+        customerTableView.getColumns().add(vNameCol);
+        customerTableView.getColumns().add(nNameCol);
+
+        //LISTEN FOR CHANGES (eintrag markiert etc.)
+
+        customerTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Customers>() {
+            @Override
+            public void changed(ObservableValue<? extends Customers> observableValue, Customers customers, Customers customers2) {
+            }
+        });
+    }
+
+    private void initProduktTable() {
+        productsTableView.setPrefWidth(350);
+        productsTableView.setPrefHeight(300);
+        productsTableView.setItems(Products.getProducts());
+
+        // Setup the first column: Name
+        // 	TableColumn<Products, String> NameCol = new TableColumn<>("Name"); // intellij kann keine <>
+        TableColumn<Products, String> NameCol = new TableColumn("Name");
+        NameCol.setEditable(true);
+        NameCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
+                "Name"));
+        NameCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
+
+        // Setup the second colum: Price
+        // TableColumn<Products, String> priceCol = new TableColumn<>("price");
+        TableColumn<Products, String> priceCol = new TableColumn("Price");
+        priceCol
+                .setCellValueFactory(new PropertyValueFactory<Products, String>(
+                        "Price"));
+        priceCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
+
+        //  Tabelle mit Spalten befuellen
+        productsTableView.getColumns().add(NameCol);
+        productsTableView.getColumns().add(priceCol);
+
+        //LISTEN FOR CHANGES (eintrag markiert etc.)
+
+        productsTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Products>() {
+            @Override
+            public void changed(ObservableValue<? extends Products> observableValue, Products products, Products products2) { }  });
     }
 }

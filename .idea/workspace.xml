@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e90370ad-2001-4503-99a1-19855bc9ca21" name="Default" comment="update&#10;">
+    <list default="true" id="e90370ad-2001-4503-99a1-19855bc9ca21" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ContentBuilder.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ContentBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" afterPath="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Customers.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Customers.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Products.java" afterPath="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Products.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Semester2Programmieren.iws" />
@@ -72,17 +77,25 @@
       <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="27" selection-start="6607" selection-end="6607" vertical-scroll-proportion="0.0" vertical-offset="1943" max-vertical-offset="2822">
-              <folding />
+            <state line="17" column="3" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="1037">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="method#onAddCustomer#0;class#Controller#0" expanded="false" />
+                <element signature="method#onAddProduct#0;class#Controller#0" expanded="false" />
+                <element signature="method#onRemoveCustomer#0;class#Controller#0" expanded="false" />
+                <element signature="method#onRemoveProduct#0;class#Controller#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConInt.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java">
+      <file leaf-file-name="Customers.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Customers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="24" selection-start="152" selection-end="152" vertical-scroll-proportion="0.16504854" vertical-offset="0" max-vertical-offset="824">
-              <folding />
+            <state line="17" column="0" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1513">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,10 +103,9 @@
       <file leaf-file-name="GuiView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="41" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="2159">
+            <state line="34" column="56" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3383">
               <folding>
-                <element signature="e#1909#2088#0" expanded="true" />
-                <element signature="e#2077#2078#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,27 +114,31 @@
       <file leaf-file-name="ProgressBarObserver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ProgressBarObserver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-              <folding />
+            <state line="17" column="91" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ButtonPlaceOrderEventHandler.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ButtonPlaceOrderEventHandler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-              <folding />
+            <state line="19" column="4" selection-start="556" selection-end="556" vertical-scroll-proportion="0.31917477" vertical-offset="9" max-vertical-offset="901">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GuiAnwendung.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java">
+      <file leaf-file-name="ConInt.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="0" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="5525">
+            <state line="11" column="36" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,8 +147,10 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="76" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="578">
-              <folding />
+            <state line="16" column="36" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,8 +158,34 @@
       <file leaf-file-name="Model.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="5" selection-start="1046" selection-end="1046" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="748">
-              <folding />
+            <state line="18" column="52" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#698#699#0" expanded="true" />
+                <element signature="e#733#734#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Products.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Products.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="1530">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContentBuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ContentBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="13" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,6 +202,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ContentBuilder.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/aufgabe4/ButtonWithEventHandler.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/aufgabe3/bufferServerWebShop/BoundedBufferServer.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/aufgabe3/bufferServerWebShop/OrderGenerator.java" root0="SKIP_INSPECTION" />
@@ -193,17 +238,18 @@
         <option value="$PROJECT_DIR$/src/aufgabe4/jenkeCode/progress.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/stylesheet.css" />
         <option value="$PROJECT_DIR$/src/aufgabe4/ProgressBarTask.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/progressBarObserver.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ContentBuilder.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Customers.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Products.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ProgressBarObserver.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/GuiAnwendung.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java" />
         <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java" />
-        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java" />
+        <option value="$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java" />
       </list>
     </option>
   </component>
@@ -794,7 +840,7 @@
       <workItem from="1401097943560" duration="7277000" />
       <workItem from="1401691943512" duration="7848000" />
       <workItem from="1401700475111" duration="568000" />
-      <workItem from="1401701072334" duration="1152000" />
+      <workItem from="1401701072334" duration="2179000" />
     </task>
     <task id="LOCAL-00001" summary="intellij test">
       <created>1399887122756</created>
@@ -844,11 +890,15 @@
       <created>1401700583122</created>
       <updated>1401700583122</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update&#10;">
+      <created>1401702238781</created>
+      <updated>1401702238781</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51450000" />
+    <option name="totallyTimeSpent" value="52477000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1073,20 +1123,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="5" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.57423973" vertical-offset="767" max-vertical-offset="1326">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/Customers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="18" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/Products.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="18" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.60465115" vertical-offset="767" max-vertical-offset="1326">
@@ -1111,13 +1147,6 @@
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/WebShop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="47" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="3043">
           <folding />
         </state>
       </provider>
@@ -1155,44 +1184,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ContentBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1564">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="76" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="5" selection-start="1046" selection-end="1046" vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Products.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="34" selection-start="2165" selection-end="2165" vertical-scroll-proportion="1.1818181" vertical-offset="621" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Customers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="34" selection-start="2116" selection-end="2116" vertical-scroll-proportion="1.1502783" vertical-offset="621" max-vertical-offset="1445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/ButtonWithEventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="112" selection-start="301" selection-end="515" vertical-scroll-proportion="0.44155845" vertical-offset="0" max-vertical-offset="539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/Customers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="18" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>
@@ -1206,41 +1207,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+        <state line="64" column="5" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/WebShop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="212" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3145">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Products.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="1530">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ProgressBarObserver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <folding />
+        <state line="17" column="91" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="27" selection-start="6607" selection-end="6607" vertical-scroll-proportion="0.0" vertical-offset="1943" max-vertical-offset="2822">
-          <folding />
+        <state line="18" column="52" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="36" selection-start="436" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/GuiView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="41" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="2159">
+        <state line="34" column="56" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3383">
           <folding>
-            <element signature="e#1909#2088#0" expanded="true" />
-            <element signature="e#2077#2078#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Customers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="3" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="1037">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="method#onAddCustomer#0;class#Controller#0" expanded="false" />
+            <element signature="method#onAddProduct#0;class#Controller#0" expanded="false" />
+            <element signature="method#onRemoveCustomer#0;class#Controller#0" expanded="false" />
+            <element signature="method#onRemoveProduct#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ContentBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="13" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ConInt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="24" selection-start="152" selection-end="152" vertical-scroll-proportion="0.16504854" vertical-offset="0" max-vertical-offset="824">
-          <folding />
+        <state line="11" column="36" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aufgabe4/versuch2MVC/ButtonPlaceOrderEventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="4" selection-start="556" selection-end="556" vertical-scroll-proportion="0.31917477" vertical-offset="9" max-vertical-offset="901">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
