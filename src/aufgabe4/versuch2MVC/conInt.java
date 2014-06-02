@@ -9,7 +9,6 @@ public interface ConInt {
     void onAddProduct();
     void onRemoveCustomer();
     void onRemoveProduct();
-
-
+    void onClickExit();
 
 }
