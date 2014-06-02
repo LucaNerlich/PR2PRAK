@@ -2,41 +2,30 @@ package aufgabe4.versuch2MVC;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
+import javafx.scene.control.Dialogs;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * Created by Luca on 28.05.2014.
  */
-public class Controller {
-
-    //hier psvm dann guianwendung starten
-    // auch nen controller object erstellen auch in psvm
+public class Controller implements ConInt{
 
     public static TableView<Customers> customerTableView = new TableView();
     public static TableView<Products> productsTableView = new TableView();
-    private ObservableList customerList;
-    private  ObservableList productList;
-
-    //in konst guianwendung + "starte alles"
-
     private static Model model;
     private GuiView view;
 
     public Controller(Model model){
-      //  GuiAnwendung guiAnwendung = new GuiAnwendung();
-        //jetzt alle items initialisieren
 
+    //jetzt alle items initialisieren
     this.model = model;
-    this.view = new GuiView();
+    this.view = new GuiView(this);
         initCustomTable();
         initProduktTable();
-
-        this.customerList = Customers.getCustomers();
-        this.productList = Products.getProducts();
     }
 
     public void show(){
@@ -110,5 +99,65 @@ public class Controller {
         productsTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Products>() {
             @Override
             public void changed(ObservableValue<? extends Products> observableValue, Products products, Products products2) { }  });
+    }
+
+    @Override
+      public void onAddCustomer() {
+        Stage stage = new Stage();
+        String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
+        String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");
+        if (!vorname.equals("") && !nachname.equals("")) {
+            try {
+                int vInt = Integer.parseInt(vorname);
+                int nInt = Integer.parseInt(nachname);
+            }
+            //exception wird geworfen, wenn der input string ist.
+            catch (NumberFormatException e) {
+                //TODO abfangen von ints
+                Customers.addCustomer(vorname, nachname);
+            }
+        }
+    }
+
+    @Override
+    public void onAddProduct() {
+        //Per input zahl als string holen, dann string in int parsen und exception abfangen
+        try {
+            Stage stage = new Stage();
+            String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
+            String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
+            if (!item.equals("") && !preis.equals("")) {
+                try {
+                    int preisInt = Integer.parseInt(preis);
+                    Products.addProduct(item, preisInt);
+                } catch (NumberFormatException e) {
+                    System.out.println("Bitte geben sie einen Integer Wert ein!");
+                }
+            }
+        }
+        catch(Exception e){
+        }
+    }
+
+    @Override
+    public void onRemoveCustomer() {
+        int selectedIndex = Controller.customerTableView.getSelectionModel().getSelectedIndex();
+        try {
+            Controller.customerTableView.getItems().remove(selectedIndex);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Stage stage = new Stage();
+            Dialogs.showInformationDialog(stage, "Bitte waehlen Sie zuerst einen Eintrag aus!", "Warning");
+        }
+    }
+
+    @Override
+    public void onRemoveProduct() {
+        int selectedIndex = Controller.productsTableView.getSelectionModel().getSelectedIndex();
+        try {
+            Controller.productsTableView.getItems().remove(selectedIndex);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Stage stage = new Stage();
+            Dialogs.showInformationDialog(stage, "Bitte waehlen Sie zuerst einen Eintrag aus!", "Warning");
+        }
     }
 }

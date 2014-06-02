@@ -80,7 +80,7 @@ public class Customers extends Observable implements Runnable {
             } catch (InterruptedException e) {
 
             }
-            GuiView.progressBar.setProgress(counter);
+            GuiView.progressBarNew.setProgress(counter);
             System.err.println(counter);
         }
     }

@@ -4,13 +4,8 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.Observable;
 
@@ -88,7 +83,7 @@ public class Products extends Observable implements Runnable {
             } catch (InterruptedException e) {
 
             }
-            GuiView.progressBar.setProgress(counter);
+            GuiView.progressBarNew.setProgress(counter);
             System.err.println(counter);
         }
     }
