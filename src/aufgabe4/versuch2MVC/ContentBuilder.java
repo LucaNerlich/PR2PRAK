@@ -13,10 +13,7 @@ import javafx.scene.control.*;
 
 
 /**
- * Erzeugt Inhalte fuer die Gridpane etc
- * 
- * @author Luca
- * 
+ * Erzeugt Inhalte fuer die Gridpane etc 
  */
 public class ContentBuilder {
 

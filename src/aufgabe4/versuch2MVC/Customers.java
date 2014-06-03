@@ -17,76 +17,81 @@ import java.util.Observable;
 
 public class Customers extends Observable implements Runnable {
 
-    private StringProperty vName;
-    private StringProperty nName;
-    private float counter = 0.0f;
+	private StringProperty vName;
+	private StringProperty nName;
+	private float counter = 0.0f;
 
-    private static ObservableList<Customers> customers = FXCollections
-            .<Customers> observableArrayList();
+	/**
+	 * Die Liste wird in Java FXCollections verwaltet, sie konserviert die
+	 * Property-Eigenschaften. Property stellen Veränderungen dar.
+	 */
+	private static ObservableList<Customers> customers = FXCollections
+			.<Customers> observableArrayList();
 
-    public Customers(String vName, String nName) {
-        setVName(vName);
-        setNName(nName);
-    }
-    public final void setVName(String value) {
-        vNameProperty().set(value);
-    }
+	public Customers(String vName, String nName) {
+		setVName(vName);
+		setNName(nName);
+	}
 
-    public StringProperty vNameProperty() {
-        if (vName == null) {
-            vName = new SimpleStringProperty();
-        }
-        return vName;
-    }
+	public final void setVName(String value) {
+		vNameProperty().set(value);
+	}
 
-    public final void setNName(String value) {
-        nNameProperty().set(value);
-    }
+	public StringProperty vNameProperty() {
+		if (vName == null) {
+			vName = new SimpleStringProperty();
+		}
+		return vName;
+	}
 
-    @Override
-    public String toString() {
-        return "Customers{" +
-                "vName=" + vName +
-                ", nName=" + nName +
-                '}';
-    }
+	public final void setNName(String value) {
+		nNameProperty().set(value);
+	}
 
-    public StringProperty nNameProperty() {
-        if (nName == null) {
-            nName = new SimpleStringProperty();
-        }
-        return nName;
-    }
+	@Override
+	public String toString() {
+		return "Customers{" + "vName=" + vName + ", nName=" + nName + '}';
+	}
 
-    public final String getVName() {
-        return vNameProperty().get();
-    }
+	public StringProperty nNameProperty() {
+		if (nName == null) {
+			nName = new SimpleStringProperty();
+		}
+		return nName;
+	}
 
-    public final String getNName() {
-        return nNameProperty().get();
-    }
+	public final String getVName() {
+		return vNameProperty().get();
+	}
 
-    public static ObservableList<Customers> getCustomers() {
-       // customers.add(new Customers("Luca", "Nerlich"));
-       // customers.add(new Customers("Daniel", "Sommerlig"));
-        return customers;
-    }
+	public final String getNName() {
+		return nNameProperty().get();
+	}
 
-    public static void addCustomer(String vName, String nName){
-        customers.add(new Customers(vName, nName));
-    }
+	/**
+	 * Liefert die Oserverableliste customer
+	 */
+	public static ObservableList<Customers> getCustomers() {
+		// customers.add(new Customers("Luca", "Nerlich"));
+		// customers.add(new Customers("Daniel", "Sommerlig"));
+		return customers;
+	}
 
-    @Override
-    public void run() {
-        for (counter = 0f; counter < 1.0f; counter = counter + 0.05f){
-            try {
-                Thread.sleep(50);
-            } catch (InterruptedException e) {
+	public static void addCustomer(String vName, String nName) {
+		customers.add(new Customers(vName, nName));
+	}
 
-            }
-            GuiView.progressBarNew.setProgress(counter);
-            System.err.println(counter);
-        }
-    }
+	@Override
+	public void run() {
+		for (counter = 0f; counter < 1.0f; counter = counter + 0.05f) {
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+
+			}
+			GuiView.progressBarNew.setProgress(counter);
+			System.err.println(counter);
+		}
+	}
 
 }

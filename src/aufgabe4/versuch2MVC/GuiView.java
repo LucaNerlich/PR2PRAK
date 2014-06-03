@@ -36,204 +36,218 @@ import java.net.URL;
  */
 public class GuiView {
 
-    public Scene scene;
-    public static Label progressLabel = new Label("Working ...");
-    public static ProgressBarObserver progressBarNew = new ProgressBarObserver();
-    public static TableView<Customers> customerTableView = new TableView();
-    public static TableView<Products> productsTableView = new TableView();
-    private final ConInt controller;
+	public Scene scene;
+	public static Label progressLabel = new Label("Working ...");
+	public static ProgressBarObserver progressBarNew = new ProgressBarObserver();
+	public static TableView<Customers> customerTableView = new TableView();
+	public static TableView<Products> productsTableView = new TableView();
+	private final ConInt controller;
 
+	public GuiView(final ConInt controller) {
+		this.controller = controller;
 
-    public GuiView(final ConInt controller){
-        this.controller = controller;
+		ContentBuilder contBuilder = new ContentBuilder();
+		BorderPane borderPane = new BorderPane();
+		scene = new Scene(borderPane);
 
-        ContentBuilder contBuilder = new ContentBuilder();
-        BorderPane borderPane = new BorderPane();
-        scene = new Scene(borderPane);
+		GridPane gridpane = new GridPane();
+		VBox vBoxLeft = new VBox(8);
+		VBox vBoxRight = new VBox(8);
 
-        GridPane gridpane = new GridPane();
-        VBox vBoxLeft = new VBox(8);
-        VBox vBoxRight = new VBox(8);
+		borderPane.setRight(vBoxRight);
+		borderPane.setLeft(vBoxLeft);
 
-        borderPane.setRight(vBoxRight);
-        borderPane.setLeft(vBoxLeft);
+		// Create MENU
+		borderPane.setTop(Controller.createMenu());
+		borderPane.setCenter(gridpane);
 
-        // Create MENU
-        borderPane.setTop(Controller.createMenu());
-        borderPane.setCenter(gridpane);
+		// Gridpane Layout
+		gridpane.setPadding(new Insets(5)); // rand aussen
+		gridpane.setHgap(10);
+		gridpane.setVgap(10);
 
-        // Gridpane Layout
-        gridpane.setPadding(new Insets(5)); // rand aussen
-        gridpane.setHgap(10);
-        gridpane.setVgap(10);
+		// zeigt die Linien innerhalb der Gridpane
+		// gridpane.setGridLinesVisible(true);
 
-        // zeigt die Linien innerhalb der Gridpane
-        // gridpane.setGridLinesVisible(true);
+		Text bgTitle = new Text("Aufgabe 4 - JavaFX");
+		bgTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+		gridpane.add(bgTitle, 0, 0, 2, 1);
 
-        Text bgTitle = new Text("Aufgabe 4 - JavaFX");
-        bgTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-        gridpane.add(bgTitle, 0, 0, 2, 1);
+		/**
+		 * Umsetzung der Ereignisverarbeitung mit anonymer Innerer Klasse
+		 */
 
-        final Button closeButton = contBuilder.createButton("CLOSE");
-        closeButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controller.onClickExit();
-            }
-        });
+		final Button closeButton = contBuilder.createButton("CLOSE");
+		closeButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent actionEvent) {
+				controller.onClickExit();
+			}
+		});
 
-        borderPane.setBottom(closeButton);
+		borderPane.setBottom(closeButton);
 
-        vBoxLeft.getChildren().add(new Label("VBOX 8 LEFT"));
-        vBoxRight.getChildren().add(new Label("VBOX 8 RIGHT"));
+		vBoxLeft.getChildren().add(new Label("VBOX 8 LEFT"));
+		vBoxRight.getChildren().add(new Label("VBOX 8 RIGHT"));
 
-        gridpane.add(new Label("Customers"), 1, 1);
-        gridpane.add(new Label("Products"), 2, 1);
+		gridpane.add(new Label("Customers"), 1, 1);
+		gridpane.add(new Label("Products"), 2, 1);
 
-        initCustomTable();
-        initProduktTable();
-        gridpane.add(GuiView.customerTableView, 1, 2);
-        gridpane.add(GuiView.productsTableView, 2, 2);
+		initCustomTable();
+		initProduktTable();
+		gridpane.add(GuiView.customerTableView, 1, 2);
+		gridpane.add(GuiView.productsTableView, 2, 2);
 
-        Button addCustomer = contBuilder.createButton("Add customer");
-        gridpane.add(addCustomer, 1, 3);
-        addCustomer.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controller.onAddCustomer();
-            }
-        });
+		Button addCustomer = contBuilder.createButton("Add customer");
+		gridpane.add(addCustomer, 1, 3);
+		addCustomer.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent actionEvent) {
+				controller.onAddCustomer();
+			}
+		});
 
-        Button addProduct = contBuilder.createButton("Add product");
-        gridpane.add(addProduct, 2, 3);
-        addProduct.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                controller.onAddProduct();
-            }
-        });
+		Button addProduct = contBuilder.createButton("Add product");
+		gridpane.add(addProduct, 2, 3);
+		addProduct.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent actionEvent) {
+				controller.onAddProduct();
+			}
+		});
 
-        progressBarNew.setProgress(0);
-        gridpane.add(progressBarNew, 2, 5);
-        gridpane.add(progressLabel, 2, 6);
+		progressBarNew.setProgress(0);
+		gridpane.add(progressBarNew, 2, 5);
+		gridpane.add(progressLabel, 2, 6);
 
+		Button placeOrder = contBuilder.createButton("Place order");
+		gridpane.add(placeOrder, 1, 5);
 
+		ButtonPlaceOrderEventHandler buttonProgressHandler = new ButtonPlaceOrderEventHandler();
+		buttonProgressHandler.addObserver(progressBarNew);
+		placeOrder.setOnAction(buttonProgressHandler);
 
+		Button removeCustomer = contBuilder
+				.createButton("Remove selected customer");
+		gridpane.add(removeCustomer, 1, 4);
+		removeCustomer.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent actionEvent) {
+				controller.onRemoveCustomer();
+			}
+		});
 
-        Button placeOrder = contBuilder.createButton("Place order");
-        gridpane.add(placeOrder, 1, 5);
+		Button removeProducts = contBuilder
+				.createButton("Remove selected product");
+		gridpane.add(removeProducts, 2, 4);
+		removeProducts.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent actionEvent) {
+				controller.onRemoveProduct();
+			}
+		});
 
-        ButtonPlaceOrderEventHandler buttonProgressHandler = new ButtonPlaceOrderEventHandler();
-        buttonProgressHandler.addObserver(progressBarNew);
-        placeOrder.setOnAction(buttonProgressHandler);
+		// css laden
+		ObservableList<String> cssList = loadCss("stylesheet.css");
+		if (cssList != null) {
+			scene.getStylesheets().addAll(cssList);
+		} else {
+			System.err.println("Failed to load CSS file.");
+		}
 
-        Button removeCustomer = contBuilder.createButton("Remove selected customer");
-        gridpane.add(removeCustomer, 1, 4);
-        removeCustomer.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-             controller.onRemoveCustomer();
-            }
-        });
+	}
 
-        Button removeProducts = contBuilder.createButton("Remove selected product");
-        gridpane.add(removeProducts, 2, 4);
-        removeProducts.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-              controller.onRemoveProduct();
-            }
-        });
+	public void show(Stage stage) {
+		stage.setTitle("Aufgabe 4 - JavaFX");
+		stage.setScene(scene);
+		stage.show();
+	}
 
-        //css laden
-        ObservableList<String> cssList = loadCss("stylesheet.css");
-        if (cssList != null) {
-            scene.getStylesheets().addAll(cssList);
-        } else {
-            System.err.println("Failed to load CSS file.");
-        }
+	// laedt die CSS Datei
+	private ObservableList<String> loadCss(String cssFileName) {
+		ObservableList<String> cssStyle = FXCollections.observableArrayList();
+		URL url = getClass().getResource(cssFileName);
+		if (url == null) {
+			return null;
+		}
+		cssStyle.addAll(url.toExternalForm());
+		return cssStyle;
+	}
 
-    }
+	private void initCustomTable() {
+		customerTableView.setPrefWidth(350);
+		customerTableView.setPrefHeight(300);
+		customerTableView.setItems(Customers.getCustomers());
 
-    public void show(Stage stage){
-        stage.setTitle("Aufgabe 4 - JavaFX");
-        stage.setScene(scene);
-        stage.show();
-    }
+		// Setup the first column: vName (erste Spalte erzeugen)
+		// TableColumn<Customers, String> vNameCol = new TableColumn<>("vName");
+		// // intellij kann keine <>
+		TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
+		vNameCol.setEditable(true);
+		// Transformation zwischen Personenobjekt und Zeileninhalt.
+		// Objekt = Customer, Typ für Tabellenzelle = String
+		vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+				"vName"));
+		vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
 
-    // laedt die CSS Datei
-    private ObservableList<String> loadCss(String cssFileName) {
-        ObservableList<String> cssStyle = FXCollections.observableArrayList();
-        URL url = getClass().getResource(cssFileName);
-        if (url == null) {
-            return null;
-        }
-        cssStyle.addAll(url.toExternalForm());
-        return cssStyle;
-    }
+		// Setup the second column: nName (zweite Spalte erzeugen)
+		// TableColumn<Customers, String> nNameCol = new TableColumn<>("nName");
+		// // intellij kann keine <>
+		TableColumn<Customers, String> nNameCol = new TableColumn("Nachname");
+		nNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
+				"nName"));
+		nNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
 
-    private void initCustomTable() {
-        customerTableView.setPrefWidth(350);
-        customerTableView.setPrefHeight(300);
-        customerTableView.setItems(Customers.getCustomers());
+		// Tabelle mit Spalten befuellen
+		customerTableView.getColumns().add(vNameCol);
+		customerTableView.getColumns().add(nNameCol);
 
-        // Setup the first column: vName
-        // TableColumn<Customers, String> vNameCol = new TableColumn<>("vName");  // intellij kann keine <>
-        TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
-        vNameCol.setEditable(true);
-        vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
-                "vName"));
-        vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+		// LISTEN FOR CHANGES (eintrag markiert etc.)
 
-        // Setup the second column: nName
-        // TableColumn<Customers, String> nNameCol = new TableColumn<>("nName"); // intellij kann keine <>
-        TableColumn<Customers, String> nNameCol = new TableColumn("Nachname");
-        nNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
-                "nName"));
-        nNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
+		customerTableView.getSelectionModel().selectedItemProperty()
+				.addListener(new ChangeListener<Customers>() {
+					@Override
+					public void changed(
+							ObservableValue<? extends Customers> observableValue,
+							Customers customers, Customers customers2) {
+					}
+				});
+	}
 
-        // Tabelle mit Spalten befuellen
-        customerTableView.getColumns().add(vNameCol);
-        customerTableView.getColumns().add(nNameCol);
+	private void initProduktTable() {
+		productsTableView.setPrefWidth(350);
+		productsTableView.setPrefHeight(300);
+		productsTableView.setItems(Products.getProducts());
 
-        //LISTEN FOR CHANGES (eintrag markiert etc.)
+		// Setup the first column: Name
+		// TableColumn<Products, String> NameCol = new TableColumn<>("Name"); //
+		// intellij kann keine <>
+		TableColumn<Products, String> NameCol = new TableColumn("Name");
+		NameCol.setEditable(true);
+		NameCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
+				"Name"));
+		NameCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
 
-        customerTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Customers>() {
-            @Override
-            public void changed(ObservableValue<? extends Customers> observableValue, Customers customers, Customers customers2) {
-            }
-        });
-    }
+		// Setup the second colum: Price
+		// TableColumn<Products, String> priceCol = new TableColumn<>("price");
+		TableColumn<Products, String> priceCol = new TableColumn("Price");
+		priceCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
+				"Price"));
+		priceCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
 
-    private void initProduktTable() {
-        productsTableView.setPrefWidth(350);
-        productsTableView.setPrefHeight(300);
-        productsTableView.setItems(Products.getProducts());
+		// Tabelle mit Spalten befuellen
+		productsTableView.getColumns().add(NameCol);
+		productsTableView.getColumns().add(priceCol);
 
-        // Setup the first column: Name
-        // 	TableColumn<Products, String> NameCol = new TableColumn<>("Name"); // intellij kann keine <>
-        TableColumn<Products, String> NameCol = new TableColumn("Name");
-        NameCol.setEditable(true);
-        NameCol.setCellValueFactory(new PropertyValueFactory<Products, String>(
-                "Name"));
-        NameCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
+		// LISTEN FOR CHANGES (eintrag markiert etc.)
 
-        // Setup the second colum: Price
-        // TableColumn<Products, String> priceCol = new TableColumn<>("price");
-        TableColumn<Products, String> priceCol = new TableColumn("Price");
-        priceCol
-                .setCellValueFactory(new PropertyValueFactory<Products, String>(
-                        "Price"));
-        priceCol.setPrefWidth(productsTableView.getPrefWidth() / 2);
-
-        //  Tabelle mit Spalten befuellen
-        productsTableView.getColumns().add(NameCol);
-        productsTableView.getColumns().add(priceCol);
-
-        //LISTEN FOR CHANGES (eintrag markiert etc.)
-
-        productsTableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Products>() {
-            @Override
-            public void changed(ObservableValue<? extends Products> observableValue, Products products, Products products2) { }  });
-    }
+		productsTableView.getSelectionModel().selectedItemProperty()
+				.addListener(new ChangeListener<Products>() {
+					@Override
+					public void changed(
+							ObservableValue<? extends Products> observableValue,
+							Products products, Products products2) {
+					}
+				});
+	}
 }
