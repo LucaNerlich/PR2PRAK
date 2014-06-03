@@ -23,8 +23,6 @@ public class OrderGenerator extends Thread {
 	 * ArrayListen zum Speichern der Kunden und Produkte. Hiermit wird dann die
 	 * Bestellung generiert.
 	 */
-	// static ArrayList<Customer> customerListe = new ArrayList<Customer>();
-	// static ArrayList<Product> produktListe = new ArrayList<Product>();
 
 	public OrderGenerator(BoundedBuffer<Order> buffer) {
 		currentBuffer = buffer;
@@ -57,81 +55,6 @@ public class OrderGenerator extends Thread {
 			}
 		}
 	}
-
-	/**
-	 * Helfermethode zur zufaelligen Generierung einer Bestellung
-	 * 
-	 * @return order Objekt
-	 */
-
-    /*
-	private Order getContent() {
-		// +1 da er nach einem Kommawert nur von 0 bis 9 gehen wuerde
-		int customerRndm = (int) (Math.random() * 10 + 1);
-		int prductRndm = (int) (Math.random() * 10 + 1);
-
-		// System.err.println("CUSTOMERrndm "+ customerRndm);
-		// System.err.println("PRODUCTrndm "+ prductRndm);
-
-		Customer customerCache = null;
-		Product productCache = null;
-
-		// Den zufaellig gewaehlten Customer mit Hilfe der ID zuordnen
-		for (Customer customer : customerListe) {
-			if (customer.getId() == customerRndm) {
-				customerCache = customer;
-			}
-		}
-		// Das zufaellig gewaehlte product mit Hilfe der ID zuordnen
-		for (Product product : produktListe) {
-			if (product.getId() == prductRndm) {
-				productCache = product;
-			}
-		}
-
-		// sychro Methode zum Zaehlen der Bestellvorgaenge
-		currentBuffer.counter();
-		Order order = new Order(customerCache, productCache);
-
-		System.err
-				.println("\nBestellungsnummer: " + currentBuffer.getCounter()
-						+"\nKunde: " + order.toString()
-						+ " im Warenkorb.\n----------------------------------------------"+
-						"\n");
-		return order;
-	}
-
-	*/
-
-	/**
-	 * Fuegt die Customer und Produkte (aus dem Webshop) in die Arraylist ein.
-	 */
-
-    /*
-	public static void addToList() {
-		customerListe.add(WebShop.customer1);
-		customerListe.add(WebShop.customer2);
-		customerListe.add(WebShop.customer3);
-		customerListe.add(WebShop.customer4);
-		customerListe.add(WebShop.customer5);
-		customerListe.add(WebShop.customer6);
-		customerListe.add(WebShop.customer7);
-		customerListe.add(WebShop.customer8);
-		customerListe.add(WebShop.customer9);
-		customerListe.add(WebShop.customer10);
-
-		produktListe.add(WebShop.product1);
-		produktListe.add(WebShop.product2);
-		produktListe.add(WebShop.product3);
-		produktListe.add(WebShop.product4);
-		produktListe.add(WebShop.product5);
-		produktListe.add(WebShop.product6);
-		produktListe.add(WebShop.product7);
-		produktListe.add(WebShop.product8);
-		produktListe.add(WebShop.product9);
-		produktListe.add(WebShop.product10);
-	}
-	*/
 
 	/**
 	 * Gib einen Zugriffswunsch auf der Konsole aus

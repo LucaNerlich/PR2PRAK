@@ -12,7 +12,12 @@ import java.util.*;
 /**
  * Datenpuffer fuer Elemente vom Typ E mit Zugriffsmethoden enter und remove.
  * Stellt einen generischen Datenpuffer mit Zugriffsmethoden zur Verfuegung
+ * 
+ * @author Philipp Jenke angepasst und erweitert von Luca Nerlich & Daniel
+ *         Sommerlig
+ * 
  */
+
 public class BoundedBuffer<E> {
 
 	/**
