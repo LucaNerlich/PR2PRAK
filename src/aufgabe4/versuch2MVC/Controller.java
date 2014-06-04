@@ -13,7 +13,7 @@ import javafx.scene.control.Dialogs;
 import javafx.scene.control.MenuBar;
 import javafx.stage.Stage;
 
-/**
+ /**
  * Verwaltet die Logik der Gui-Komponenten
  */
 public class Controller implements ConInt{
@@ -46,30 +46,48 @@ public class Controller implements ConInt{
         Stage stage = new Stage();
         String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
         String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");
-        if (!vorname.equals("") && !nachname.equals("")) {
-            try {
-                int vInt = Integer.parseInt(vorname);
-                int nInt = Integer.parseInt(nachname);
-            }
-            //exception wird geworfen, wenn der input string ist.
-            catch (NumberFormatException e) {
-                //TODO abfangen von ints
-                Customers.addCustomer(vorname, nachname);
-            }
+        String vornameConfirmed = null;
+        String nachnameConfirmed = null;
+
+        try {
+            int vInt = Integer.parseInt(vorname);
+        }
+        //exception wird geworfen, wenn der input string ist.
+        catch (NumberFormatException e) {
+            vornameConfirmed = vorname;
+
+        }
+        try {
+            int nInt = Integer.parseInt(nachname);
+        }
+        catch (NumberFormatException e) {
+            nachnameConfirmed = nachname;
+        }
+        if(vornameConfirmed != null && nachnameConfirmed != null) {
+            Customers.addCustomer(vornameConfirmed, nachnameConfirmed);
+        }
+        else {
+            Stage stageInputError = new Stage();
+            Dialogs.showInformationDialog(stageInputError, "Bitte nutzen sie nur Buchstaben!", "Warning");
         }
     }
 
-    @Override
-    public void onAddProduct() {
-        //Per input zahl als string holen, dann string in int parsen und exception abfangen
-        try {
-            Stage stage = new Stage();
-            String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
-            String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
-            if (!item.equals("") && !preis.equals("")) {
-                try {
-                    int preisInt = Integer.parseInt(preis);
-                    Products.addProduct(item, preisInt);
+
+
+     @Override
+     public void onAddProduct() {
+         //Per input zahl als string holen, dann string in int parsen und exception abfangen
+      /*   try {
+             Stage stage = new Stage();
+             String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
+             String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
+             String itemConfirmed = null;
+             String preisConfirmed = null;
+
+             if (!item.equals("") && !preis.equals("")) {
+                 try {
+                     int preisInt = Integer.parseInt(preis);
+                     Products.addProduct(item, preisInt);
                 } catch (NumberFormatException e) {
                     System.out.println("Bitte geben sie einen Integer Wert ein!");
                 }
@@ -77,6 +95,34 @@ public class Controller implements ConInt{
         }
         catch(Exception e){
         }
+         */
+         Stage stage = new Stage();
+         String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
+         String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
+         String itemConfirmed = null;
+         int preisConfirmed = 0;
+
+         try {
+             int vInt = Integer.parseInt(item);
+         }
+         //exception wird geworfen, wenn der input string ist.
+         catch (NumberFormatException e) {
+             itemConfirmed = item;
+         }
+         try {
+             int preisInt = Integer.parseInt(preis);
+             preisConfirmed = preisInt;
+         }
+         catch (NumberFormatException e) {
+         }
+         if(itemConfirmed != null && preisConfirmed != 0) {
+             Products.addProduct(itemConfirmed, preisConfirmed);
+         }
+         else {
+             Stage stageInputError = new Stage();
+             Dialogs.showInformationDialog(stageInputError, "Bitte nutzen Sie Buchstaben fuer den Namen und Ziffern fuer den Preis!", "Warning");
+         }
+
     }
 
     @Override

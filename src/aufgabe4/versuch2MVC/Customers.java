@@ -25,63 +25,63 @@ public class Customers {
 	private StringProperty nName;
 	private float counter = 0.0f;
 
-	/**
-	 * Die Liste wird in Java FXCollections verwaltet, sie konserviert die
-	 * Property-Eigenschaften. Property stellen Veränderungen dar.
-	 */
-	private static ObservableList<Customers> customers = FXCollections
-			.<Customers> observableArrayList();
+    /**
+     * Die Liste wird in Java FXCollections verwaltet, sie konserviert die
+     * Property-Eigenschaften. Property stellen Verï¿½nderungen dar.
+     */
+    private static ObservableList<Customers> customers = FXCollections
+            .<Customers> observableArrayList();
 
-	public Customers(String vName, String nName) {
-		setVName(vName);
-		setNName(nName);
-	}
+    public Customers(String vName, String nName) {
+        setVName(vName);
+        setNName(nName);
+    }
 
-	public final void setVName(String value) {
-		vNameProperty().set(value);
-	}
+    public final void setVName(String value) {
+        vNameProperty().set(value);
+    }
 
-	public StringProperty vNameProperty() {
-		if (vName == null) {
-			vName = new SimpleStringProperty();
-		}
-		return vName;
-	}
+    public StringProperty vNameProperty() {
+        if (vName == null) {
+            vName = new SimpleStringProperty();
+        }
+        return vName;
+    }
 
-	public final void setNName(String value) {
-		nNameProperty().set(value);
-	}
+    public final void setNName(String value) {
+        nNameProperty().set(value);
+    }
 
-	@Override
-	public String toString() {
-		return "Customers{" + "vName=" + vName + ", nName=" + nName + '}';
-	}
+    @Override
+    public String toString() {
+        return "Customers{" + "vName=" + vName + ", nName=" + nName + '}';
+    }
 
-	public StringProperty nNameProperty() {
-		if (nName == null) {
-			nName = new SimpleStringProperty();
-		}
-		return nName;
-	}
+    public StringProperty nNameProperty() {
+        if (nName == null) {
+            nName = new SimpleStringProperty();
+        }
+        return nName;
+    }
 
-	public final String getVName() {
-		return vNameProperty().get();
-	}
+    public final String getVName() {
+        return vNameProperty().get();
+    }
 
-	public final String getNName() {
-		return nNameProperty().get();
-	}
+    public final String getNName() {
+        return nNameProperty().get();
+    }
 
-	/**
-	 * Liefert die Oserverableliste customer
-	 */
-	public static ObservableList<Customers> getCustomers() {
-		// customers.add(new Customers("Luca", "Nerlich"));
-		// customers.add(new Customers("Daniel", "Sommerlig"));
-		return customers;
-	}
+    /**
+     * Liefert die Oserverableliste customer
+     */
+    public static ObservableList<Customers> getCustomers() {
+        // customers.add(new Customers("Luca", "Nerlich"));
+        // customers.add(new Customers("Daniel", "Sommerlig"));
+        return customers;
+    }
 
-	public static void addCustomer(String vName, String nName) {
-		customers.add(new Customers(vName, nName));
-	}
+    public static void addCustomer(String vName, String nName) {
+        customers.add(new Customers(vName, nName));
+    }
 }
