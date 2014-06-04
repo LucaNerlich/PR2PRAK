@@ -19,18 +19,26 @@ import java.util.Observable;
  * Kuemmert sich um die Werte der Progressbar - stellt diese Bereit.
  * "Waechter - update() muss machen was der Waechter sagt"
  */
-public class ButtonPlaceOrderEventHandler extends Observable implements EventHandler<ActionEvent> {
+public class ButtonPlaceOrderEventHandler extends Observable implements
+		EventHandler<ActionEvent> {
 
-    private float progressValue = 0.0f;
+	private float progressValue = 0.0f;
 
-    @Override
+	@Override
     public void handle(ActionEvent actionEvent) {
 
         System.err.println("START THREAD");
-        System.out.println(GuiView.customerTableView.getSelectionModel().getSelectedItems().toString());
-        System.out.println(GuiView.productsTableView.getSelectionModel().getSelectedItems().toString());
+        String customer = GuiView.customerTableView.getSelectionModel().getSelectedItems().toString();
+        String product = GuiView.productsTableView.getSelectionModel().getSelectedItems().toString();
+        System.out.println(customer);
+        System.out.println(product);
 
-        //anonyme innere Klasse
+        if(GuiView.customerTableView.getSelectionModel().getSelectedItems().isEmpty() || GuiView.productsTableView.getSelectionModel().getSelectedItems().isEmpty()){
+        System.err.println("'Bitte waehlen Sie zuerst einen Kunden und ein Produkt aus!");
+        }
+        
+        else{
+        //anonyme innere Klasse        
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -48,8 +56,9 @@ public class ButtonPlaceOrderEventHandler extends Observable implements EventHan
             }
         }).start();
     }
-
-    public float getProgressValue() {
-        return progressValue;
     }
+
+	public float getProgressValue() {
+		return progressValue;
+	}
 }

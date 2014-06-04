@@ -15,7 +15,11 @@ import javafx.collections.ObservableList;
 
 import java.util.Observable;
 
-public class Customers extends Observable implements Runnable {
+/**
+ * @author Philipp Jenke angepasst und erweitert von Luca Nerlich & Daniel
+ *         Sommerlig
+ */
+public class Customers {
 
 	private StringProperty vName;
 	private StringProperty nName;
@@ -80,18 +84,4 @@ public class Customers extends Observable implements Runnable {
 	public static void addCustomer(String vName, String nName) {
 		customers.add(new Customers(vName, nName));
 	}
-
-	@Override
-	public void run() {
-		for (counter = 0f; counter < 1.0f; counter = counter + 0.05f) {
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-
-			}
-			GuiView.progressBarNew.setProgress(counter);
-			System.err.println(counter);
-		}
-	}
-
 }

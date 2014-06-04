@@ -42,6 +42,7 @@ public class Controller implements ConInt{
 
     @Override
     public void onAddCustomer() {
+    	//TODO  input, dann cancel -> exception abfangen
         Stage stage = new Stage();
         String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
         String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");
