@@ -33,6 +33,7 @@ public class ButtonPlaceOrderEventHandler extends Observable implements
         System.out.println(customer);
         System.out.println(product);
 
+        //Abfangen wenn man nichts ausgewaehlt hat
         if(GuiView.customerTableView.getSelectionModel().getSelectedItems().isEmpty() || GuiView.productsTableView.getSelectionModel().getSelectedItems().isEmpty()){
         System.err.println("'Bitte waehlen Sie zuerst einen Kunden und ein Produkt aus!");
         }
