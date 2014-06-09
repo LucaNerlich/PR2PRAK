@@ -37,11 +37,9 @@ public class DatenbankVerbindung {
 			con = DriverManager.getConnection(url, username, passwort);
 
 			/* Füge Ehemalige hinzu mit Prepared Statement */
-            String befehl = "INSERT INTO Ehemalige (EhemaligenID, Vorname, Name, Geburtsname,Geburtsdatum, Email, Telefonnummer, Geschlecht) Values (?,?,?,?,?,?,?,?)";
-			
-			PreparedStatement updStatement = con.prepareStatement (befehl);
-			
-			updStatement.setInt (1, 2);
+            String ehemalige = "INSERT INTO Ehemalige (EhemaligenID, Vorname, Name, Geburtsname,Geburtsdatum, Email, Telefonnummer, Geschlecht) Values (?,?,?,?,?,?,?,?)";			
+			PreparedStatement updStatement = con.prepareStatement (ehemalige);
+			updStatement.setInt (1, 1);
 			updStatement.setString (2, "Paul");
 			updStatement.setString (3,  "Richter");
 			updStatement.setString (4, "none");
@@ -49,46 +47,48 @@ public class DatenbankVerbindung {
 			updStatement.setString (6, "Paul.Richter@richter.de");
 			updStatement.setInt (7, 133142131);
 			updStatement.setString (8, "M");
+			updStatement.executeUpdate();
 			
-			updStatement.executeUpdate( );
-			updStatement.close();
-			
-			PreparedStatement updStatement2 = con.prepareStatement (befehl);
-			
-			updStatement.setInt (1, 2);
-			updStatement.setString (2, "Paul");
-			updStatement.setString (3,  "Richter");
+            updStatement.setInt (1, 2);
+			updStatement.setString (2, "Daniel");
+			updStatement.setString (3,  "Sommerlig");
 			updStatement.setString (4, "none");
 			updStatement.setDate (5,  new java.sql.Date((new Date(System.currentTimeMillis())).getTime()));
-			updStatement.setString (6, "Paul.Richter@richter.de");
-			updStatement.setInt (7, 133142131);
+			updStatement.setString (6, "Daniel.Sommerlig@Sommerlig.de");
+			updStatement.setInt (7, 545142131);
 			updStatement.setString (8, "M");
-			
-			updStatement.executeUpdate( );
-			updStatement.close();
-			
-			// + " VALUES" +
-			// "('1','Daniel','Sommerlig','none',TO_DATE('2003/07/09','yyyy/mm/dd')','d.s@pl.de',0405544343,'M')"+
-			// + " VALUES" +
-			// "('2','Luca','Nerlich','none',TO_DATE('1983/07/09','yyyy/mm/dd')','n.l@de.de',0405342343,'M')";
+			updStatement.executeUpdate();
 
-			/* Füge Klasse hinzu mit normalem Statement */
-			// String befehl = "INSERT INTO Klasse" +
-			// "(KlassenID,Bezeichnung,Anzahl,Jahrgang)" + "VALUES" +
-			// "(1,'test',20,2014)";
+			updStatement.setInt (1, 3);
+			updStatement.setString (2, "Luca");
+			updStatement.setString (3,  "Nerlich");
+			updStatement.setString (4, "none");
+			updStatement.setDate (5,  new java.sql.Date((new Date(System.currentTimeMillis())).getTime()));
+			updStatement.setString (6, "Luca.Nerlich@Nerlich.de");
+			updStatement.setInt (7, 676534131);
+			updStatement.setString (8, "M");		
+			updStatement.executeUpdate();
+			updStatement.close();
 			
+			/* Füge Klasse hinzu mit normalem Statement */
+			Statement updStatement2 = con.createStatement();
+			String befehl = "INSERT INTO Klasse" +
+			"(KlassenID,Bezeichnung,Anzahl,Jahrgang)" + "VALUES" +
+			 "(1,'test',20,2014)";
+			 updStatement2.executeUpdate(befehl);
+			 updStatement2.close();
+			 
 			/* Füge Klasse hinzu mit Prepared Statement */
 			String klasse = "INSERT INTO Klasse(KlassenID,Bezeichnung,Anzahl,Jahrgang) Values (?,?,?,?)";
 			PreparedStatement updStatement3 = con.prepareStatement (klasse);
 			
-			updStatement2.setInt (1, 3);
-			updStatement2.setString (2, "WI13");
-			updStatement2.setInt (3,  60);
-			updStatement2.setInt (4, 2013);
+			updStatement3.setInt (1, 2);
+			updStatement3.setString (2, "WI13");
+			updStatement3.setInt (3,  60);
+			updStatement3.setInt (4, 2013);
 			
-		    updStatement2.executeUpdate();
-	
-			updStatement2.close();
+		    updStatement3.executeUpdate();
+			updStatement3.close();
 
 			/* Erstelle die Anweisung und uebergebe an das DBS */
 			Statement statement = con.createStatement();
