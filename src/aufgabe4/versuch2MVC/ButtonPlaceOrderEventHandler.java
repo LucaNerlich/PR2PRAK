@@ -38,13 +38,15 @@ public class ButtonPlaceOrderEventHandler extends Observable implements
         }
         
         else{
-        //anonyme innere Klasse        
+        //anonyme innere Klasse
+        //erzeugt ein Runnable, uebergiebt dies dem Thread. Wir koennen nicht direkt einen Thread verwenden, da wir bereits von Observable erben.
         new Thread(new Runnable() {
             @Override
             public void run() {
                 for (float i = 0; i <= 1.05f; i = i + 0.05f){
                     progressValue = i;
                     setChanged();
+                    //ruft den Observer (ProgressbarObserver) auf. Dieser muss die Anweisungen befolgen
                     notifyObservers();
                     try {
                         Thread.sleep(100);
@@ -58,6 +60,10 @@ public class ButtonPlaceOrderEventHandler extends Observable implements
     }
     }
 
+    /**
+     * Getter fuer den Fortschrittswert. Wird fuer die Progressbar genutzt.
+     * @return progressValue -> int
+     */
 	public float getProgressValue() {
 		return progressValue;
 	}

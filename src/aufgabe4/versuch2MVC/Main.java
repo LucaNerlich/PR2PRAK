@@ -27,6 +27,10 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * wird durch lauch(x) der main aufgerufen
+     * @param primaryStage -> wird durch Application bereitgestellt
+     */
     public void start(Stage primaryStage){
         //HauptModel der gesamten Anwendung
         Model model = new Model(primaryStage);

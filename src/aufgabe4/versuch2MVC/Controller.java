@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
  /**
  * Verwaltet die Logik der Gui-Komponenten
+  * Implementiert ein Interface das die Logikmethoden der View vorgibt.
  */
 public class Controller implements ConInt{
 
@@ -22,24 +23,36 @@ public class Controller implements ConInt{
     private static Model model;
     private GuiView view;
 
+     /**
+      * referenziert das Model / PStage und erstellt eine neue View
+      * @param model
+      */
     public Controller(Model model){
-
     //jetzt alle items initialisieren
     this.model = model;
     this.view = new GuiView(this);
-
     }
 
+     /**
+      * zeigt die View des uebergebenen Models oder Grundlage an
+      */
     public void show(){
         view.show(model.getPrimaryStage());
     }
 
+     /**
+      * Hilfsmethode zur Erstellung der Menubar.
+      * @return MenuBar -> zieht die Menubar des Models
+      */
     public static MenuBar createMenu() {
        return model.createMenu();
     }
 
 
-
+     /**
+      * InputDialog zum Hinzufuegen eines neuen "Customers"
+      * erwartet zwei Strings
+      */
     @Override
     public void onAddCustomer() {
     	//TODO  input, dann cancel -> exception abfangen
@@ -72,12 +85,14 @@ public class Controller implements ConInt{
         }
     }
 
-
-
-     @Override
-     public void onAddProduct() {
-         //Per input zahl als string holen, dann string in int parsen und exception abfangen
-      /*   try {
+     /**
+      * InputDialog zum Hinzufuegen eines neuen "Products"
+      * erwartet einen String - Name und einen Integer fuer den Preis
+      */
+    @Override
+    public void onAddProduct() {
+        //Per input zahl als string holen, dann string in int parsen und exception abfangen
+        /*   try {
              Stage stage = new Stage();
              String item = Dialogs.showInputDialog(stage, "Bitte geben Sie die Bezeichnung des Produkts ein:", "BEZEICHNUNG", "");
              String preis = Dialogs.showInputDialog(stage, "Bitte geben Sie den Preis ein:", "PREIS", "");
@@ -125,6 +140,9 @@ public class Controller implements ConInt{
 
     }
 
+     /**
+      * Loescht die selektierte Zeile der Tabelle
+      */
     @Override
     public void onRemoveCustomer() {
         int selectedIndex = GuiView.customerTableView.getSelectionModel().getSelectedIndex();
@@ -136,6 +154,9 @@ public class Controller implements ConInt{
         }
     }
 
+     /**
+      * Loescht die selektierte Zeile der Tabelle
+      */
     @Override
     public void onRemoveProduct() {
         int selectedIndex = GuiView.productsTableView.getSelectionModel().getSelectedIndex();
@@ -147,6 +168,9 @@ public class Controller implements ConInt{
         }
     }
 
+     /**
+      * Schliesst die Anwendung
+      */
     public void onClickExit(){
         Platform.exit();
     }

@@ -16,7 +16,8 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 /**
- * speichert die Stage und kuemmert sich um das menu
+ * Speichert die Stage zwischen, kann weitere Komponenten Verwalten.
+ * Hier zum Beispiel das Menu. Denkbar waeren noch Footer oder aehnliches.
  */
 public class Model {
     private Stage primaryStage = null;

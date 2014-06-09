@@ -13,7 +13,8 @@ import javafx.scene.control.*;
 
 
 /**
- * Erzeugt Inhalte fuer die Gridpane etc 
+ * Erzeugt Inhalte fuer die Gridpane etc
+ * Vereinfachte Erstellung der GuiObjekte
  */
 public class ContentBuilder {
 

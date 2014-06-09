@@ -9,7 +9,7 @@
 package aufgabe4.versuch2MVC;
 
 /**
- * Interface das die Methoden bereitstellt.
+ * Interface das die Methoden fuer die View bereitstellt.
  */
 public interface ConInt {
 

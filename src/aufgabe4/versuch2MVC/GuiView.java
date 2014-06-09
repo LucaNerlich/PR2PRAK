@@ -41,10 +41,10 @@ public class GuiView {
 	public static ProgressBarObserver progressBarNew = new ProgressBarObserver();
 	public static TableView<Customers> customerTableView = new TableView();
 	public static TableView<Products> productsTableView = new TableView();
-	private final ConInt controller;
+	private final ConInt controllerInt;
 
-	public GuiView(final ConInt controller) {
-		this.controller = controller;
+	public GuiView(final ConInt controllerInt) {
+		this.controllerInt = controllerInt;
 
 		ContentBuilder contBuilder = new ContentBuilder();
 		BorderPane borderPane = new BorderPane();
@@ -81,7 +81,7 @@ public class GuiView {
 		closeButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent actionEvent) {
-				controller.onClickExit();
+				controllerInt.onClickExit();
 			}
 		});
 
@@ -103,7 +103,7 @@ public class GuiView {
 		addCustomer.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent actionEvent) {
-				controller.onAddCustomer();
+				controllerInt.onAddCustomer();
 			}
 		});
 
@@ -112,7 +112,7 @@ public class GuiView {
 		addProduct.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent actionEvent) {
-				controller.onAddProduct();
+				controllerInt.onAddProduct();
 			}
 		});
 
@@ -133,7 +133,7 @@ public class GuiView {
 		removeCustomer.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent actionEvent) {
-				controller.onRemoveCustomer();
+				controllerInt.onRemoveCustomer();
 			}
 		});
 
@@ -143,7 +143,7 @@ public class GuiView {
 		removeProducts.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent actionEvent) {
-				controller.onRemoveProduct();
+				controllerInt.onRemoveProduct();
 			}
 		});
 
@@ -185,7 +185,7 @@ public class GuiView {
 		TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
 		vNameCol.setEditable(true);
 		// Transformation zwischen Personenobjekt und Zeileninhalt.
-		// Objekt = Customer, Typ für Tabellenzelle = String
+		// Objekt = Customer, Typ fï¿½r Tabellenzelle = String
 		vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
 				"vName"));
 		vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
