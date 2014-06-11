@@ -63,11 +63,12 @@ public class DatenbankConnectionGui extends Application {
 			public void handle(ActionEvent AE) {
 				try {
 					Class.forName("oracle.jdbc.driver.OracleDriver");
+					System.out.println("Oracle JDBC driver loaded ok.");
 				} catch (Exception e) {
 					System.err.println("Exception: " + e.getMessage());
 
 				}
-				System.out.println("Oracle JDBC driver loaded ok.");
+				
 				/* Benutzername und Passwort abfragen */
 				String username = javax.swing.JOptionPane
 						.showInputDialog("Enter Username");
