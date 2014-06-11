@@ -23,9 +23,9 @@ public class ButtonPlaceOrderEventHandler extends Observable implements
 		EventHandler<ActionEvent> {
 
 	private float progressValue = 0.0f;
-    public static boolean running = false;
+    private boolean isRunning = false;
 
-	@Override
+    @Override
     public void handle(ActionEvent actionEvent) {
 
         System.err.println("START THREAD");
@@ -36,44 +36,44 @@ public class ButtonPlaceOrderEventHandler extends Observable implements
 
         //Abfangen wenn man nichts ausgewaehlt hat
         if(GuiView.customerTableView.getSelectionModel().getSelectedItems().isEmpty() || GuiView.productsTableView.getSelectionModel().getSelectedItems().isEmpty()){
-        System.err.println("'Bitte waehlen Sie zuerst einen Kunden und ein Produkt aus!");
+            System.err.println("'Bitte waehlen Sie zuerst einen Kunden und ein Produkt aus!");
         }
         
         else{
-        //anonyme innere Klasse
-        //erzeugt ein Runnable, uebergiebt dies dem Thread. Wir koennen nicht direkt einen Thread verwenden, da wir bereits von Observable erben.
-        if(running == false) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    running = true;
-                    for (float i = 0; i <= 1.05f; i = i + 0.05f) {
-                        progressValue = i;
-                        setChanged();
-                        //ruft den Observer (ProgressbarObserver) auf. Dieser muss die Anweisungen befolgen
-                        notifyObservers();
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+            //anonyme innere Klasse
+            //erzeugt ein Runnable, uebergiebt dies dem Thread. Wir koennen nicht direkt einen Thread verwenden, da wir bereits von Observable erben.
+            if(isRunning == false) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        isRunning = true;
+                        for (float i = 0; i <= 1.05f; i = i + 0.05f) {
+                            progressValue = i;
+                            setChanged();
+                            //ruft den Observer (ProgressbarObserver) auf. Dieser muss die Anweisungen befolgen
+                            notifyObservers();
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            System.err.println(i);
                         }
-                        System.err.println(i);
+                        isRunning = false;
                     }
-                    running = false;
-                }
-            }).start();
-        }
+                }).start();
+            }
             else{
-            System.out.println("Es kann nur eine Bestellung gleichzeit verarbeitet werden!");
+                System.out.println("Es kann nur eine Bestellung gleichzeit verarbeitet werden!");
+            }
         }
-    }
     }
 
     /**
      * Getter fuer den Fortschrittswert. Wird fuer die Progressbar genutzt.
      * @return progressValue -> int
      */
-	public float getProgressValue() {
-		return progressValue;
-	}
+    public float getProgressValue() {
+        return progressValue;
+    }
 }

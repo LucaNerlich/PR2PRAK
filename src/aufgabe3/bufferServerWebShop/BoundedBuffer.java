@@ -42,7 +42,7 @@ public class BoundedBuffer<E> {
 	/**
 	 * Producer (Erzeuger) rufen die Methode enter() auf Diese legt das item in
 	 * den Puffer mit der add() Methode Synchronized da es sich um einen
-	 * kritischen Bereich handelt es wird in die Pufferliste geschrieben ->
+	 * kritischen Bereich handelt, wird in die Pufferliste geschrieben ->
 	 * Monitor
 	 **/
 	public synchronized void enter(E item) {
