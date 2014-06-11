@@ -37,7 +37,7 @@ import java.net.URL;
 public class GuiView {
 
 	public Scene scene;
-	public static Label progressLabel = new Label("Working ...");
+	// public static Label progressLabel = new Label("Working ...");
 	public static ProgressBarObserver progressBarNew = new ProgressBarObserver();
 	public static TableView<Customers> customerTableView = new TableView();
 	public static TableView<Products> productsTableView = new TableView();
@@ -118,7 +118,7 @@ public class GuiView {
 
 		progressBarNew.setProgress(0);
 		gridpane.add(progressBarNew, 2, 5);
-		gridpane.add(progressLabel, 2, 6);
+		// gridpane.add(progressLabel, 2, 6);
 
 		Button placeOrder = contBuilder.createButton("Place order");
 		gridpane.add(placeOrder, 1, 5);
