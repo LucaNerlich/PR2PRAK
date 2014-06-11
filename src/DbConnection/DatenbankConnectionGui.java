@@ -48,6 +48,7 @@ public class DatenbankConnectionGui extends Application {
 		Button insert1 = new Button("Füge drei Ehemalige hinzu");
 		Button insert2 = new Button("Füge weitere Ehemalige hinzu");
 		Button closeCon = new Button("Beende Verbindung zu DB");
+		Button close = new Button("Beende Anwendung");
 		VBox box = new VBox();
 
 		/*
@@ -227,8 +228,8 @@ public class DatenbankConnectionGui extends Application {
 						if (ergebnis.wasNull()) {
 							System.out.println("SQL-NULL");
 						}// NULL behandeln
-						System.out.println("Vorname: " + Vorname
-								+ " Nachname: " + Name);
+						System.out.println("| Vorname: " + Vorname
+								+ "| Nachname: " + Name +" |");
 
 					}
 					ergebnis.close();
@@ -277,8 +278,8 @@ public class DatenbankConnectionGui extends Application {
 							System.out.println("SQL-NULL");
 						}// NULL behandeln
 
-						System.out.println("Vorname: " + Vorname
-								+ " Nachname: " + Name);
+						System.out.println("| Vorname: " + Vorname
+								+ "| Nachname: " + Name +" |");
 					}
 					ergebnis2.close();
 					statement.close();
@@ -354,8 +355,17 @@ public class DatenbankConnectionGui extends Application {
 			}
 		});
 
+		close.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent AE) {
+
+				/* Verbindung zur DB beenden */
+				Platform.exit();
+			}
+		});
+		
 		box.getChildren().addAll(connect, insert1, insert2, select1, select2,
-				delete, delete2, closeCon);
+				delete, delete2, closeCon, close);
 		box.setSpacing(10); // Abstand Vertikal
 		box.setPadding(new Insets(10, 10, 20, 10)); // Position
 		pane.setCenter(box);
