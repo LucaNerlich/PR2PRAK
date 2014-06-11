@@ -37,6 +37,9 @@ public class DatenbankConnectionGui extends Application {
 	}
 
 	public void start(Stage primaryStage) throws Exception {
+		/*
+		 * Buttons erstellen
+		 */
 
 		BorderPane pane = new BorderPane();
 		Scene scene = new Scene(pane);
@@ -89,6 +92,9 @@ public class DatenbankConnectionGui extends Application {
 
 		});
 
+		/*
+		 * Ehemalige in die DB hinzufügen
+		 */
 		insert1.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -146,7 +152,7 @@ public class DatenbankConnectionGui extends Application {
 					updStatement.close();
 
 					System.out
-							.println("Daniel, Paul und Luca zur Datenbank hinzugefügt");
+							.println("\nDaniel, Paul und Luca zur Datenbank hinzugefügt");
 				} catch (Exception e) {
 					System.err.println("Exception: " + e.getMessage());
 
@@ -155,6 +161,9 @@ public class DatenbankConnectionGui extends Application {
 			}
 		});
 
+		/*
+		 * Ehemalige in die DB hinzufügen
+		 */
 		insert2.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -203,6 +212,9 @@ public class DatenbankConnectionGui extends Application {
 			}
 		});
 
+		/*
+		 * Alle Ehemalige in der DB abfragen
+		 */
 		select1.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -212,7 +224,7 @@ public class DatenbankConnectionGui extends Application {
 				 */
 				try {
 					Statement statement = con.createStatement();
-					String anfrage = "Select Vorname, Name From Ehemalige";
+					String anfrage = "Select Vorname, Name From Ehemalige Order by EhemaligenID ASC";
 					// String anfrage = "SELECT titel, preis FROM Buch";
 					ResultSet ergebnis = statement.executeQuery(anfrage);
 
@@ -229,7 +241,7 @@ public class DatenbankConnectionGui extends Application {
 							System.out.println("SQL-NULL");
 						}// NULL behandeln
 						System.out.println("| Vorname: " + Vorname
-								+ "| Nachname: " + Name +" |");
+								+ "| Nachname: " + Name + " |");
 
 					}
 					ergebnis.close();
@@ -243,6 +255,10 @@ public class DatenbankConnectionGui extends Application {
 			}
 		});
 
+		/*
+		 * Ehemalige in der DB abfragen die den Studiengang Informatik an der
+		 * HAW-Hamburg besucht haben.
+		 */
 		select2.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -279,7 +295,7 @@ public class DatenbankConnectionGui extends Application {
 						}// NULL behandeln
 
 						System.out.println("| Vorname: " + Vorname
-								+ "| Nachname: " + Name +" |");
+								+ "| Nachname: " + Name + " |");
 					}
 					ergebnis2.close();
 					statement.close();
@@ -292,6 +308,9 @@ public class DatenbankConnectionGui extends Application {
 			}
 		});
 
+		/*
+		 * Alle Ehemaligen in der DB löschen
+		 */
 		delete.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -307,7 +326,7 @@ public class DatenbankConnectionGui extends Application {
 					statement3.close();
 
 					System.out
-							.println("Die Ehemaligen-Einträge wurde ab der ID = 0 gelöscht.");
+							.println("\nDie Ehemaligen-Einträge wurde ab der ID = 0 gelöscht.");
 				} catch (Exception e) {
 					System.err.println("Exception: " + e.getMessage());
 
@@ -315,7 +334,10 @@ public class DatenbankConnectionGui extends Application {
 
 			}
 		});
-
+		
+		/*
+		 * Ehemalige ab der ID 3 in der DB löschen
+		 */
 		delete2.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -331,7 +353,7 @@ public class DatenbankConnectionGui extends Application {
 					statement3.close();
 
 					System.out
-							.println("Die Ehemaligen-Einträge wurde ab der ID = 3 gelöscht.");
+							.println("\nDie Ehemaligen-Einträge wurde ab der ID = 3 gelöscht.");
 				} catch (Exception e) {
 					System.err.println("Exception: " + e.getMessage());
 
@@ -340,6 +362,9 @@ public class DatenbankConnectionGui extends Application {
 			}
 		});
 
+		/*
+		 * Verbindung zur DB beenden
+		 */
 		closeCon.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent AE) {
@@ -347,7 +372,7 @@ public class DatenbankConnectionGui extends Application {
 				/* Verbindung zur DB beenden */
 				try {
 					con.close();
-					System.out.println("Vebindung zur Datenbank beendet.");
+					System.out.println("\nVebindung zur Datenbank beendet.");
 				} catch (Exception e) {
 					System.err.println("Exception: " + e.getMessage());
 				}
@@ -355,6 +380,9 @@ public class DatenbankConnectionGui extends Application {
 			}
 		});
 
+		/*
+		 * Anwendung beenden
+		 */
 		close.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent AE) {
@@ -363,7 +391,8 @@ public class DatenbankConnectionGui extends Application {
 				Platform.exit();
 			}
 		});
-		
+
+		//Buttons in der Box anordnen
 		box.getChildren().addAll(connect, insert1, insert2, select1, select2,
 				delete, delete2, closeCon, close);
 		box.setSpacing(10); // Abstand Vertikal
