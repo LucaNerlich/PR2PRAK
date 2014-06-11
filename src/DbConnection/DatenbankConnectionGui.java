@@ -63,9 +63,9 @@ public class DatenbankConnectionGui extends Application {
 			public void handle(ActionEvent AE) {
 				try {
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-				} catch (ClassNotFoundException e1) {
+				} catch (Exception e) {
+					System.err.println("Exception: " + e.getMessage());
 
-					e1.printStackTrace();
 				}
 				System.out.println("Oracle JDBC driver loaded ok.");
 				/* Benutzername und Passwort abfragen */
