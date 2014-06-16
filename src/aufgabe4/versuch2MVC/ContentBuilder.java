@@ -42,8 +42,9 @@ public class ContentBuilder {
 	 * @param String
 	 *            vararg -> "x1", "x2" ... "xn"
 	 * @return ComboBox
+	 * javaFX hat zusätzliche Collection-Klassen
 	 */
-	public ComboBox<String> createComboBox(String... content) {
+	public ComboBox<String> createComboBox(String... content) { 
 		ComboBox<String> comboBox = new ComboBox<String>(
 				FXCollections.observableArrayList(content));
 		comboBox.setValue(content[1]);

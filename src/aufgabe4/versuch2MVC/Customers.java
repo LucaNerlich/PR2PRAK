@@ -27,7 +27,8 @@ public class Customers {
 
     /**
      * Die Liste wird in Java FXCollections verwaltet, sie konserviert die
-     * Property-Eigenschaften. Property stellen Verï¿½nderungen dar.
+     * Property-Eigenschaften. Property stellen Veraenderungen dar.
+     * Datenmodell ändert sich -> Tabelle muss aktualisiert werden.
      */
     private static ObservableList<Customers> customers = FXCollections
             .<Customers> observableArrayList();

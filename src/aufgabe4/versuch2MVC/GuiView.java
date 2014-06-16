@@ -47,7 +47,7 @@ public class GuiView {
 		this.controllerInt = controllerInt;
 
 		ContentBuilder contBuilder = new ContentBuilder();
-		BorderPane borderPane = new BorderPane();
+		BorderPane borderPane = new BorderPane(); //virtuelle Komponente die andere Elemente enthalten kann
 		scene = new Scene(borderPane);
 
 		GridPane gridpane = new GridPane();
@@ -67,7 +67,7 @@ public class GuiView {
 		gridpane.setVgap(10);
 
 		// zeigt die Linien innerhalb der Gridpane
-		// gridpane.setGridLinesVisible(true);
+		//gridpane.setGridLinesVisible(true);
 
 		Text bgTitle = new Text("Aufgabe 4 - JavaFX");
 		bgTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
