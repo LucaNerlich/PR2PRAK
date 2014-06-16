@@ -185,7 +185,7 @@ public class GuiView {
 		TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
 		vNameCol.setEditable(true);
 		// Transformation zwischen Personenobjekt und Zeileninhalt.
-		// Objekt = Customer, Typ fï¿½r Tabellenzelle = String
+		// Objekt = Customer, Typ für Tabellenzelle = String
 		vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
 				"vName"));
 		vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
