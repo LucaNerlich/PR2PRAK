@@ -43,12 +43,13 @@ public class GuiView {
 	public static TableView<Products> productsTableView = new TableView();
 	private final ConInt controllerInt;
 
+	// Hiermit stellen wir sicher, dass die View die gewünschten Methoden vom Controller kennt
 	public GuiView(final ConInt controllerInt) {
 		this.controllerInt = controllerInt;
 
 		ContentBuilder contBuilder = new ContentBuilder();
 		BorderPane borderPane = new BorderPane(); //virtuelle Komponente die andere Elemente enthalten kann
-		scene = new Scene(borderPane); 
+		scene = new Scene(borderPane); //root ist borderpane
 
 		GridPane gridpane = new GridPane();
 		VBox vBoxLeft = new VBox(8);
@@ -204,14 +205,14 @@ public class GuiView {
 
 		// LISTEN FOR CHANGES (eintrag markiert etc.)
 
-		customerTableView.getSelectionModel().selectedItemProperty()
+	/*	customerTableView.getSelectionModel().selectedItemProperty()
 				.addListener(new ChangeListener<Customers>() {
 					@Override
 					public void changed(
 							ObservableValue<? extends Customers> observableValue,
 							Customers customers, Customers customers2) {
 					}
-				});
+				}); */
 	}
 
 	private void initProduktTable() {
@@ -241,13 +242,13 @@ public class GuiView {
 
 		// LISTEN FOR CHANGES (eintrag markiert etc.)
 
-		productsTableView.getSelectionModel().selectedItemProperty()
+		/**productsTableView.getSelectionModel().selectedItemProperty()
 				.addListener(new ChangeListener<Products>() {
 					@Override
 					public void changed(
 							ObservableValue<? extends Products> observableValue,
 							Products products, Products products2) {
 					}
-				});
+				}); */
 	}
 }
