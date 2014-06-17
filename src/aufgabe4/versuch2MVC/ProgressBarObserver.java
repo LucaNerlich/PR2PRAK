@@ -15,7 +15,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Eine um Observer erweiterte Progressbar.update() wird durch den Eventhandler aufgerufen
+ * Eine um Observer(Beobachter) erweiterte Progressbar.update() wird durch den Eventhandler aufgerufen
  */
 public class ProgressBarObserver extends ProgressBar implements Observer{
 

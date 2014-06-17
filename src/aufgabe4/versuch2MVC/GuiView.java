@@ -48,7 +48,7 @@ public class GuiView {
 
 		ContentBuilder contBuilder = new ContentBuilder();
 		BorderPane borderPane = new BorderPane(); //virtuelle Komponente die andere Elemente enthalten kann
-		scene = new Scene(borderPane);
+		scene = new Scene(borderPane); 
 
 		GridPane gridpane = new GridPane();
 		VBox vBoxLeft = new VBox(8);
