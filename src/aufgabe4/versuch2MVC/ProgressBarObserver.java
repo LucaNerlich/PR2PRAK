@@ -18,12 +18,17 @@ import java.util.Observer;
  * Eine um Observer(Beobachter) erweiterte Progressbar.update() wird durch den Eventhandler aufgerufen
  */
 public class ProgressBarObserver extends ProgressBar implements Observer{
-
+	
+	/**
+	 * Aenderungen werden uebergeben, pruefen ob es vom richtigen Eventhandler stammt
+	 * Typcast damit wir auf die getProggressValue Methode zugreifen können.
+	 * SetProgress setzt jetzt die Progressbar weiter
+	 */
     @Override
     public void update(Observable o, Object arg) {
         System.err.println("update");
         if (o instanceof ButtonPlaceOrderEventHandler){
-            setProgress(((ButtonPlaceOrderEventHandler)o).getProgressValue());
+            setProgress(((ButtonPlaceOrderEventHandler)o).getProgressValue()); 
         }
     }
 }
