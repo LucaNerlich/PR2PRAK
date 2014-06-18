@@ -13,8 +13,6 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Observable;
-
 /**
  * @author Philipp Jenke angepasst und erweitert von Luca Nerlich & Daniel
  *         Sommerlig
@@ -23,7 +21,7 @@ public class Customers {
 
 	private StringProperty vName;
 	private StringProperty nName;
-	private float counter = 0.0f;
+	
 
     /**
      * Die Liste wird in Java FXCollections verwaltet, sie konserviert die

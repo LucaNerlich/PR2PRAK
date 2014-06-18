@@ -19,10 +19,10 @@ import javafx.stage.Stage;
  * Speichert die Stage zwischen, kann weitere Komponenten Verwalten.
  * Hier zum Beispiel das Menu. Denkbar waeren noch Footer oder aehnliches.
  */
-public class ProvideStage {
+public class ModelExtended {
     private Stage primaryStage = null;
 
-    public ProvideStage(Stage primaryStage){
+    public ModelExtended(Stage primaryStage){
         this.primaryStage = primaryStage;
     }
 
@@ -30,7 +30,7 @@ public class ProvideStage {
         return primaryStage;
     }
 
-    public static MenuBar createMenu() {
+    public static MenuBar createMenu() { // Noch ohne Funktion
         MenuBar menuBar = new MenuBar();
         Menu menu = new Menu("File");
         final Menu menuClose = new Menu("Close");

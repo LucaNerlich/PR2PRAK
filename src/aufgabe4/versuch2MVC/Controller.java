@@ -20,16 +20,16 @@ import javafx.stage.Stage;
 public class Controller implements ConInt{
 
 
-    private static ProvideStage model;
+    private static ModelExtended model;
     private GuiView view;
 
      /**
       * referenziert das Model / PStage und erstellt eine neue View
       * @param model
       */
-    public Controller(ProvideStage model){
+    public Controller(ModelExtended model){
     //jetzt alle items initialisieren
-    this.model = model;
+    Controller.model = model;
     this.view = new GuiView(this);
     }
 
@@ -45,7 +45,7 @@ public class Controller implements ConInt{
       * @return MenuBar -> zieht die Menubar des Models
       */
     public static MenuBar createMenu() {
-       return ProvideStage.createMenu();
+       return ModelExtended.createMenu();
     }
 
 

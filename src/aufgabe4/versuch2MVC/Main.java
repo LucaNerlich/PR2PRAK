@@ -23,7 +23,7 @@ public class Main extends Application {
             launch(args); //wird zum Starten der Anwendung verwendet
         }
         catch(Exception e){
-
+        	System.out.println("Fehler beim Starten der Anwendung! =(");
         }
     }
 
@@ -33,7 +33,7 @@ public class Main extends Application {
      */
     public void start(Stage primaryStage){
         //HauptModel der gesamten Anwendung
-        ProvideStage model = new ProvideStage(primaryStage);
+        ModelExtended model = new ModelExtended(primaryStage);
 
         //nimmt die stage aus Model und initialisiert im Controller die VIEW
         Controller controller = new Controller(model);
