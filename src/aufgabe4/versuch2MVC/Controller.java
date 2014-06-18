@@ -20,14 +20,14 @@ import javafx.stage.Stage;
 public class Controller implements ConInt{
 
 
-    private static Model model;
+    private static ProvideStage model;
     private GuiView view;
 
      /**
       * referenziert das Model / PStage und erstellt eine neue View
       * @param model
       */
-    public Controller(Model model){
+    public Controller(ProvideStage model){
     //jetzt alle items initialisieren
     this.model = model;
     this.view = new GuiView(this);
@@ -45,7 +45,7 @@ public class Controller implements ConInt{
       * @return MenuBar -> zieht die Menubar des Models
       */
     public static MenuBar createMenu() {
-       return model.createMenu();
+       return ProvideStage.createMenu();
     }
 
 
@@ -55,7 +55,6 @@ public class Controller implements ConInt{
       */
     @Override
     public void onAddCustomer() {
-    	//TODO  input, dann cancel -> exception abfangen
         Stage stage = new Stage();
         String vorname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Vornamen ein:", "VORNAME", "");
         String nachname = Dialogs.showInputDialog(stage, "Bitte geben Sie den Nachname ein:", "NACHNAME", "");

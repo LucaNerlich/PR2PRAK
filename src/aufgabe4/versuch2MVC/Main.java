@@ -33,7 +33,7 @@ public class Main extends Application {
      */
     public void start(Stage primaryStage){
         //HauptModel der gesamten Anwendung
-        Model model = new Model(primaryStage);
+        ProvideStage model = new ProvideStage(primaryStage);
 
         //nimmt die stage aus Model und initialisiert im Controller die VIEW
         Controller controller = new Controller(model);
