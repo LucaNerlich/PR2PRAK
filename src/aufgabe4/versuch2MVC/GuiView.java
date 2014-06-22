@@ -41,7 +41,7 @@ public class GuiView {
 	public static TableView<Products> productsTableView = new TableView();
 	private final ConInt controllerInt;
 
-	// Hiermit stellen wir sicher, dass die View die gewünschten Methoden vom Controller kennt
+	// Hiermit stellen wir sicher, dass die View die gewï¿½nschten Methoden vom Controller kennt
 	public GuiView(final ConInt controllerInt) {
 		this.controllerInt = controllerInt;
 
@@ -123,7 +123,7 @@ public class GuiView {
 		gridpane.add(placeOrder, 1, 5);
 
 		ButtonPlaceOrderEventHandler buttonProgressHandler = new ButtonPlaceOrderEventHandler();
-		buttonProgressHandler.addObserver(progressBarNew);
+		buttonProgressHandler.addObserver(progressBarNew); //Observable kriegt Observer
 		placeOrder.setOnAction(buttonProgressHandler);
 
 		Button removeCustomer = contBuilder
@@ -184,7 +184,7 @@ public class GuiView {
 		TableColumn<Customers, String> vNameCol = new TableColumn("Vorname");
 		vNameCol.setEditable(true);
 		// Transformation zwischen Personenobjekt und Zeileninhalt.
-		// Objekt = Customer, Typ für Tabellenzelle = String
+		// Objekt = Customer, Typ fï¿½r Tabellenzelle = String
 		vNameCol.setCellValueFactory(new PropertyValueFactory<Customers, String>(
 				"vName"));
 		vNameCol.setPrefWidth(customerTableView.getPrefWidth() / 2);
