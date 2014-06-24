@@ -29,6 +29,7 @@ public class RegExController {
         }
     }
 
+
     private void match(){
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         try {
@@ -48,4 +49,13 @@ public class RegExController {
         }
     }
 
+    public String getRegExPattern() {
+        regExPattern = pattern.toString();
+        return regExPattern;
+    }
+
+    public String getInputString() {
+        inputString = matcher.toString();
+        return inputString;
+    }
 }

@@ -1,8 +1,6 @@
 package klausurUebungen;
 
 import java.io.*;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 /**
  * Created by Luca on 24.06.2014.
@@ -13,5 +11,14 @@ public class MainRegEx {
         RegExController regExCon = new RegExController();
 
         regExCon.setRegExPattern();
+
+        Controller controller2 = new Controller();
+        PrintWriter writer = controller2.openWriter("C:\\Users\\Luca\\Google Drive\\Dropbox\\Praktikum\\Semester 2\\PR 2\\PR2PRAK\\src\\klausurUebungen\\testWrite.txt");
+
+       writer.println(regExCon.getRegExPattern());
+       writer.println(regExCon.getInputString());
+       writer.println("asdf");
+
+       controller2.closeWriter(writer);
     }
 }
