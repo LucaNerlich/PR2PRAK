@@ -2,6 +2,8 @@ package klausurUebungen;
 
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by lnerlich on 02.06.14.
@@ -9,7 +11,6 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[] args) {
-
 
         Controller controller = new Controller();
         controller.openReader("C:\\Users\\lnerlich\\IdeaProjects\\PR2PRAK\\src\\klausurUebungen\\testRead.txt");
